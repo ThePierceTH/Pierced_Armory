@@ -1,0 +1,178 @@
+---- Minecraft Crash Report ----
+// Hey, that tickles! Hehehe!
+
+Time: 12/20/23, 5:22 PM
+Description: Ticking entity
+
+java.lang.ClassCastException: class yesman.epicfight.world.capabilities.entitypatch.mob.ZombiePatch cannot be cast to class yesman.epicfight.world.capabilities.entitypatch.player.PlayerPatch (yesman.epicfight.world.capabilities.entitypatch.mob.ZombiePatch and yesman.epicfight.world.capabilities.entitypatch.player.PlayerPatch are in module epicfight@18.5.16 of loader 'TRANSFORMER' @3a082ff4)
+	at net.pierceth.pierceth_greatsword.world.capabilities.item.WeaponCapabilityPresets.lambda$static$0(WeaponCapabilityPresets.java:33) ~[%2385!/:?] {re:classloading}
+	at yesman.epicfight.world.capabilities.item.WeaponCapability.getStyle(WeaponCapability.java:84) ~[epicfight-405076-4823655_mapped_official_1.18.2.jar%2387!/:18.5.16] {re:classloading}
+	at yesman.epicfight.world.capabilities.item.CapabilityItem.getAttributeModifiers(CapabilityItem.java:247) ~[epicfight-405076-4823655_mapped_official_1.18.2.jar%2387!/:18.5.16] {re:classloading}
+	at yesman.epicfight.events.EntityEvents.equipChangeEvent(EntityEvents.java:485) ~[epicfight-405076-4823655_mapped_official_1.18.2.jar%2387!/:18.5.16] {re:classloading}
+	at net.minecraftforge.eventbus.ASMEventHandler_51_EntityEvents_equipChangeEvent_LivingEquipmentChangeEvent.invoke(.dynamic) ~[?:?] {}
+	at net.minecraftforge.eventbus.ASMEventHandler.invoke(ASMEventHandler.java:85) ~[eventbus-5.0.7.jar%2311!/:?] {}
+	at net.minecraftforge.eventbus.EventBus.post(EventBus.java:302) ~[eventbus-5.0.7.jar%2311!/:?] {}
+	at net.minecraftforge.eventbus.EventBus.post(EventBus.java:283) ~[eventbus-5.0.7.jar%2311!/:?] {}
+	at net.minecraft.world.entity.LivingEntity.collectEquipmentChanges(LivingEntity.java:2363) ~[forge-1.18.2-40.2.14_mapped_official_1.18.2-recomp.jar%2380!/:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:epicfight.mixins.json:MixinLivingEntity,pl:mixin:A}
+	at net.minecraft.world.entity.LivingEntity.detectEquipmentUpdates(LivingEntity.java:2334) ~[forge-1.18.2-40.2.14_mapped_official_1.18.2-recomp.jar%2380!/:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:epicfight.mixins.json:MixinLivingEntity,pl:mixin:A}
+	at net.minecraft.world.entity.LivingEntity.tick(LivingEntity.java:2243) ~[forge-1.18.2-40.2.14_mapped_official_1.18.2-recomp.jar%2380!/:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:epicfight.mixins.json:MixinLivingEntity,pl:mixin:A}
+	at net.minecraft.world.entity.Mob.tick(Mob.java:310) ~[forge-1.18.2-40.2.14_mapped_official_1.18.2-recomp.jar%2380!/:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:epicfight.mixins.json:MixinMob,pl:mixin:A}
+	at net.minecraft.world.entity.monster.Zombie.tick(Zombie.java:209) ~[forge-1.18.2-40.2.14_mapped_official_1.18.2-recomp.jar%2380!/:?] {re:classloading}
+	at net.minecraft.server.level.ServerLevel.tickNonPassenger(ServerLevel.java:652) ~[forge-1.18.2-40.2.14_mapped_official_1.18.2-recomp.jar%2380!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.level.Level.guardEntityTick(Level.java:487) ~[forge-1.18.2-40.2.14_mapped_official_1.18.2-recomp.jar%2380!/:?] {re:classloading,pl:accesstransformer:B,re:mixin,pl:accesstransformer:B}
+	at net.minecraft.server.level.ServerLevel.lambda$tick$3(ServerLevel.java:319) ~[forge-1.18.2-40.2.14_mapped_official_1.18.2-recomp.jar%2380!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.level.entity.EntityTickList.forEach(EntityTickList.java:54) ~[forge-1.18.2-40.2.14_mapped_official_1.18.2-recomp.jar%2380!/:?] {re:classloading}
+	at net.minecraft.server.level.ServerLevel.tick(ServerLevel.java:299) ~[forge-1.18.2-40.2.14_mapped_official_1.18.2-recomp.jar%2380!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.tickChildren(MinecraftServer.java:902) ~[forge-1.18.2-40.2.14_mapped_official_1.18.2-recomp.jar%2380!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.tickServer(MinecraftServer.java:842) ~[forge-1.18.2-40.2.14_mapped_official_1.18.2-recomp.jar%2380!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.client.server.IntegratedServer.tickServer(IntegratedServer.java:84) ~[forge-1.18.2-40.2.14_mapped_official_1.18.2-recomp.jar%2380!/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:685) ~[forge-1.18.2-40.2.14_mapped_official_1.18.2-recomp.jar%2380!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:261) ~[forge-1.18.2-40.2.14_mapped_official_1.18.2-recomp.jar%2380!/:?] {re:classloading,pl:accesstransformer:B}
+	at java.lang.Thread.run(Thread.java:840) [?:?] {}
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Server thread
+Suspected Mods: 
+	Pierceth Greatsword (pierceth_greatsword), Version: 1.0-SNAPSHOT
+		at TRANSFORMER/pierceth_greatsword@1.0-SNAPSHOT/net.pierceth.pierceth_greatsword.world.capabilities.item.WeaponCapabilityPresets.lambda$static$0(WeaponCapabilityPresets.java:33)
+
+	Epic Fight (epicfight), Version: 18.5.16
+		at TRANSFORMER/epicfight@18.5.16/yesman.epicfight.world.capabilities.item.WeaponCapability.getStyle(WeaponCapability.java:84)
+Stacktrace:
+	at net.pierceth.pierceth_greatsword.world.capabilities.item.WeaponCapabilityPresets.lambda$static$0(WeaponCapabilityPresets.java:33) ~[%2385!/:?] {re:classloading}
+	at yesman.epicfight.world.capabilities.item.WeaponCapability.getStyle(WeaponCapability.java:84) ~[epicfight-405076-4823655_mapped_official_1.18.2.jar%2387!/:18.5.16] {re:classloading}
+	at yesman.epicfight.world.capabilities.item.CapabilityItem.getAttributeModifiers(CapabilityItem.java:247) ~[epicfight-405076-4823655_mapped_official_1.18.2.jar%2387!/:18.5.16] {re:classloading}
+	at yesman.epicfight.events.EntityEvents.equipChangeEvent(EntityEvents.java:485) ~[epicfight-405076-4823655_mapped_official_1.18.2.jar%2387!/:18.5.16] {re:classloading}
+	at net.minecraftforge.eventbus.ASMEventHandler_51_EntityEvents_equipChangeEvent_LivingEquipmentChangeEvent.invoke(.dynamic) ~[?:?] {}
+	at net.minecraftforge.eventbus.ASMEventHandler.invoke(ASMEventHandler.java:85) ~[eventbus-5.0.7.jar%2311!/:?] {}
+	at net.minecraftforge.eventbus.EventBus.post(EventBus.java:302) ~[eventbus-5.0.7.jar%2311!/:?] {}
+	at net.minecraftforge.eventbus.EventBus.post(EventBus.java:283) ~[eventbus-5.0.7.jar%2311!/:?] {}
+	at net.minecraft.world.entity.LivingEntity.collectEquipmentChanges(LivingEntity.java:2363) ~[forge-1.18.2-40.2.14_mapped_official_1.18.2-recomp.jar%2380!/:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:epicfight.mixins.json:MixinLivingEntity,pl:mixin:A}
+	at net.minecraft.world.entity.LivingEntity.detectEquipmentUpdates(LivingEntity.java:2334) ~[forge-1.18.2-40.2.14_mapped_official_1.18.2-recomp.jar%2380!/:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:epicfight.mixins.json:MixinLivingEntity,pl:mixin:A}
+	at net.minecraft.world.entity.LivingEntity.tick(LivingEntity.java:2243) ~[forge-1.18.2-40.2.14_mapped_official_1.18.2-recomp.jar%2380!/:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:epicfight.mixins.json:MixinLivingEntity,pl:mixin:A}
+	at net.minecraft.world.entity.Mob.tick(Mob.java:310) ~[forge-1.18.2-40.2.14_mapped_official_1.18.2-recomp.jar%2380!/:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:epicfight.mixins.json:MixinMob,pl:mixin:A}
+	at net.minecraft.world.entity.monster.Zombie.tick(Zombie.java:209) ~[forge-1.18.2-40.2.14_mapped_official_1.18.2-recomp.jar%2380!/:?] {re:classloading}
+	at net.minecraft.server.level.ServerLevel.tickNonPassenger(ServerLevel.java:652) ~[forge-1.18.2-40.2.14_mapped_official_1.18.2-recomp.jar%2380!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.level.Level.guardEntityTick(Level.java:487) ~[forge-1.18.2-40.2.14_mapped_official_1.18.2-recomp.jar%2380!/:?] {re:classloading,pl:accesstransformer:B,re:mixin,pl:accesstransformer:B}
+	at net.minecraft.server.level.ServerLevel.lambda$tick$3(ServerLevel.java:319) ~[forge-1.18.2-40.2.14_mapped_official_1.18.2-recomp.jar%2380!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.level.entity.EntityTickList.forEach(EntityTickList.java:54) ~[forge-1.18.2-40.2.14_mapped_official_1.18.2-recomp.jar%2380!/:?] {re:classloading}
+	at net.minecraft.server.level.ServerLevel.tick(ServerLevel.java:299) ~[forge-1.18.2-40.2.14_mapped_official_1.18.2-recomp.jar%2380!/:?] {re:classloading,pl:accesstransformer:B}
+-- Entity being ticked --
+Details:
+	Entity Type: minecraft:zombie (net.minecraft.world.entity.monster.Zombie)
+	Entity ID: 255
+	Entity Name: Zombie
+	Entity's Exact location: 36.07, -60.00, -476.49
+	Entity's Block location: World: (36,-60,-477), Section: (at 4,4,3 in 2,-4,-30; chunk contains blocks 32,-64,-480 to 47,319,-465), Region: (0,-1; contains chunks 0,-32 to 31,-1, blocks 0,-64,-512 to 511,319,-1)
+	Entity's Momentum: 0.06, -0.08, -0.00
+	Entity's Passengers: []
+	Entity's Vehicle: null
+Stacktrace:
+	at net.minecraft.world.level.Level.guardEntityTick(Level.java:487) ~[forge-1.18.2-40.2.14_mapped_official_1.18.2-recomp.jar%2380!/:?] {re:classloading,pl:accesstransformer:B,re:mixin,pl:accesstransformer:B}
+	at net.minecraft.server.level.ServerLevel.lambda$tick$3(ServerLevel.java:319) ~[forge-1.18.2-40.2.14_mapped_official_1.18.2-recomp.jar%2380!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.world.level.entity.EntityTickList.forEach(EntityTickList.java:54) ~[forge-1.18.2-40.2.14_mapped_official_1.18.2-recomp.jar%2380!/:?] {re:classloading}
+	at net.minecraft.server.level.ServerLevel.tick(ServerLevel.java:299) ~[forge-1.18.2-40.2.14_mapped_official_1.18.2-recomp.jar%2380!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.tickChildren(MinecraftServer.java:902) ~[forge-1.18.2-40.2.14_mapped_official_1.18.2-recomp.jar%2380!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.tickServer(MinecraftServer.java:842) ~[forge-1.18.2-40.2.14_mapped_official_1.18.2-recomp.jar%2380!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.client.server.IntegratedServer.tickServer(IntegratedServer.java:84) ~[forge-1.18.2-40.2.14_mapped_official_1.18.2-recomp.jar%2380!/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:685) ~[forge-1.18.2-40.2.14_mapped_official_1.18.2-recomp.jar%2380!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:261) ~[forge-1.18.2-40.2.14_mapped_official_1.18.2-recomp.jar%2380!/:?] {re:classloading,pl:accesstransformer:B}
+	at java.lang.Thread.run(Thread.java:840) [?:?] {}
+
+
+-- Affected level --
+Details:
+	All players: 1 total; [ServerPlayer['Dev'/14, l='ServerLevel[Forex Fix]', x=47.77, y=-60.00, z=-476.93]]
+	Chunk stats: 4078
+	Level dimension: minecraft:overworld
+	Level spawn location: World: (0,-60,0), Section: (at 0,4,0 in 0,-4,0; chunk contains blocks 0,-64,0 to 15,319,15), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,-64,0 to 511,319,511)
+	Level time: 110149 game time, 70779 day time
+	Level name: Forex Fix
+	Level game mode: Game mode: creative (ID 1). Hardcore: false. Cheats: true
+	Level weather: Rain time: 38432 (now: false), thunder time: 23183 (now: false)
+	Known server brands: forge
+	Level was modded: true
+	Level storage version: 0x04ABD - Anvil
+Stacktrace:
+	at net.minecraft.server.MinecraftServer.tickChildren(MinecraftServer.java:902) ~[forge-1.18.2-40.2.14_mapped_official_1.18.2-recomp.jar%2380!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.tickServer(MinecraftServer.java:842) ~[forge-1.18.2-40.2.14_mapped_official_1.18.2-recomp.jar%2380!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.client.server.IntegratedServer.tickServer(IntegratedServer.java:84) ~[forge-1.18.2-40.2.14_mapped_official_1.18.2-recomp.jar%2380!/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:685) ~[forge-1.18.2-40.2.14_mapped_official_1.18.2-recomp.jar%2380!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:261) ~[forge-1.18.2-40.2.14_mapped_official_1.18.2-recomp.jar%2380!/:?] {re:classloading,pl:accesstransformer:B}
+	at java.lang.Thread.run(Thread.java:840) [?:?] {}
+
+
+-- System Details --
+Details:
+	Minecraft Version: 1.18.2
+	Minecraft Version ID: 1.18.2
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 17.0.9, Eclipse Adoptium
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), Eclipse Adoptium
+	Memory: 518782000 bytes (494 MiB) / 2634022912 bytes (2512 MiB) up to 10687086592 bytes (10192 MiB)
+	CPUs: 12
+	Processor Vendor: GenuineIntel
+	Processor Name: Intel(R) Core(TM) i7-10750H CPU @ 2.60GHz
+	Identifier: Intel64 Family 6 Model 165 Stepping 2
+	Microarchitecture: unknown
+	Frequency (GHz): 2.59
+	Number of physical packages: 1
+	Number of physical CPUs: 6
+	Number of logical CPUs: 12
+	Graphics card #0 name: NVIDIA GeForce RTX 2060
+	Graphics card #0 vendor: NVIDIA (0x10de)
+	Graphics card #0 VRAM (MB): 4095.00
+	Graphics card #0 deviceId: 0x1f15
+	Graphics card #0 versionInfo: DriverVersion=31.0.15.4592
+	Graphics card #1 name: Intel(R) UHD Graphics
+	Graphics card #1 vendor: Intel Corporation (0x8086)
+	Graphics card #1 VRAM (MB): 1024.00
+	Graphics card #1 deviceId: 0x9bc4
+	Graphics card #1 versionInfo: DriverVersion=26.20.100.7985
+	Memory slot #0 capacity (MB): 8192.00
+	Memory slot #0 clockSpeed (GHz): 3.20
+	Memory slot #0 type: DDR4
+	Memory slot #1 capacity (MB): 32768.00
+	Memory slot #1 clockSpeed (GHz): 3.20
+	Memory slot #1 type: DDR4
+	Virtual memory max (MB): 104742.61
+	Virtual memory used (MB): 35277.75
+	Swap memory total (MB): 64000.00
+	Swap memory used (MB): 609.28
+	JVM Flags: 1 total; -XX:HeapDumpPath=MojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump
+	Server Running: true
+	Player Count: 1 / 8; [ServerPlayer['Dev'/14, l='ServerLevel[Forex Fix]', x=47.77, y=-60.00, z=-476.93]]
+	Data Packs: vanilla, mod:forge, mod:pierceth_greatsword, mod:epicfight
+	World Generation: Stable
+	Type: Integrated Server (map_client.txt)
+	Is Modded: Definitely; Client brand changed to 'forge'; Server brand changed to 'forge'
+	ModLauncher: 9.1.3+9.1.3+main.9b69c82a
+	ModLauncher launch target: forgeclientuserdev
+	ModLauncher naming: mcp
+	ModLauncher services: 
+		 mixin PLUGINSERVICE 
+		 eventbus PLUGINSERVICE 
+		 slf4jfixer PLUGINSERVICE 
+		 object_holder_definalize PLUGINSERVICE 
+		 runtime_enum_extender PLUGINSERVICE 
+		 capability_token_subclass PLUGINSERVICE 
+		 accesstransformer PLUGINSERVICE 
+		 runtimedistcleaner PLUGINSERVICE 
+		 mixin TRANSFORMATIONSERVICE 
+		 fml TRANSFORMATIONSERVICE 
+	FML Language Providers: 
+		minecraft@1.0
+		lowcodefml@null
+		javafml@null
+	Mod List: 
+		forge-1.18.2-40.2.14_mapped_official_1.18.2-recomp|Minecraft                     |minecraft                     |1.18.2              |DONE      |Manifest: a1:d4:5e:04:4f:d3:d6:e0:7b:37:97:cf:77:b0:de:ad:4a:47:ce:8c:96:49:5f:0a:cf:8c:ae:b2:6d:4b:8a:3f
+		                                                  |Forge                         |forge                         |40.2.14             |DONE      |Manifest: NOSIGNATURE
+		main                                              |Pierceth Greatsword           |pierceth_greatsword           |1.0-SNAPSHOT        |DONE      |Manifest: NOSIGNATURE
+		epicfight-405076-4823655_mapped_official_1.18.2.ja|Epic Fight                    |epicfight                     |18.5.16             |DONE      |Manifest: NOSIGNATURE
+	Crash Report UUID: cf04c581-3bf4-489f-8eb5-eec54afb525a
+	FML: 40.2
+	Forge: net.minecraftforge:40.2.14

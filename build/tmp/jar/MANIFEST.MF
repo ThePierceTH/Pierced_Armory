@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Specification-Title: pierceth_greatsword
+Specification-Vendor: PierceTH, Forixaim, Ghosty
+Specification-Version: 1
+Implementation-Title: Pierceth_Greatsword
+Implementation-Version: net.pierceth
+Implementation-Vendor: PierceTH, Forixaim, Ghosty
+Implementation-Timestamp: 2023-12-22T21:01:01-0500
+
