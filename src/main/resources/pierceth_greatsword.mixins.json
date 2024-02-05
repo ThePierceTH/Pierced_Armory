@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "compatibilityLevel": "JAVA_17",
+  "package": "net.pierceth.pierceth_greatsword.mixin",
+  "client": [
+
+  ],
+  "mixins": [
+    "MixinParry"
+  ],
+  "injector": {
+    "defaultRequire": 1
+  },
+  "refmap": "net.pierceth.pierceth_greatsword.mixins.refmap.json"
+}
