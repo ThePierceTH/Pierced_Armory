@@ -81,8 +81,9 @@ public class WeaponCapabilityPresets {
                 .livingMotionModifier(Styles.ONE_HAND, LivingMotions.SNEAK, PierceTHAnimations.BIPED_HOLD_ROYAL_GREATSWORD)
                 .livingMotionModifier(Styles.ONE_HAND, LivingMotions.SWIM, Animations.BIPED_HOLD_GREATSWORD)
                 .livingMotionModifier(Styles.ONE_HAND, LivingMotions.FLY, Animations.BIPED_HOLD_GREATSWORD)
-                .livingMotionModifier(Styles.ONE_HAND, LivingMotions.CREATIVE_FLY, Animations.BIPED_HOLD_GREATSWORD);
-                //.livingMotionModifier(Styles.SHEATH, LivingMotions.WALK, PierceTHAnimations.BIPED_WALK_HOUND_GREATSWORD);
+                .livingMotionModifier(Styles.ONE_HAND, LivingMotions.CREATIVE_FLY, Animations.BIPED_HOLD_GREATSWORD)
+                .livingMotionModifier(Styles.ONE_HAND, LivingMotions.BLOCK, Animations.GREATSWORD_GUARD);
+        //.livingMotionModifier(Styles.SHEATH, LivingMotions.WALK, PierceTHAnimations.BIPED_WALK_HOUND_GREATSWORD);
 
         return builder;
     };
