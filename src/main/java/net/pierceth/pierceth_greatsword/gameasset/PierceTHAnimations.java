@@ -1,14 +1,26 @@
 package net.pierceth.pierceth_greatsword.gameasset;
 
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
+import net.minecraft.world.level.ClipContext;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.HitResult;
+import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.pierceth.pierceth_greatsword.PiercethGreatsword;
+import net.pierceth.pierceth_greatsword.client.CameraEngine;
+import net.pierceth.pierceth_greatsword.particle.PierceTHParticles;
+import yesman.epicfight.api.animation.Joint;
 import yesman.epicfight.api.animation.property.AnimationEvent;
 import yesman.epicfight.api.animation.property.AnimationProperty;
 import yesman.epicfight.api.animation.property.AnimationProperty.AttackPhaseProperty;
 import yesman.epicfight.api.animation.types.*;
 import yesman.epicfight.api.forgeevent.AnimationRegistryEvent;
+import yesman.epicfight.api.utils.LevelUtil;
 import yesman.epicfight.api.utils.TimePairList;
+import yesman.epicfight.api.utils.math.OpenMatrix4f;
 import yesman.epicfight.api.utils.math.Vec3f;
 import yesman.epicfight.gameasset.Animations;
 import yesman.epicfight.gameasset.Armatures;
@@ -26,6 +38,7 @@ import yesman.epicfight.model.armature.VexArmature;
 import yesman.epicfight.model.armature.WitherArmature;
 import yesman.epicfight.world.damagesource.SourceTags;
 
+import java.util.Random;
 import java.util.Set;
 
 @Mod.EventBusSubscriber(modid = PiercethGreatsword.MODID, bus = Bus.MOD)
@@ -79,8 +92,49 @@ public class PierceTHAnimations {
                 .addProperty(AnimationProperty.AttackAnimationProperty.FIXED_MOVE_DISTANCE, true)
                 .addProperty(AnimationProperty.ActionAnimationProperty.MOVE_VERTICAL, true)
                 .addProperty(AnimationProperty.ActionAnimationProperty.STOP_MOVEMENT, false)
-                .addEvents(AnimationEvent.TimeStampedEvent.create(1.4F, Animations.ReusableSources.FRACTURE_GROUND_SIMPLE, AnimationEvent.Side.CLIENT).params(new Vec3f(-1.0F, 0.0F, -1.5F), Armatures.BIPED.rootJoint, 1.1D, 0.55F));
+                .addEvents(AnimationEvent.TimeStampedEvent.create(1.4F, Animations.ReusableSources.FRACTURE_GROUND_SIMPLE, AnimationEvent.Side.CLIENT).params(new Vec3f(-1.0F, 0.0F, -1.5F), Armatures.BIPED.rootJoint, 1.1D, 0.55F))
+                .addEvents(AnimationEvent.TimeStampedEvent.create(1.35F, ReusableSources.SCREENSHAKE, AnimationEvent.Side.CLIENT).params((int)10, (float)2.0, (float)50.0))
+                .addEvents(AnimationEvent.TimeStampedEvent.create(1.35F, ReusableSources.DUST_CLOUD, AnimationEvent.Side.CLIENT).params(new Vec3f(0.0F, -0.5F, 0.0F), Armatures.BIPED.rootJoint, 1.1D, 0.55F));
 
         BIPED_WALK_HOUND_GREATSWORD = new MovementAnimation(true, "biped/living/walk_hound_greatsword", biped);
         }
+
+    public static class ReusableSources {
+        public static final AnimationEvent.AnimationEventConsumer SCREENSHAKE = (entitypatch, animation, params) -> {
+            int duration = (int)params[0];
+            float strength = (float)params[1];
+            float freq = (float)params[2];
+            CameraEngine.getInstance().shakeCamera(duration, strength, freq);
+        };
+
+        public static final AnimationEvent.AnimationEventConsumer DUST_CLOUD = (entitypatch, animation, params) -> {
+            Random random = new Random();
+            Vec3 position = entitypatch.getOriginal().position();
+            OpenMatrix4f modelTransform = entitypatch.getArmature().getBindedTransformFor(animation.getPoseByTime(entitypatch, (float)params[3], 1.0F), (Joint) params[1])
+                    .mulFront(
+                            OpenMatrix4f.createTranslation((float)position.x, (float)position.y, (float)position.z)
+                                    .mulBack(OpenMatrix4f.createRotatorDeg(180.0F, Vec3f.Y_AXIS)
+                                            .mulBack(entitypatch.getModelMatrix(1.0F))));
+
+            Level level = entitypatch.getOriginal().level;
+            Vec3 cloudPos = OpenMatrix4f.transform(modelTransform, ((Vec3f)params[0]).toDoubleVector());
+
+            int n = 20;
+
+            for (int i = 0; i < n; i++) {
+                float speedx = (float)(random.nextDouble() * 0.5f) - 0.25f;
+                float speedy = 0.1F;
+                float speedz = (float)(random.nextDouble() * 0.5f) - 0.25f;
+
+                level.addParticle(PierceTHParticles.DUST.get(),
+                        true,
+                        cloudPos.x,
+                        cloudPos.y,
+                        cloudPos.z,
+                        speedx,
+                        speedy,
+                        speedz);
+            }
+        };
+    }
 }
