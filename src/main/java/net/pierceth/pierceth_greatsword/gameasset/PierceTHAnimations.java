@@ -13,17 +13,7 @@ import yesman.epicfight.api.utils.math.Vec3f;
 import yesman.epicfight.gameasset.Animations;
 import yesman.epicfight.gameasset.Armatures;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
-import yesman.epicfight.model.armature.CreeperArmature;
-import yesman.epicfight.model.armature.DragonArmature;
-import yesman.epicfight.model.armature.EndermanArmature;
-import yesman.epicfight.model.armature.HoglinArmature;
 import yesman.epicfight.model.armature.HumanoidArmature;
-import yesman.epicfight.model.armature.IronGolemArmature;
-import yesman.epicfight.model.armature.PiglinArmature;
-import yesman.epicfight.model.armature.RavagerArmature;
-import yesman.epicfight.model.armature.SpiderArmature;
-import yesman.epicfight.model.armature.VexArmature;
-import yesman.epicfight.model.armature.WitherArmature;
 import yesman.epicfight.world.damagesource.SourceTags;
 
 import java.util.Set;
@@ -42,6 +32,10 @@ public class PierceTHAnimations {
     public static StaticAnimation ROYAL_GREATSWORD_AUTO4;
     public static StaticAnimation DRAGON_CLAW;
     public static StaticAnimation BIPED_WALK_HOUND_GREATSWORD;
+    public static StaticAnimation ROYAL_GREATSWORD_GUARD;
+    public static StaticAnimation ROYAL_GREATSWORD_GUARD_HIT;
+    public static StaticAnimation ROYAL_GREATSWORD_GUARD_ACTIVE_HIT1;
+    public static StaticAnimation ROYAL_GREATSWORD_GUARD_ACTIVE_HIT2;
     @SubscribeEvent
     public static void registerAnimations(AnimationRegistryEvent event) {
         event.getRegistryMap().put(PiercethGreatsword.MODID, PierceTHAnimations::build);
@@ -80,6 +74,10 @@ public class PierceTHAnimations {
                 .addProperty(AnimationProperty.ActionAnimationProperty.MOVE_VERTICAL, true)
                 .addProperty(AnimationProperty.ActionAnimationProperty.STOP_MOVEMENT, false)
                 .addEvents(AnimationEvent.TimeStampedEvent.create(1.4F, Animations.ReusableSources.FRACTURE_GROUND_SIMPLE, AnimationEvent.Side.CLIENT).params(new Vec3f(-1.0F, 0.0F, -1.5F), Armatures.BIPED.rootJoint, 1.1D, 0.55F));
+        ROYAL_GREATSWORD_GUARD = new StaticAnimation(0.15F, true, "biped/skill/guard_greatsword", biped);
+        ROYAL_GREATSWORD_GUARD_HIT = new GuardAnimation(0.05F, "biped/skill/guard_greatsword_hit", biped);
+        ROYAL_GREATSWORD_GUARD_ACTIVE_HIT1 = new GuardAnimation(0.05F, 0.2F, "biped/skill/guard_greatsword_hit_active1", biped);
+        ROYAL_GREATSWORD_GUARD_ACTIVE_HIT2 = new GuardAnimation(0.05F, 0.2F, "biped/skill/guard_greatsword_hit_active2", biped);
 
         BIPED_WALK_HOUND_GREATSWORD = new MovementAnimation(true, "biped/living/walk_hound_greatsword", biped);
         }
