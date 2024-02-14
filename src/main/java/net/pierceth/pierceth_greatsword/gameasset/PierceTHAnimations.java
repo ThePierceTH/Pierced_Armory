@@ -2,6 +2,7 @@ package net.pierceth.pierceth_greatsword.gameasset;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.phys.BlockHitResult;
@@ -36,6 +37,7 @@ import yesman.epicfight.model.armature.RavagerArmature;
 import yesman.epicfight.model.armature.SpiderArmature;
 import yesman.epicfight.model.armature.VexArmature;
 import yesman.epicfight.model.armature.WitherArmature;
+import yesman.epicfight.world.capabilities.entitypatch.player.PlayerPatch;
 import yesman.epicfight.world.damagesource.SourceTags;
 
 import java.util.Random;
