@@ -1,5 +1,6 @@
 package net.pierceth.pierceth_greatsword.mixin;
 
+import net.pierceth.pierceth_greatsword.gameasset.PierceTHAnimations;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -24,7 +25,7 @@ public class MixinGuard {
                 .setResource(Skill.Resource.STAMINA)
                 .addGuardMotion(WeaponCategories.AXE, (item, player) -> Animations.SWORD_GUARD_HIT)
                 .addGuardMotion(WeaponCategories.GREATSWORD, (item, player) -> item.getStyle(player) == Styles.ONE_HAND ?
-                        Animations.LONGSWORD_GUARD_HIT : // <<< Royal GS Guard Hit Here
+                        PierceTHAnimations.ROYAL_GREATSWORD_GUARD_HIT : // <<< Royal GS Guard Hit Here
                         Animations.GREATSWORD_GUARD_HIT) // <<< This is Normal GS
                 .addGuardMotion(WeaponCategories.UCHIGATANA, (item, player) -> Animations.UCHIGATANA_GUARD_HIT)
                 .addGuardMotion(WeaponCategories.LONGSWORD, (item, player) -> Animations.LONGSWORD_GUARD_HIT)
@@ -33,7 +34,7 @@ public class MixinGuard {
                 .addGuardMotion(WeaponCategories.TACHI, (item, player) -> Animations.LONGSWORD_GUARD_HIT)
                 .addGuardBreakMotion(WeaponCategories.AXE, (item, player) -> Animations.BIPED_COMMON_NEUTRALIZED)
                 .addGuardBreakMotion(WeaponCategories.GREATSWORD, (item, player) -> item.getStyle(player) == Styles.ONE_HAND ?
-                        Animations.GREATSWORD_GUARD_BREAK : // <<< Royal GS Guard Break Here
+                        PierceTHAnimations.ROYAL_GREATSWORD_GUARD_BREAK : // <<< Royal GS Guard Break Here
                         Animations.GREATSWORD_GUARD_BREAK)  // <<< This is Normal GS
                 .addGuardBreakMotion(WeaponCategories.UCHIGATANA, (item, player) -> Animations.BIPED_COMMON_NEUTRALIZED)
                 .addGuardBreakMotion(WeaponCategories.LONGSWORD, (item, player) -> Animations.BIPED_COMMON_NEUTRALIZED)

@@ -1,5 +1,6 @@
 package net.pierceth.pierceth_greatsword.mixin;
 
+import net.pierceth.pierceth_greatsword.gameasset.PierceTHAnimations;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -22,7 +23,7 @@ public class MixinImpactGuard {
                 .addAdvancedGuardMotion(WeaponCategories.SPEAR, (item, player) -> item.getStyle(player) == Styles.TWO_HAND ? Animations.SPEAR_GUARD_HIT : null)
                 .addAdvancedGuardMotion(WeaponCategories.TACHI, (item, player) -> Animations.LONGSWORD_GUARD_HIT)
                 .addAdvancedGuardMotion(WeaponCategories.GREATSWORD, (item, player) -> item.getStyle(player) == Styles.TWO_HAND ?
-                        Animations.LONGSWORD_GUARD_HIT : // <<< Royal GS Guard Hit Here
+                        PierceTHAnimations.ROYAL_GREATSWORD_GUARD_HIT : // <<< Royal GS Guard Hit Here
                         Animations.GREATSWORD_GUARD_HIT) // <<< This is Normal GS
         );
     }
