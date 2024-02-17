@@ -13,6 +13,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.pierceth.pierceth_greatsword.PiercethGreatsword;
 import net.pierceth.pierceth_greatsword.client.CameraEngine;
 import net.pierceth.pierceth_greatsword.particle.PierceTHParticles;
+import org.checkerframework.checker.units.qual.A;
 import yesman.epicfight.api.animation.Joint;
 import yesman.epicfight.api.animation.property.AnimationEvent;
 import yesman.epicfight.api.animation.property.AnimationProperty;
@@ -107,10 +108,10 @@ public class PierceTHAnimations {
                         AnimationEvent.TimeStampedEvent.create(1.4F, Animations.ReusableSources.FRACTURE_GROUND_SIMPLE, AnimationEvent.Side.CLIENT).params(new Vec3f(-1.0F, 0.0F, -1.5F), Armatures.BIPED.rootJoint, 1.1D, 0.55F),
                         AnimationEvent.TimeStampedEvent.create(1.35F, ReusableSources.SCREENSHAKE, AnimationEvent.Side.CLIENT).params((int)10, (float)6.0, (float)30.0),
                         AnimationEvent.TimeStampedEvent.create(1.35F, ReusableSources.DUST_CLOUD, AnimationEvent.Side.CLIENT).params(new Vec3f(0.0F, -0.5F, 0.0F), Armatures.BIPED.rootJoint, 1.1D, 0.55F));
-        ROYAL_GREATSWORD_GUARD = new StaticAnimation(0.25F, true, "biped/skill/guard_greatsword", biped);
+        ROYAL_GREATSWORD_GUARD = new StaticAnimation(0.15F, true, "biped/skill/guard_greatsword", biped);
         ROYAL_GREATSWORD_GUARD_HIT = new GuardAnimation(0.05F, "biped/skill/guard_greatsword_hit", biped);
         ROYAL_GREATSWORD_GUARD_ACTIVE_HIT1 = new GuardAnimation(0.05F, 0.2F, "biped/skill/guard_greatsword_hit_active1", biped);
-        ROYAL_GREATSWORD_GUARD_ACTIVE_HIT2 = new GuardAnimation(0.05F, 0.2F, "biped/skill/guard_greatsword_hit_active2", biped)
+        ROYAL_GREATSWORD_GUARD_ACTIVE_HIT2 = new GuardAnimation(0.05F, 0.8F, "biped/skill/guard_greatsword_hit_active2", biped)
                 .addEvents(AnimationEvent.TimeStampedEvent.create(0.01F, ReusableSources.SCREENSHAKE, AnimationEvent.Side.CLIENT).params((int)5, (float)6.0, (float)20.0));
         ROYAL_GREATSWORD_GUARD_BREAK = new LongHitAnimation(0.05F, "biped/skill/guard_greatsword_break", biped)
                 .addEvents( AnimationEvent.TimeStampedEvent.create(0.01F, ReusableSources.SCREENSHAKE, AnimationEvent.Side.CLIENT).params((int)5, (float)6.0, (float)20.0),

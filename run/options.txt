@@ -117,7 +117,7 @@ key_key.epicfight.mover_skill:key.mouse.4
 key_key.epicfight.skill_gui:key.keyboard.k
 key_key.epicfight.lock_on:key.mouse.middle
 key_key.epicfight.config:key.keyboard.i
-soundCategory_master:0.024834437
+soundCategory_master:1.0
 soundCategory_music:0.06690141
 soundCategory_record:1.0
 soundCategory_weather:1.0
