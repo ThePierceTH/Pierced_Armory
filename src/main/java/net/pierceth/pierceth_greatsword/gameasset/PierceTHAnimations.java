@@ -74,13 +74,20 @@ public class PierceTHAnimations {
         HumanoidArmature biped = Armatures.BIPED;
 
         BIPED_RUN_ROYAL_GREATSWORD = new MovementAnimation(true, "biped/living/run_greatsword", biped)
-                .addEvents(AnimationEvent.TimeStampedEvent.create(0.05F, ReusableSources.DUST_CLOUD, AnimationEvent.Side.CLIENT).params(new Vec3f(0.0F, -0.5F, 1.0F), Armatures.BIPED.rootJoint, 1.1D, 0.55F));
+                .addEvents(AnimationEvent.TimeStampedEvent.create(0.05F, ReusableSources.DUST_CLOUD, AnimationEvent.Side.CLIENT).params(new Vec3f(0.0F, -1.0F, 1.0F), Armatures.BIPED.rootJoint, 1.1D, 0.55F));
         BIPED_WALK_ROYAL_GREATSWORD = new MovementAnimation(true, "biped/living/walk_greatsword", biped);
         BIPED_HOLD_ROYAL_GREATSWORD = new StaticAnimation(true, "biped/living/hold_greatsword", biped);
-        ROYAL_GREATSWORD_DASH = (new BasicAttackAnimation(0.1F, 0.35F, 0.9F, 0.8F, null, biped.toolR, "biped/combat/greatsword_dash", biped))
+        ROYAL_GREATSWORD_DASH = (new BasicAttackAnimation(0.15F, 0.55F, 0.9F, 1.2F, null, biped.toolR, "biped/combat/greatsword_dash", biped))
                 .addProperty(AttackPhaseProperty.SOURCE_TAG, Set.of(SourceTags.FINISHER))
-                .addProperty(AnimationProperty.AttackAnimationProperty.BASIS_ATTACK_SPEED, 1.0F)
-                .addProperty(AnimationProperty.ActionAnimationProperty.MOVE_VERTICAL, false);
+                .addProperty(AnimationProperty.AttackAnimationProperty.BASIS_ATTACK_SPEED, 1.2F)
+                .addProperty(AnimationProperty.AttackAnimationProperty.FIXED_MOVE_DISTANCE, true)
+                .addProperty(AnimationProperty.ActionAnimationProperty.MOVE_VERTICAL, true)
+                .addProperty(AnimationProperty.ActionAnimationProperty.STOP_MOVEMENT, false)
+                .addProperty(AnimationProperty.ActionAnimationProperty.MOVE_VERTICAL, false)
+                .addEvents(
+                        AnimationEvent.TimeStampedEvent.create(0.7F, Animations.ReusableSources.FRACTURE_GROUND_SIMPLE, AnimationEvent.Side.CLIENT).params(new Vec3f(0.0F, -2.5F, -4.0F), Armatures.BIPED.rootJoint, 1.1D, 0.55F),
+                        AnimationEvent.TimeStampedEvent.create(0.8F, ReusableSources.SCREENSHAKE, AnimationEvent.Side.CLIENT).params((int)5, (float)3.0, (float)20.0),
+                        AnimationEvent.TimeStampedEvent.create(0.7F, ReusableSources.DUST_CLOUD, AnimationEvent.Side.CLIENT).params(new Vec3f(0.0F, -2.5F, 0.0F), Armatures.BIPED.rootJoint, 1.1D, 0.55F));;
         ROYAL_GREATSWORD_AIR_SLASH = new AirSlashAnimation(0.1F, 0.0F, 0.55F, 0.75F, 0.75F, false, null, biped.toolR, "biped/combat/greatsword_airslash", biped)
                 .addEvents(AnimationEvent.TimeStampedEvent.create(0.4F, Animations.ReusableSources.FRACTURE_GROUND_SIMPLE, AnimationEvent.Side.CLIENT).params(new Vec3f(0.0F, -0.24F, -2.0F), Armatures.BIPED.toolR, 1.1D, 0.55F));
         ROYAL_GREATSWORD_AUTO1 = new BasicAttackAnimation(0.15F, 0.25F, 0.65F, 0.65F, null, biped.toolR, "biped/combat/greatsword_auto1", biped)
@@ -96,18 +103,19 @@ public class PierceTHAnimations {
                 .addProperty(AnimationProperty.AttackAnimationProperty.BASIS_ATTACK_SPEED, 1.0F);
         ROYAL_GREATSWORD_AUTO4 = new BasicAttackAnimation(0.15F, 0.6F, 1.2F, 1.0F, null, biped.toolR, "biped/combat/greatsword_auto4", biped)
                 .addProperty(AnimationProperty.AttackAnimationProperty.FIXED_MOVE_DISTANCE, true)
-                .addProperty(AnimationProperty.AttackAnimationProperty.BASIS_ATTACK_SPEED, 1.0F)
+                .addProperty(AnimationProperty.AttackAnimationProperty.BASIS_ATTACK_SPEED, 1.1F)
                 .addEvents( AnimationEvent.TimeStampedEvent.create(0.65F, ReusableSources.DUST_CLOUD, AnimationEvent.Side.CLIENT).params(new Vec3f(0.0F, -0.5F, 0.0F), Armatures.BIPED.rootJoint, 1.1D, 0.55F));
 
-        DRAGON_CLAW = new BasicAttackAnimation(.15F, 1.35F, 10.0F, 3.0F, null, biped.toolR, "biped/skill/dragon_claw", biped)
-                .addProperty(AnimationProperty.AttackAnimationProperty.BASIS_ATTACK_SPEED, 0.9F)
+        DRAGON_CLAW = new BasicAttackAnimation(0.15F, 1.35F, 10.0F, 3.0F, null, biped.toolR, "biped/skill/dragon_claw", biped)
+                .addProperty(AnimationProperty.AttackAnimationProperty.BASIS_ATTACK_SPEED, 0.95F)
                 .addProperty(AnimationProperty.AttackAnimationProperty.FIXED_MOVE_DISTANCE, true)
                 .addProperty(AnimationProperty.ActionAnimationProperty.MOVE_VERTICAL, true)
-                .addProperty(AnimationProperty.ActionAnimationProperty.STOP_MOVEMENT, false)
+                .addProperty(AnimationProperty.ActionAnimationProperty.STOP_MOVEMENT, true)
                 .addEvents(
                         AnimationEvent.TimeStampedEvent.create(1.4F, Animations.ReusableSources.FRACTURE_GROUND_SIMPLE, AnimationEvent.Side.CLIENT).params(new Vec3f(-1.0F, 0.0F, -1.5F), Armatures.BIPED.rootJoint, 1.1D, 0.55F),
                         AnimationEvent.TimeStampedEvent.create(1.35F, ReusableSources.SCREENSHAKE, AnimationEvent.Side.CLIENT).params((int)10, (float)6.0, (float)30.0),
-                        AnimationEvent.TimeStampedEvent.create(1.35F, ReusableSources.DUST_CLOUD, AnimationEvent.Side.CLIENT).params(new Vec3f(0.0F, -0.5F, 0.0F), Armatures.BIPED.rootJoint, 1.1D, 0.55F));
+                        AnimationEvent.TimeStampedEvent.create(1.35F, ReusableSources.DUST_CLOUD, AnimationEvent.Side.CLIENT).params(new Vec3f(0.0F, -0.5F, 0.0F), Armatures.BIPED.rootJoint, 1.1D, 0.55F),
+                        AnimationEvent.TimeStampedEvent.create(1.45F, ReusableSources.DUST_CLOUD, AnimationEvent.Side.CLIENT).params(new Vec3f(0.0F, -0.5F, -3.0F), Armatures.BIPED.rootJoint, -1.5D, 0.55F));
         ROYAL_GREATSWORD_GUARD = new StaticAnimation(0.15F, true, "biped/skill/guard_greatsword", biped);
         ROYAL_GREATSWORD_GUARD_HIT = new GuardAnimation(0.05F, "biped/skill/guard_greatsword_hit", biped);
         ROYAL_GREATSWORD_GUARD_ACTIVE_HIT1 = new GuardAnimation(0.05F, 0.2F, "biped/skill/guard_greatsword_hit_active1", biped);
@@ -118,7 +126,7 @@ public class PierceTHAnimations {
                         AnimationEvent.TimeStampedEvent.create(1.0F, Animations.ReusableSources.FRACTURE_GROUND_SIMPLE, AnimationEvent.Side.CLIENT).params(new Vec3f(0.0F, -0.24F, -1.0F), Armatures.BIPED.toolR, 1.1D, 0.55F),
                         AnimationEvent.TimeStampedEvent.create(1.0F, ReusableSources.SCREENSHAKE, AnimationEvent.Side.CLIENT).params((int)10, (float)8.0, (float)30.0));
 
-        BIPED_WALK_HOUND_GREATSWORD = new MovementAnimation(true, "biped/living/walk_hound_greatsword", biped);
+        //BIPED_WALK_HOUND_GREATSWORD = new MovementAnimation(true, "biped/living/walk_hound_greatsword", biped);
         }
 
     public static class ReusableSources {

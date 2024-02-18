@@ -27,7 +27,7 @@ public class PiercethLootTables {
             event.getTable().addPool(LootPool.lootPool().setRolls(UniformGenerator.between(1.0F, 3.0F))
                     .add(LootItem.lootTableItem(EpicFightItems.SKILLBOOK.get()).apply(SetSkillFunction.builder(
                             "pierceth_greatsword:royal_greatsword",
-                            "pierceth_greatsword:hound_greatsword",
+                            //"pierceth_greatsword:hound_greatsword",
                             "pierceth_greatsword:dragon_claw"
                     ))).when(LootItemRandomChanceCondition.randomChance(dropChanceModifier * 0.3F))
                     .build());
@@ -37,7 +37,7 @@ public class PiercethLootTables {
             event.getTable().addPool(LootPool.lootPool().setRolls(UniformGenerator.between(1.0F, 5.0F))
                     .add(LootItem.lootTableItem(EpicFightItems.SKILLBOOK.get()).apply(SetSkillFunction.builder(
                             "pierceth_greatsword:royal_greatsword",
-                            "pierceth_greatsword:hound_greatsword",
+                            //"pierceth_greatsword:hound_greatsword",
                             "pierceth_greatsword:dragon_claw"
                     ))).when(LootItemRandomChanceCondition.randomChance(dropChanceModifier * 0.3F))
                     .build());

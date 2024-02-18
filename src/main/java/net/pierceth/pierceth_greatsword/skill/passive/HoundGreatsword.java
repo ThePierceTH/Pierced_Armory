@@ -16,10 +16,10 @@ public class HoundGreatsword extends PassiveSkill {
 
     @Override
     public void onInitiate(SkillContainer container) {
-        super.onInitiate(container);
+        //super.onInitiate(container);
     }
     @Override
     public void onRemoved(SkillContainer container) {
-        super.onRemoved(container);
+        //super.onRemoved(container);
 }
 }
