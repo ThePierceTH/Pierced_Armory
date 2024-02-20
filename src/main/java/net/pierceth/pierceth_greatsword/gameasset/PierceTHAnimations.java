@@ -5,6 +5,9 @@ import net.minecraft.core.Direction;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.BushBlock;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
@@ -23,6 +26,7 @@ import yesman.epicfight.api.forgeevent.AnimationRegistryEvent;
 import yesman.epicfight.api.utils.LevelUtil;
 import yesman.epicfight.api.utils.TimePairList;
 import yesman.epicfight.api.utils.math.OpenMatrix4f;
+import yesman.epicfight.api.utils.math.ValueModifier;
 import yesman.epicfight.api.utils.math.Vec3f;
 import yesman.epicfight.gameasset.Animations;
 import yesman.epicfight.gameasset.Armatures;
@@ -81,11 +85,31 @@ public class PierceTHAnimations {
                 .addProperty(AttackPhaseProperty.SOURCE_TAG, Set.of(SourceTags.FINISHER))
                 .addProperty(AnimationProperty.AttackAnimationProperty.BASIS_ATTACK_SPEED, 1.2F)
                 .addProperty(AnimationProperty.AttackAnimationProperty.FIXED_MOVE_DISTANCE, true)
+                .addProperty(AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(0.6F))
+                //.addProperty(AnimationProperty.ActionAnimationProperty.NO_GRAVITY_TIME, TimePairList.create(0.01F, 0.95F))
                 .addProperty(AnimationProperty.ActionAnimationProperty.MOVE_VERTICAL, true)
                 .addProperty(AnimationProperty.ActionAnimationProperty.STOP_MOVEMENT, false)
-                .addProperty(AnimationProperty.ActionAnimationProperty.MOVE_VERTICAL, false)
+                .addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, (self, entitypatch, speed, elapsedTime) -> {
+                    if (elapsedTime >= 0.55F && elapsedTime < 0.65F) {
+                        float dpx = (float) entitypatch.getOriginal().getX();
+                        float dpy = (float) entitypatch.getOriginal().getY();
+                        float dpz = (float) entitypatch.getOriginal().getZ();
+                        BlockState block = entitypatch.getOriginal().level.getBlockState(new BlockPos(new Vec3(dpx,dpy,dpz)));
+
+                        while ((block.getBlock() instanceof BushBlock || block.isAir()) && !block.is(Blocks.VOID_AIR)) {
+                            dpy--;
+                            block = entitypatch.getOriginal().level.getBlockState(new BlockPos(new Vec3(dpx,dpy,dpz)));
+                        }
+
+                        float distanceToGround = (float) Math.max(Math.abs(entitypatch.getOriginal().getY() - dpy)-1, 0.0F);
+
+                        return 1 - (1 / (-distanceToGround - 1.F) + 1.0f);
+                    }
+
+                    return 1.0F;
+                })
                 .addEvents(
-                        AnimationEvent.TimeStampedEvent.create(0.7F, Animations.ReusableSources.FRACTURE_GROUND_SIMPLE, AnimationEvent.Side.CLIENT).params(new Vec3f(0.0F, -2.5F, -4.0F), Armatures.BIPED.rootJoint, 1.1D, 0.55F),
+                        AnimationEvent.TimeStampedEvent.create(0.75F, Animations.ReusableSources.FRACTURE_GROUND_SIMPLE, AnimationEvent.Side.CLIENT).params(new Vec3f(0.0F, -2.5F, -4.0F), Armatures.BIPED.rootJoint, 1.1D, 0.55F),
                         AnimationEvent.TimeStampedEvent.create(0.8F, ReusableSources.SCREENSHAKE, AnimationEvent.Side.CLIENT).params((int)5, (float)3.0, (float)20.0),
                         AnimationEvent.TimeStampedEvent.create(0.7F, ReusableSources.DUST_CLOUD, AnimationEvent.Side.CLIENT).params(new Vec3f(0.0F, -2.5F, 0.0F), Armatures.BIPED.rootJoint, 1.1D, 0.55F));;
         ROYAL_GREATSWORD_AIR_SLASH = new AirSlashAnimation(0.1F, 0.0F, 0.55F, 0.75F, 0.75F, false, null, biped.toolR, "biped/combat/greatsword_airslash", biped)

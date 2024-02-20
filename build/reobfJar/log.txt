@@ -111,8 +111,8 @@ Conflicting propagated mapping for net/pierceth/pierceth_greatsword/particle/Dus
 Conflicting propagated mapping for net/pierceth/pierceth_greatsword/particle/DustParticle/getRenderType()Lnet/minecraft/client/particle/ParticleRenderType; from net/minecraft/client/particle/Particle/getRenderType()Lnet/minecraft/client/particle/ParticleRenderType;: getRenderType -> m_7556_
 Conflicting propagated mapping for yesman/epicfight/data/loot/function/SetSkillFunction/getType()Lnet/minecraft/world/level/storage/loot/functions/LootItemFunctionType; from net/minecraft/world/level/storage/loot/functions/LootItemFunction/getType()Lnet/minecraft/world/level/storage/loot/functions/LootItemFunctionType;: getType -> m_7162_
 Conflicting propagated mapping for yesman/epicfight/gameasset/Armatures/reload(Lnet/minecraft/server/packs/resources/PreparableReloadListener$PreparationBarrier;Lnet/minecraft/server/packs/resources/ResourceManager;Lnet/minecraft/util/profiling/ProfilerFiller;Lnet/minecraft/util/profiling/ProfilerFiller;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture; from net/minecraft/server/packs/resources/PreparableReloadListener/reload(Lnet/minecraft/server/packs/resources/PreparableReloadListener$PreparationBarrier;Lnet/minecraft/server/packs/resources/ResourceManager;Lnet/minecraft/util/profiling/ProfilerFiller;Lnet/minecraft/util/profiling/ProfilerFiller;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;: reload -> m_5540_
-Conflicting propagated mapping for net/pierceth/pierceth_greatsword/world/item/PierceTHCreativeTabs$1/makeIcon()Lnet/minecraft/world/item/ItemStack; from net/minecraft/world/item/CreativeModeTab/makeIcon()Lnet/minecraft/world/item/ItemStack;: makeIcon -> m_6976_
 Conflicting propagated mapping for yesman/epicfight/api/data/reloader/SkillManager/apply(Ljava/lang/Object;Lnet/minecraft/server/packs/resources/ResourceManager;Lnet/minecraft/util/profiling/ProfilerFiller;)V from net/minecraft/server/packs/resources/SimplePreparableReloadListener/apply(Ljava/lang/Object;Lnet/minecraft/server/packs/resources/ResourceManager;Lnet/minecraft/util/profiling/ProfilerFiller;)V: apply -> m_5787_
+Conflicting propagated mapping for net/pierceth/pierceth_greatsword/world/item/PierceTHCreativeTabs$1/makeIcon()Lnet/minecraft/world/item/ItemStack; from net/minecraft/world/item/CreativeModeTab/makeIcon()Lnet/minecraft/world/item/ItemStack;: makeIcon -> m_6976_
 Conflicting propagated mapping for yesman/epicfight/world/item/WeaponItem/isCorrectToolForDrops(Lnet/minecraft/world/level/block/state/BlockState;)Z from net/minecraft/world/item/SwordItem/isCorrectToolForDrops(Lnet/minecraft/world/level/block/state/BlockState;)Z: isCorrectToolForDrops -> m_8096_
 Conflicting propagated mapping for net/pierceth/pierceth_greatsword/world/item/LawliethSlicerItem/getEnchantmentValue()I from net/minecraft/world/item/TieredItem/getEnchantmentValue()I: getEnchantmentValue -> m_6473_
 Conflicting propagated mapping for net/pierceth/pierceth_greatsword/world/item/PonguardSlicerItem/getEnchantmentValue()I from net/minecraft/world/item/TieredItem/getEnchantmentValue()I: getEnchantmentValue -> m_6473_
@@ -150,6 +150,8 @@ Writing Output: C:\Users\pierc\Desktop\MinecraftModding\Projects\Pierceth Greats
   assets/pierceth_greatsword/animmodels/animations/biped/living/data/
   assets/pierceth_greatsword/animmodels/animations/biped/living/data/hold_greatsword.json
   assets/pierceth_greatsword/animmodels/animations/biped/living/data/idle.json
+  assets/pierceth_greatsword/animmodels/animations/biped/living/data/run_greatsword.json
+  assets/pierceth_greatsword/animmodels/animations/biped/living/data/walk_greatsword.json
   assets/pierceth_greatsword/animmodels/animations/biped/living/hold_greatsword.json
   assets/pierceth_greatsword/animmodels/animations/biped/living/run_greatsword.json
   assets/pierceth_greatsword/animmodels/animations/biped/living/walk_greatsword.json
@@ -178,6 +180,9 @@ Writing Output: C:\Users\pierc\Desktop\MinecraftModding\Projects\Pierceth Greats
   assets/pierceth_greatsword/textures/
   assets/pierceth_greatsword/textures/gui/
   assets/pierceth_greatsword/textures/gui/skillbook_passive.png
+  assets/pierceth_greatsword/textures/gui/skills/
+  assets/pierceth_greatsword/textures/gui/skills/dragon_claw.png
+  assets/pierceth_greatsword/textures/gui/skills/royal_greatsword.png
   assets/pierceth_greatsword/textures/item/
   assets/pierceth_greatsword/textures/item/lawlieth_slicer.png
   assets/pierceth_greatsword/textures/item/ponguard_slicer.png
@@ -194,6 +199,12 @@ Writing Output: C:\Users\pierc\Desktop\MinecraftModding\Projects\Pierceth Greats
   data/pierceth_greatsword/skill_parameters/dragon_claw.json
   net/
   net/pierceth/
+  net/pierceth/api/
+  net/pierceth/api/animation/
+  net/pierceth/api/animation/types/
+  net/pierceth/api/animation/types/EntityState$StateFactor.class
+  net/pierceth/api/animation/types/EntityState.class
+  net/pierceth/api/animation/types/PierceGuardAnimation.class
   net/pierceth/pierceth_greatsword/
   net/pierceth/pierceth_greatsword/PiercethGreatsword.class
   net/pierceth/pierceth_greatsword/client/

@@ -19,7 +19,7 @@ modId="pierceth_greatsword" #mandatory
 # The version number of the mod
 version="1.0-SNAPSHOT" #mandatory
 # A display name for the mod
-displayName="Pierceth Greatsword" #mandatory
+displayName="Pierced Armory" #mandatory
 # A URL to query for updates for this mod. See the JSON update specification https://docs.minecraftforge.net/en/latest/misc/updatechecker/
 #updateJSONURL="https://change.me.example.invalid/updates.json" #optional
 # A URL for the "homepage" for this mod, displayed in the mod UI
@@ -29,9 +29,9 @@ displayName="Pierceth Greatsword" #mandatory
 # A text field displayed in the mod UI
 #credits="Thanks for this example mod goes to Java" #optional
 # A text field displayed in the mod UI
-authors="PierceTH, Forixaim, Ghosty" #optional
+authors="PierceTH, Ghosty" #optional
 # The description text for the mod (multi line!) (#mandatory)
-description='''New Greatsword moveset'''
+description='''New Greatsword moveset. Great help recieved from Ghosty and Forixaim. Please check out Uncharted Armory and Trick Weapons Addons for EF!'''
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
 [[dependencies.pierceth_greatsword]] #optional
    # the modid of the dependency

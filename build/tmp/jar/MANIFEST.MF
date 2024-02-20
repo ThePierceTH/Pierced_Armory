@@ -1,10 +1,10 @@
 Manifest-Version: 1.0
 Specification-Title: pierceth_greatsword
-Specification-Vendor: PierceTH, Forixaim, Ghosty
+Specification-Vendor: PierceTH, Ghosty
 Specification-Version: 1
 Implementation-Title: Pierceth_Greatsword
 Implementation-Version: net.pierceth
-Implementation-Vendor: PierceTH, Forixaim, Ghosty
-Implementation-Timestamp: 2024-02-17T08:09:00-0500
+Implementation-Vendor: PierceTH, Ghosty
+Implementation-Timestamp: 2024-02-20T06:54:01-0500
 MixinConfigs: pierceth_greatsword.mixins.json
 
