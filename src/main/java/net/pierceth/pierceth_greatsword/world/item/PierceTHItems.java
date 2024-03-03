@@ -13,6 +13,6 @@ import yesman.epicfight.world.item.GreatswordItem;
 
 public class PierceTHItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, PiercethGreatsword.MODID);
-    public static final RegistryObject<Item> PONGUARD_SLICER = ITEMS.register("ponguard_slicer", () -> new PonguardSlicerItem(new Item.Properties().tab(PierceTHCreativeTabs.ITEMS).fireResistant().rarity(Rarity.EPIC), Tiers.NETHERITE));
+    public static final RegistryObject<Item> PONGUARD_SLICER = ITEMS.register("ponguard_slicer", () -> new PonguardSlicerItem(new Item.Properties().fireResistant().rarity(Rarity.EPIC), Tiers.NETHERITE));
     //public static final RegistryObject<Item> LAWLIETH_SLICER = ITEMS.register("lawlieth_slicer", () -> new LawliethSlicerItem(new Item.Properties().tab(PierceTHCreativeTabs.ITEMS).fireResistant().rarity(Rarity.EPIC), Tiers.NETHERITE));
 }

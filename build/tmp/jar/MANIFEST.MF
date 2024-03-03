@@ -5,6 +5,6 @@ Specification-Version: 1
 Implementation-Title: Pierceth_Greatsword
 Implementation-Version: net.pierceth
 Implementation-Vendor: PierceTH, Ghosty
-Implementation-Timestamp: 2024-02-20T06:54:01-0500
+Implementation-Timestamp: 2024-02-20T18:42:04+0100
 MixinConfigs: pierceth_greatsword.mixins.json
 

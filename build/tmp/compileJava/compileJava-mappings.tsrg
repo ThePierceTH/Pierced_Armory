@@ -1,0 +1,7 @@
+net/pierceth/pierceth_greatsword/mixin/client/CameraMixin yRot f_90558_
+net/pierceth/pierceth_greatsword/mixin/client/CameraMixin xRot f_90557_
+net/pierceth/pierceth_greatsword/mixin/client/CameraMixin initialized f_90549_
+net/pierceth/pierceth_greatsword/mixin/client/CameraMixin move (DDD)V m_90568_
+net/pierceth/pierceth_greatsword/mixin/client/CameraMixin setPosition (Lnet/minecraft/world/phys/Vec3;)V m_90581_
+net/pierceth/pierceth_greatsword/mixin/client/CameraMixin getMaxZoom (D)D m_90566_
+net/pierceth/pierceth_greatsword/mixin/client/CameraMixin setRotation (FF)V m_90572_

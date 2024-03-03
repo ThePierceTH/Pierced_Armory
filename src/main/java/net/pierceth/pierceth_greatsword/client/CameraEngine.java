@@ -1,13 +1,18 @@
 package net.pierceth.pierceth_greatsword.client;
 
+import net.minecraft.util.RandomSource;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.Mob;
+import net.minecraft.world.phys.AABB;
+import net.minecraftforge.client.event.ViewportEvent;
 import net.pierceth.pierceth_greatsword.PiercethGreatsword;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.client.event.EntityViewRenderEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.pierceth.pierceth_greatsword.util.ShakesScreen;
 
 @OnlyIn(Dist.CLIENT)
 public class CameraEngine {
@@ -15,6 +20,8 @@ public class CameraEngine {
     public static CameraEngine getInstance(){
         return instance;
     }
+    public static int lastTremorTick = -1;
+    public static float[] randomTremorOffsets = new float[3];
 
     private int cameraShakeTime = 0;
     private float cameraShakeStrength = 0;
@@ -43,22 +50,34 @@ public class CameraEngine {
     @Mod.EventBusSubscriber(modid = PiercethGreatsword.MODID, value = Dist.CLIENT)
     public static class Events {
         @SubscribeEvent
-        public static void cameraSetupEvent(EntityViewRenderEvent.CameraSetup event) {
-            Player player = Minecraft.getInstance().player;
-            if(player == null) return;
-            if(instance.cameraShakeTime > 0) {
-                instance.cameraShakeTime--;
-                float delta = Minecraft.getInstance().getFrameTime();
-                float ticksExistedDelta = player.tickCount + delta;
-                float k = instance.cameraShakeStrength / 4F;
-                float f = instance.frequency;
-                if(!Minecraft.getInstance().isPaused()) {
-                    event.setPitch((float) (event.getPitch() + k * Math.cos(ticksExistedDelta * f + 2)));
-                    event.setYaw((float) (event.getYaw() + k * Math.cos(ticksExistedDelta * f + 1)));
-                    event.setRoll((float) (event.getRoll() + k * Math.cos(ticksExistedDelta * f)));
+        public void computeCameraAngles(ViewportEvent.ComputeCameraAngles event) {
+            Entity player = Minecraft.getInstance().getCameraEntity();
+            float partialTick = Minecraft.getInstance().getPartialTick();
+            float tremorAmount = instance.cameraShakeStrength;
+            if (player != null) {
+                double shakeDistanceScale = 64;
+                double distance = Double.MAX_VALUE;
+                if (tremorAmount == 0) {
+                    AABB aabb = player.getBoundingBox().inflate(shakeDistanceScale);
+                    for (Mob screenShaker : Minecraft.getInstance().level.getEntitiesOfClass(Mob.class, aabb, (mob -> mob instanceof ShakesScreen))) {
+                        ShakesScreen shakesScreen = (ShakesScreen) screenShaker;
+                        if (shakesScreen.canFeelShake(player) && screenShaker.distanceTo(player) < distance) {
+                            distance = screenShaker.distanceTo(player);
+                            tremorAmount = Math.min((1F - (float) Math.min(1, distance / shakesScreen.getShakeDistance())) * Math.max(shakesScreen.getScreenShakeAmount(partialTick), 0F), 2.0F);
+                        }
+                    }
                 }
-            } else if(instance.cameraShakeStrength != 0){
-                instance.reset();
+                if (tremorAmount > 0) {
+                    if (instance.lastTremorTick != player.tickCount) {
+                        RandomSource rng = player.level().random;
+                        instance.randomTremorOffsets[0] = rng.nextFloat();
+                        instance.randomTremorOffsets[1] = rng.nextFloat();
+                        instance.randomTremorOffsets[2] = rng.nextFloat();
+                        instance.lastTremorTick = player.tickCount;
+                    }
+                    double intensity = tremorAmount * Minecraft.getInstance().options.screenEffectScale().get();
+                    event.getCamera().move(instance.randomTremorOffsets[0] * 0.2F * intensity, instance.randomTremorOffsets[1] * 0.2F * intensity, instance.randomTremorOffsets[2] * 0.5F * intensity);
+                }
             }
         }
     }

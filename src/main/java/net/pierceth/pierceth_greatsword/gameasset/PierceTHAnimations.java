@@ -2,12 +2,16 @@ package net.pierceth.pierceth_greatsword.gameasset;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.MoverType;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.ClipContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BushBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
 import net.minecraft.world.phys.Vec3;
@@ -45,6 +49,7 @@ import yesman.epicfight.model.armature.WitherArmature;
 import yesman.epicfight.world.capabilities.entitypatch.player.PlayerPatch;
 import yesman.epicfight.world.damagesource.SourceTags;
 
+import java.util.List;
 import java.util.Random;
 import java.util.Set;
 
@@ -90,20 +95,36 @@ public class PierceTHAnimations {
                 .addProperty(AnimationProperty.ActionAnimationProperty.MOVE_VERTICAL, true)
                 .addProperty(AnimationProperty.ActionAnimationProperty.STOP_MOVEMENT, false)
                 .addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, (self, entitypatch, speed, elapsedTime) -> {
-                    if (elapsedTime >= 0.55F && elapsedTime < 0.65F) {
+                    if (elapsedTime >= 0.35F && elapsedTime < 0.45F) {
                         float dpx = (float) entitypatch.getOriginal().getX();
                         float dpy = (float) entitypatch.getOriginal().getY();
                         float dpz = (float) entitypatch.getOriginal().getZ();
-                        BlockState block = entitypatch.getOriginal().level.getBlockState(new BlockPos(new Vec3(dpx,dpy,dpz)));
+                        BlockState block = entitypatch.getOriginal().level().getBlockState(new BlockPos.MutableBlockPos(dpx,dpy,dpz));
 
                         while ((block.getBlock() instanceof BushBlock || block.isAir()) && !block.is(Blocks.VOID_AIR)) {
                             dpy--;
-                            block = entitypatch.getOriginal().level.getBlockState(new BlockPos(new Vec3(dpx,dpy,dpz)));
+                            block = entitypatch.getOriginal().level().getBlockState(new BlockPos.MutableBlockPos(dpx,dpy,dpz));
                         }
 
                         float distanceToGround = (float) Math.max(Math.abs(entitypatch.getOriginal().getY() - dpy)-1, 0.0F);
 
-                        return 1 - (1 / (-distanceToGround - 1.F) + 1.0f);
+                        LivingEntity livingentity = entitypatch.getOriginal();
+
+                        Vec3f direction = new Vec3f(2.5F,-0.25f, 0.0f);
+                        OpenMatrix4f rotation = new OpenMatrix4f().rotate(-(float) Math.toRadians(entitypatch.getOriginal().yBodyRotO+90), new Vec3f(0, 1, 0));
+                        OpenMatrix4f.transform3v(rotation, direction, direction);
+
+                        AABB box = AABB.ofSize(entitypatch.getOriginal().getPosition(1.0f),3, 3, 3);
+
+                        List<Entity> list = entitypatch.getOriginal().level().getEntities(entitypatch.getOriginal(),box);
+
+                        if (distanceToGround > 0.5F && list.size() == 0) {
+                            livingentity.move(MoverType.SELF, direction.toDoubleVector());
+
+                            return 0.05f;
+                        } else {
+                            return 1;
+                        }
                     }
 
                     return 1.0F;
@@ -170,7 +191,7 @@ public class PierceTHAnimations {
                                     .mulBack(OpenMatrix4f.createRotatorDeg(180.0F, Vec3f.Y_AXIS)
                                             .mulBack(entitypatch.getModelMatrix(1.0F))));
 
-            Level level = entitypatch.getOriginal().level;
+            Level level = entitypatch.getOriginal().level();
             Vec3 cloudPos = OpenMatrix4f.transform(modelTransform, ((Vec3f)params[0]).toDoubleVector());
 
             int n = 20;

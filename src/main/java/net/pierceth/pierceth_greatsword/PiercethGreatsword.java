@@ -1,6 +1,5 @@
 package net.pierceth.pierceth_greatsword;
 
-import com.google.common.graph.Network;
 import com.mojang.logging.LogUtils;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -11,7 +10,6 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.pierceth.pierceth_greatsword.network.NetworkManager;
 import net.pierceth.pierceth_greatsword.particle.PierceTHParticles;
 import org.slf4j.Logger;
 import net.pierceth.pierceth_greatsword.gameasset.PierceTHSkills;

@@ -10,8 +10,6 @@ import com.google.common.collect.Sets;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.MobType;
 import net.minecraft.world.entity.ai.attributes.Attribute;
@@ -66,32 +64,10 @@ public class DragonClawSkill extends SimpleWeaponInnateSkill {
         container.getExecuter().getEventListener().removeListener(EventType.DEALT_DAMAGE_EVENT_PRE, EVENT_UUID);
     }
 
-    @OnlyIn(Dist.CLIENT)
     @Override
-    public List<Component> getTooltipOnItem(ItemStack itemstack, CapabilityItem cap, PlayerPatch<?> playerpatch) {
-        List<Component> list = Lists.newArrayList();
-        List<Object> tooltipArgs = Lists.newArrayList();
-        String traslatableText = this.getTranslationKey();
-        Multimap<Attribute, AttributeModifier> attributes = itemstack.getAttributeModifiers(EquipmentSlot.MAINHAND);
-        double damage = playerpatch.getOriginal().getAttribute(Attributes.ATTACK_DAMAGE).getBaseValue() + EnchantmentHelper.getDamageBonus(itemstack, MobType.UNDEFINED);
-        ValueModifier damageModifier = ValueModifier.empty();
-
-        Set<AttributeModifier> damageModifiers = Sets.newHashSet();
-        damageModifiers.addAll(playerpatch.getOriginal().getAttribute(Attributes.ATTACK_DAMAGE).getModifiers());
-        damageModifiers.addAll(attributes.get(Attributes.ATTACK_DAMAGE));
-
-        for (AttributeModifier modifier : damageModifiers) {
-            damage += modifier.getAmount();
-        }
-
-        this.getProperty(AttackPhaseProperty.DAMAGE_MODIFIER, this.properties.get(0)).ifPresent(damageModifier::merge);
-        damageModifier.merge(ValueModifier.multiplier(0.8F));
-        tooltipArgs.add(ChatFormatting.RED + ItemStack.ATTRIBUTE_MODIFIER_FORMAT.format(damageModifier.getTotalValue((float)damage)));
-
-        list.add(new TranslatableComponent(traslatableText).withStyle(ChatFormatting.WHITE).append(new TextComponent(String.format("[%.0f]", this.consumption)).withStyle(ChatFormatting.AQUA)));
-        list.add(new TranslatableComponent(traslatableText + ".tooltip", tooltipArgs.toArray(new Object[0])).withStyle(ChatFormatting.DARK_GRAY));
-
-        this.generateTooltipforPhase(list, itemstack, cap, playerpatch, this.properties.get(0), "Each Strike:");
+    public List<Component> getTooltipOnItem(ItemStack itemStack, CapabilityItem cap, PlayerPatch<?> playerCap) {
+        List<Component> list = super.getTooltipOnItem(itemStack, cap, playerCap);
+        this.generateTooltipforPhase(list, itemStack, cap, playerCap, this.properties.get(0), "TEMP");
 
         return list;
     }

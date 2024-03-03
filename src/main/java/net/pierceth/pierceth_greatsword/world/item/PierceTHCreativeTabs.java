@@ -1,15 +1,27 @@
 package net.pierceth.pierceth_greatsword.world.item;
 
+import net.minecraft.core.registries.Registries;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.RegistryObject;
 import net.pierceth.pierceth_greatsword.PiercethGreatsword;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.pierceth.pierceth_greatsword.world.item.PierceTHItems;
 
 public class PierceTHCreativeTabs {
-    public static final CreativeModeTab ITEMS = new CreativeModeTab(PiercethGreatsword.MODID + ".item") {
-        @Override
-        public ItemStack makeIcon() {
-            return new ItemStack(PierceTHItems.PONGUARD_SLICER.get());
-        }
-    };
+    public static final DeferredRegister<CreativeModeTab> TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, PiercethGreatsword.MODID);
+
+    public static final RegistryObject<CreativeModeTab> ITEMS = TABS.register("items",
+            () -> CreativeModeTab.builder()
+                    .title(Component.translatable("itemGroup.unchartedarsenal.items"))
+                    .icon(() -> new ItemStack(PierceTHItems.PONGUARD_SLICER.get()))
+                    .withTabsBefore(CreativeModeTabs.SPAWN_EGGS)
+                    .displayItems((params, output) -> {
+                        PierceTHItems.ITEMS.getEntries().forEach(it -> {
+                            output.accept(it.get());
+                        });
+                    })
+                    .build());
 }
