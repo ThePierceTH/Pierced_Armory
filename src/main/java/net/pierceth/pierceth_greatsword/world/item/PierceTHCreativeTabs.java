@@ -15,7 +15,7 @@ public class PierceTHCreativeTabs {
 
     public static final RegistryObject<CreativeModeTab> ITEMS = TABS.register("items",
             () -> CreativeModeTab.builder()
-                    .title(Component.translatable("itemGroup.unchartedarsenal.items"))
+                    .title(Component.translatable("itemGroup." + PiercethGreatsword.MODID + ".items"))
                     .icon(() -> new ItemStack(PierceTHItems.PONGUARD_SLICER.get()))
                     .withTabsBefore(CreativeModeTabs.SPAWN_EGGS)
                     .displayItems((params, output) -> {

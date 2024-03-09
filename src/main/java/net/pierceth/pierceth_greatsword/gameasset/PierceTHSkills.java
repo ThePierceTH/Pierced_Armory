@@ -18,8 +18,8 @@ import yesman.epicfight.skill.SkillCategories;
 import yesman.epicfight.skill.passive.PassiveSkill;
 import yesman.epicfight.skill.weaponinnate.SimpleWeaponInnateSkill;
 import yesman.epicfight.skill.weaponinnate.WeaponInnateSkill;
+import yesman.epicfight.world.damagesource.EpicFightDamageType;
 import yesman.epicfight.world.damagesource.ExtraDamageInstance;
-import yesman.epicfight.world.damagesource.SourceTags;
 import yesman.epicfight.world.damagesource.StunType;
 
 import java.util.Set;
@@ -31,7 +31,7 @@ public class PierceTHSkills {
     public static Skill DRAGON_CLAW;
 
     public static void registerSkills(){
-        SkillManager.register(RoyalGreatswordMastery::new, PassiveSkill.createPassiveBuilder().setCategory(SkillCategories.PASSIVE).setCreativeTab(PierceTHCreativeTabs.ITEMS.get()), PiercethGreatsword.MODID, "royal_greatsword");
+        SkillManager.register(RoyalGreatswordMastery::new, PassiveSkill.createPassiveBuilder().setCategory(SkillCategories.PASSIVE), PiercethGreatsword.MODID, "royal_greatsword");
         //SkillManager.register(HoundGreatsword::new, PassiveSkill.createPassiveBuilder().setCreativeTab(PierceTHCreativeTabs.ITEMS), PiercethGreatsword.MODID, "hound_greatsword");
         SkillManager.register(DragonClawSkill::new, SimpleWeaponInnateSkill.createSimpleWeaponInnateBuilder().setAnimations(new ResourceLocation(PiercethGreatsword.MODID, "biped/skill/dragon_claw")), PiercethGreatsword.MODID, "dragon_claw");
        }
@@ -47,7 +47,7 @@ public class PierceTHSkills {
                 .addProperty(AnimationProperty.AttackPhaseProperty.IMPACT_MODIFIER, ValueModifier.multiplier(10.0F))
                 .addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.LONG)
                 .addProperty(AnimationProperty.AttackPhaseProperty.EXTRA_DAMAGE, Set.of(ExtraDamageInstance.SWEEPING_EDGE_ENCHANTMENT.create()))
-                .addProperty(AnimationProperty.AttackPhaseProperty.SOURCE_TAG, Set.of(SourceTags.WEAPON_INNATE))
+                .addProperty(AnimationProperty.AttackPhaseProperty.SOURCE_TAG, Set.of(EpicFightDamageType.WEAPON_INNATE))
                 .registerPropertiesToAnimation();
         DRAGON_CLAW = DragonClaw;
         }

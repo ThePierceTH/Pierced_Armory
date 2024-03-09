@@ -26,7 +26,7 @@ import yesman.epicfight.skill.SkillContainer;
 import yesman.epicfight.skill.weaponinnate.SimpleWeaponInnateSkill;
 import yesman.epicfight.world.capabilities.entitypatch.player.PlayerPatch;
 import yesman.epicfight.world.capabilities.item.CapabilityItem;
-import yesman.epicfight.world.damagesource.SourceTags;
+import yesman.epicfight.world.damagesource.EpicFightDamageType;
 import yesman.epicfight.world.entity.eventlistener.PlayerEventListener.EventType;
 
 public class DragonClawSkill extends SimpleWeaponInnateSkill {
@@ -50,7 +50,7 @@ public class DragonClawSkill extends SimpleWeaponInnateSkill {
 
                 if (health < executionHealth) {
                     if (event.getDamageSource() != null) {
-                        event.getDamageSource().addTag(SourceTags.EXECUTION);
+                        event.getDamageSource().addRuntimeTag(EpicFightDamageType.EXECUTION);
                     }
                 }
             }

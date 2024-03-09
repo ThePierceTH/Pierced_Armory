@@ -20,6 +20,8 @@ import net.minecraftforge.fml.common.Mod;
 import net.pierceth.pierceth_greatsword.PiercethGreatsword;
 import net.pierceth.pierceth_greatsword.client.CameraEngine;
 import net.pierceth.pierceth_greatsword.particle.PierceTHParticles;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.checkerframework.checker.units.qual.A;
 import yesman.epicfight.api.animation.Joint;
 import yesman.epicfight.api.animation.property.AnimationEvent;
@@ -47,7 +49,8 @@ import yesman.epicfight.model.armature.SpiderArmature;
 import yesman.epicfight.model.armature.VexArmature;
 import yesman.epicfight.model.armature.WitherArmature;
 import yesman.epicfight.world.capabilities.entitypatch.player.PlayerPatch;
-import yesman.epicfight.world.damagesource.SourceTags;
+import yesman.epicfight.world.damagesource.DamageSourceElements;
+import yesman.epicfight.world.damagesource.EpicFightDamageType;
 
 import java.util.List;
 import java.util.Random;
@@ -87,7 +90,7 @@ public class PierceTHAnimations {
         BIPED_WALK_ROYAL_GREATSWORD = new MovementAnimation(true, "biped/living/walk_greatsword", biped);
         BIPED_HOLD_ROYAL_GREATSWORD = new StaticAnimation(true, "biped/living/hold_greatsword", biped);
         ROYAL_GREATSWORD_DASH = (new BasicAttackAnimation(0.15F, 0.55F, 0.9F, 1.2F, null, biped.toolR, "biped/combat/greatsword_dash", biped))
-                .addProperty(AttackPhaseProperty.SOURCE_TAG, Set.of(SourceTags.FINISHER))
+                .addProperty(AttackPhaseProperty.SOURCE_TAG, Set.of(EpicFightDamageType.FINISHER))
                 .addProperty(AnimationProperty.AttackAnimationProperty.BASIS_ATTACK_SPEED, 1.2F)
                 .addProperty(AnimationProperty.AttackAnimationProperty.FIXED_MOVE_DISTANCE, true)
                 .addProperty(AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(0.6F))
@@ -130,7 +133,8 @@ public class PierceTHAnimations {
                     return 1.0F;
                 })
                 .addEvents(
-                        AnimationEvent.TimeStampedEvent.create(0.75F, Animations.ReusableSources.FRACTURE_GROUND_SIMPLE, AnimationEvent.Side.CLIENT).params(new Vec3f(0.0F, -2.5F, -4.0F), Armatures.BIPED.rootJoint, 1.1D, 0.55F),
+                        //AnimationEvent.TimeStampedEvent.create(0.75F, Animations.ReusableSources.FRACTURE_GROUND_SIMPLE, AnimationEvent.Side.CLIENT).params(new Vec3f(0.0F, -2.5F, -4.0F), Armatures.BIPED.rootJoint, 1.1D, 0.55F),
+                        AnimationEvent.TimeStampedEvent.create(0.75F, PierceTHAnimations.ReusableSources.FRACTURE_GROUND_SPEED_BASED, AnimationEvent.Side.CLIENT).params(new Vec3f(0.0F, -2.5F, -4.0F), Armatures.BIPED.rootJoint, 1.1D, 10D, 0.55F),
                         AnimationEvent.TimeStampedEvent.create(0.8F, ReusableSources.SCREENSHAKE, AnimationEvent.Side.CLIENT).params((int)5, (float)3.0, (float)20.0),
                         AnimationEvent.TimeStampedEvent.create(0.7F, ReusableSources.DUST_CLOUD, AnimationEvent.Side.CLIENT).params(new Vec3f(0.0F, -2.5F, 0.0F), Armatures.BIPED.rootJoint, 1.1D, 0.55F));;
         ROYAL_GREATSWORD_AIR_SLASH = new AirSlashAnimation(0.1F, 0.0F, 0.55F, 0.75F, 0.75F, false, null, biped.toolR, "biped/combat/greatsword_airslash", biped)
@@ -210,6 +214,22 @@ public class PierceTHAnimations {
                         speedy,
                         speedz);
             }
+        };
+
+        public static final AnimationEvent.AnimationEventConsumer FRACTURE_GROUND_SPEED_BASED = (entitypatch, animation, params) -> {
+            Logger logger = LogManager.getLogger(PiercethGreatsword.MODID);
+
+            Vec3f offset = (Vec3f) params[0];
+            Joint rootJoint = (Joint) params[1];
+            double minStrength = (double) params[2];
+            double maxStrength = (double) params[3];
+            float duration = (float) params[4];
+            float maxDist = 50;
+
+            float fallDist = 5;//entitypatch.getOriginal().;
+            logger.debug("DISTANCE: " + fallDist);
+            double strength = (maxStrength - minStrength) * (fallDist/maxDist) + minStrength;
+            Animations.ReusableSources.FRACTURE_GROUND_SIMPLE.fire(entitypatch, animation, offset, rootJoint, strength, duration);
         };
     }
 }

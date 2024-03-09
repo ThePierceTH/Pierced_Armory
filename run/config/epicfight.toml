@@ -12,6 +12,7 @@
 	#Range: 0 ~ 100
 	weightPenalty = 100
 	stiffComboAttacks = true
+	noMobsInBossfight = true
 	disapleEntityUI = false
 	keepSkills = true
 	doVanillaAttack = true

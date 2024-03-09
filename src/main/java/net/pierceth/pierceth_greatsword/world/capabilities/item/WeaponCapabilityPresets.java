@@ -3,6 +3,7 @@ package net.pierceth.pierceth_greatsword.world.capabilities.item;
 import java.util.Map;
 import java.util.function.Function;
 
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.EntityType;
 import net.pierceth.pierceth_greatsword.PiercethGreatsword;
@@ -20,6 +21,7 @@ import yesman.epicfight.gameasset.Animations;
 import yesman.epicfight.gameasset.ColliderPreset;
 import yesman.epicfight.gameasset.EpicFightSkills;
 import yesman.epicfight.gameasset.EpicFightSounds;
+import yesman.epicfight.main.EpicFightMod;
 import yesman.epicfight.world.capabilities.entitypatch.LivingEntityPatch;
 import yesman.epicfight.world.capabilities.entitypatch.player.PlayerPatch;
 import yesman.epicfight.world.capabilities.item.CapabilityItem;
@@ -53,8 +55,8 @@ public class WeaponCapabilityPresets {
                     }
                 })
                 .collider(ColliderPreset.GREATSWORD)
-                .swingSound(EpicFightSounds.WHOOSH_BIG)
-                .hitSound(EpicFightSounds.BLADE_HIT)
+                .swingSound(EpicFightSounds.WHOOSH_BIG.get())
+                .hitSound(EpicFightSounds.BLADE_HIT.get())
                 .canBePlacedOffhand(false)
                 .newStyleCombo(Styles.ONE_HAND, PierceTHAnimations.ROYAL_GREATSWORD_AUTO1, PierceTHAnimations.ROYAL_GREATSWORD_AUTO2, PierceTHAnimations.ROYAL_GREATSWORD_AUTO3, PierceTHAnimations.ROYAL_GREATSWORD_AUTO4, PierceTHAnimations.ROYAL_GREATSWORD_DASH, PierceTHAnimations.ROYAL_GREATSWORD_AIR_SLASH)
                 .newStyleCombo(Styles.TWO_HAND, Animations.GREATSWORD_AUTO1, Animations.GREATSWORD_AUTO2, Animations.GREATSWORD_DASH, Animations.GREATSWORD_AIR_SLASH)
@@ -97,6 +99,6 @@ public class WeaponCapabilityPresets {
     // Register The Capabilities
     @SubscribeEvent
     public static void register(WeaponCapabilityPresetRegistryEvent event) {
-        event.getTypeEntry().put("greatsword", GREATSWORD);
+        event.getTypeEntry().put(new ResourceLocation(EpicFightMod.MODID,"greatsword"), GREATSWORD);
         }
     }

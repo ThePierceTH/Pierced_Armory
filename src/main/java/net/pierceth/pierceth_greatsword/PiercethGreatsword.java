@@ -11,6 +11,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.pierceth.pierceth_greatsword.particle.PierceTHParticles;
+import net.pierceth.pierceth_greatsword.world.item.PierceTHCreativeTabs;
 import org.slf4j.Logger;
 import net.pierceth.pierceth_greatsword.gameasset.PierceTHSkills;
 import net.pierceth.pierceth_greatsword.world.item.PierceTHItems;
@@ -25,21 +26,21 @@ public class PiercethGreatsword
 
     public PiercethGreatsword() {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
-
-        bus.addListener(PierceTHAnimations::registerAnimations);
-        bus.addListener(this::commonSetup);
-        bus.addListener(this::clientSetup);
-
-        PierceTHSkills.registerSkills();
+        MinecraftForge.EVENT_BUS.register(this);
 
         PierceTHItems.ITEMS.register(bus);
+        PierceTHCreativeTabs.TABS.register(bus);
         PierceTHParticles.PARTICLES.register(bus);
-               // Register ourselves for server and other game events we are interested in
-        MinecraftForge.EVENT_BUS.register(this);
+
+        bus.addListener(PierceTHAnimations::registerAnimations);
+        PierceTHSkills.registerSkills();
+
+        bus.addListener(this::commonSetup);
+        bus.addListener(this::clientSetup);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event){
-        NetworkManager.register();
+
     }
 
     private void clientSetup(final FMLClientSetupEvent event) {

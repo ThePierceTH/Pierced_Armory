@@ -12,6 +12,7 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.pierceth.pierceth_greatsword.mixin.client.CameraMixin;
 import net.pierceth.pierceth_greatsword.util.ShakesScreen;
 
 @OnlyIn(Dist.CLIENT)
@@ -76,7 +77,7 @@ public class CameraEngine {
                         instance.lastTremorTick = player.tickCount;
                     }
                     double intensity = tremorAmount * Minecraft.getInstance().options.screenEffectScale().get();
-                    event.getCamera().move(instance.randomTremorOffsets[0] * 0.2F * intensity, instance.randomTremorOffsets[1] * 0.2F * intensity, instance.randomTremorOffsets[2] * 0.5F * intensity);
+                    ((CameraMixin) (event.getCamera())).invokeMove(instance.randomTremorOffsets[0] * 0.2F * intensity, instance.randomTremorOffsets[1] * 0.2F * intensity, instance.randomTremorOffsets[2] * 0.5F * intensity);
                 }
             }
         }
