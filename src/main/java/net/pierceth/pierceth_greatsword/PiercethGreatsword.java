@@ -3,7 +3,6 @@ package net.pierceth.pierceth_greatsword;
 import com.mojang.logging.LogUtils;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.pierceth.pierceth_greatsword.client.CameraEngine;
 import net.pierceth.pierceth_greatsword.gameasset.PierceTHAnimations;
 
 import net.minecraftforge.common.MinecraftForge;
@@ -44,7 +43,7 @@ public class PiercethGreatsword
     }
 
     private void clientSetup(final FMLClientSetupEvent event) {
-        new CameraEngine();
+
     }
 }
 
