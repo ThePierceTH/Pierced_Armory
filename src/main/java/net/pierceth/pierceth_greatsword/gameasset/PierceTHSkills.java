@@ -27,18 +27,15 @@ import java.util.Set;
 @Mod.EventBusSubscriber(modid = PiercethGreatsword.MODID, bus= Mod.EventBusSubscriber.Bus.FORGE)
 public class PierceTHSkills {
     public static Skill ROYAL_GREATSWORD_MASTERY;
-    public static Skill HOUND_GREATSWORD;
     public static Skill DRAGON_CLAW;
 
     public static void registerSkills(){
         SkillManager.register(RoyalGreatswordMastery::new, PassiveSkill.createPassiveBuilder().setCategory(SkillCategories.PASSIVE), PiercethGreatsword.MODID, "royal_greatsword");
-        //SkillManager.register(HoundGreatsword::new, PassiveSkill.createPassiveBuilder().setCreativeTab(PierceTHCreativeTabs.ITEMS), PiercethGreatsword.MODID, "hound_greatsword");
         SkillManager.register(DragonClawSkill::new, SimpleWeaponInnateSkill.createSimpleWeaponInnateBuilder().setAnimations(new ResourceLocation(PiercethGreatsword.MODID, "biped/skill/dragon_claw")), PiercethGreatsword.MODID, "dragon_claw");
        }
     @SubscribeEvent
     public static void buildSkillEvent(SkillBuildEvent onBuild) {
         ROYAL_GREATSWORD_MASTERY = onBuild.build(PiercethGreatsword.MODID, "royal_greatsword");
-        //HOUND_GREATSWORD = onBuild.build(PiercethGreatsword.MODID, "hound_greatsword");
         WeaponInnateSkill DragonClaw = onBuild.build(PiercethGreatsword.MODID, "dragon_claw");
         DragonClaw.newProperty()
                 .addProperty(AnimationProperty.AttackPhaseProperty.MAX_STRIKES_MODIFIER, ValueModifier.setter(4))

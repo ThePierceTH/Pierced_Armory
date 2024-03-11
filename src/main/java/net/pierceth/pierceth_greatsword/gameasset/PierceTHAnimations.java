@@ -59,6 +59,8 @@ import java.util.Set;
 @Mod.EventBusSubscriber(modid = PiercethGreatsword.MODID, bus = Bus.MOD)
 public class PierceTHAnimations {
     // Define the new Animations
+
+    /** Royal Greatsword **/
     public static StaticAnimation ROYAL_GREATSWORD_DASH;
     public static StaticAnimation ROYAL_GREATSWORD_AIR_SLASH;
     public static StaticAnimation BIPED_HOLD_ROYAL_GREATSWORD;
@@ -74,7 +76,11 @@ public class PierceTHAnimations {
     public static StaticAnimation ROYAL_GREATSWORD_GUARD_ACTIVE_HIT2;
     public static StaticAnimation ROYAL_GREATSWORD_GUARD_BREAK;
     public static StaticAnimation DRAGON_CLAW;
-    public static StaticAnimation BIPED_WALK_HOUND_GREATSWORD;
+
+    /** Bahamut **/
+
+    public static StaticAnimation HOLD_BAHAMUT;
+
     @SubscribeEvent
     public static void registerAnimations(AnimationRegistryEvent event) {
         event.getRegistryMap().put(PiercethGreatsword.MODID, PierceTHAnimations::build);
@@ -97,41 +103,6 @@ public class PierceTHAnimations {
                 //.addProperty(AnimationProperty.ActionAnimationProperty.NO_GRAVITY_TIME, TimePairList.create(0.01F, 0.95F))
                 .addProperty(AnimationProperty.ActionAnimationProperty.MOVE_VERTICAL, true)
                 .addProperty(AnimationProperty.ActionAnimationProperty.STOP_MOVEMENT, false)
-                .addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, (self, entitypatch, speed, elapsedTime) -> {
-                    if (elapsedTime >= 0.35F && elapsedTime < 0.45F) {
-                        float dpx = (float) entitypatch.getOriginal().getX();
-                        float dpy = (float) entitypatch.getOriginal().getY();
-                        float dpz = (float) entitypatch.getOriginal().getZ();
-                        BlockState block = entitypatch.getOriginal().level().getBlockState(new BlockPos.MutableBlockPos(dpx,dpy,dpz));
-
-                        while ((block.getBlock() instanceof BushBlock || block.isAir()) && !block.is(Blocks.VOID_AIR)) {
-                            dpy--;
-                            block = entitypatch.getOriginal().level().getBlockState(new BlockPos.MutableBlockPos(dpx,dpy,dpz));
-                        }
-
-                        float distanceToGround = (float) Math.max(Math.abs(entitypatch.getOriginal().getY() - dpy)-1, 0.0F);
-
-                        LivingEntity livingentity = entitypatch.getOriginal();
-
-                        Vec3f direction = new Vec3f(2.5F,-0.25f, 0.0f);
-                        OpenMatrix4f rotation = new OpenMatrix4f().rotate(-(float) Math.toRadians(entitypatch.getOriginal().yBodyRotO+90), new Vec3f(0, 1, 0));
-                        OpenMatrix4f.transform3v(rotation, direction, direction);
-
-                        AABB box = AABB.ofSize(entitypatch.getOriginal().getPosition(1.0f),3, 3, 3);
-
-                        List<Entity> list = entitypatch.getOriginal().level().getEntities(entitypatch.getOriginal(),box);
-
-                        if (distanceToGround > 0.5F && list.size() == 0) {
-                            livingentity.move(MoverType.SELF, direction.toDoubleVector());
-
-                            return 0.05f;
-                        } else {
-                            return 1;
-                        }
-                    }
-
-                    return 1.0F;
-                })
                 .addEvents(
                         //AnimationEvent.TimeStampedEvent.create(0.75F, Animations.ReusableSources.FRACTURE_GROUND_SIMPLE, AnimationEvent.Side.CLIENT).params(new Vec3f(0.0F, -2.5F, -4.0F), Armatures.BIPED.rootJoint, 1.1D, 0.55F),
                         AnimationEvent.TimeStampedEvent.create(0.75F, PierceTHAnimations.ReusableSources.FRACTURE_GROUND_SPEED_BASED, AnimationEvent.Side.CLIENT).params(new Vec3f(0.0F, -2.5F, -4.0F), Armatures.BIPED.rootJoint, 1.1D, 10D, 0.55F),
@@ -175,7 +146,12 @@ public class PierceTHAnimations {
                         AnimationEvent.TimeStampedEvent.create(1.0F, Animations.ReusableSources.FRACTURE_GROUND_SIMPLE, AnimationEvent.Side.CLIENT).params(new Vec3f(0.0F, -0.24F, -1.0F), Armatures.BIPED.toolR, 1.1D, 0.55F),
                         AnimationEvent.TimeStampedEvent.create(1.0F, ReusableSources.SCREENSHAKE, AnimationEvent.Side.CLIENT).params((int)10, (float)8.0, (float)30.0));
 
-        //BIPED_WALK_HOUND_GREATSWORD = new MovementAnimation(true, "biped/living/walk_hound_greatsword", biped);
+                //---//---//--//
+            /** Bahamut **/
+        //---//---//--//
+
+        HOLD_BAHAMUT = new StaticAnimation(true, "biped/living/hold_bahamut", biped);
+
         }
 
     public static class ReusableSources {

@@ -1,14 +1,4 @@
 {
-  "mappings": {
-    "net/pierceth/pierceth_greatsword/mixin/client/CameraMixin": {
-      "move": "m_90568_(DDD)V"
-    }
-  },
-  "data": {
-    "searge": {
-      "net/pierceth/pierceth_greatsword/mixin/client/CameraMixin": {
-        "move": "m_90568_(DDD)V"
-      }
-    }
-  }
+  "mappings": {},
+  "data": {}
 }

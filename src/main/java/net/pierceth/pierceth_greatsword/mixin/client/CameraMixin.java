@@ -1,6 +1,6 @@
-package net.pierceth.pierceth_greatsword.mixin.client;
+//package net.pierceth.pierceth_greatsword.mixin.client;
 
-import net.minecraft.client.Camera;
+//import net.minecraft.client.Camera;
 import net.minecraft.client.Minecraft;
 import net.minecraft.core.Direction;
 import net.minecraft.world.entity.Entity;
@@ -17,9 +17,9 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
-@Mixin(Camera.class)
-public abstract interface CameraMixin {
+//@Mixin(Camera.class)
+//public abstract interface CameraMixin {
 
-    @Invoker("move")
-    public void invokeMove(double forwards, double up, double side);
-}
+    //@Invoker("move")
+    //public void invokeMove(double forwards, double up, double side);
+//}
