@@ -59,6 +59,8 @@ public class PierceTHAnimations {
     /** Bahamut **/
 
     public static StaticAnimation HOLD_BAHAMUT;
+    public static StaticAnimation WALK_BAHAMUT;
+    public static StaticAnimation RUN_BAHAMUT;
 
     @SubscribeEvent
     public static void registerAnimations(AnimationRegistryEvent event) {
@@ -130,6 +132,8 @@ public class PierceTHAnimations {
         //---//---//--//
 
         HOLD_BAHAMUT = new StaticAnimation(true, "biped/living/hold_bahamut", biped);
+        WALK_BAHAMUT = new MovementAnimation(true, "biped/living/walk_bahamut", biped);
+        RUN_BAHAMUT = new MovementAnimation(true, "biped/living/run_bahamut", biped);
 
         }
 
