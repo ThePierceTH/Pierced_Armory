@@ -98,7 +98,7 @@ public class WeaponCapabilityPresets {
                 .swingSound(EpicFightSounds.WHOOSH_BIG.get())
                 .hitSound(EpicFightSounds.BLADE_HIT.get())
                 .canBePlacedOffhand(false)
-                .newStyleCombo(Styles.TWO_HAND, Animations.GREATSWORD_AUTO1, Animations.GREATSWORD_AUTO2, Animations.GREATSWORD_DASH, Animations.GREATSWORD_AIR_SLASH)
+                .newStyleCombo(Styles.TWO_HAND, PierceTHAnimations.BAHAMUT_AUTO1, PierceTHAnimations.BAHAMUT_AUTO2, PierceTHAnimations.BAHAMUT_DASH, Animations.GREATSWORD_AIR_SLASH)
                 .innateSkill(Styles.TWO_HAND, (itemStack) -> PierceTHSkills.DRAGON_CLAW)
                 .livingMotionModifier(Styles.TWO_HAND, LivingMotions.IDLE, PierceTHAnimations.HOLD_BAHAMUT)
                 .livingMotionModifier(Styles.TWO_HAND, LivingMotions.WALK, PierceTHAnimations.WALK_BAHAMUT)

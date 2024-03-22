@@ -61,6 +61,11 @@ public class PierceTHAnimations {
     public static StaticAnimation HOLD_BAHAMUT;
     public static StaticAnimation WALK_BAHAMUT;
     public static StaticAnimation RUN_BAHAMUT;
+    public static StaticAnimation BAHAMUT_DASH;
+
+    public static StaticAnimation BAHAMUT_AUTO1;
+
+    public static StaticAnimation BAHAMUT_AUTO2;
 
     @SubscribeEvent
     public static void registerAnimations(AnimationRegistryEvent event) {
@@ -135,7 +140,19 @@ public class PierceTHAnimations {
         WALK_BAHAMUT = new MovementAnimation(true, "biped/living/walk_bahamut", biped);
         RUN_BAHAMUT = new MovementAnimation(true, "biped/living/run_bahamut", biped);
 
-        }
+        BAHAMUT_DASH = (new BasicAttackAnimation(0.15F, 0.85F, 1.5F, 1.2F, null, biped.toolR, "biped/combat/bahamut_dash", biped))
+                .addProperty(AttackPhaseProperty.SOURCE_TAG, Set.of(EpicFightDamageType.FINISHER))
+                .addProperty(AnimationProperty.AttackAnimationProperty.BASIS_ATTACK_SPEED, 0.7F)
+                .addProperty(AnimationProperty.AttackAnimationProperty.FIXED_MOVE_DISTANCE, true)
+                .addProperty(AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(0.6F));
+
+        BAHAMUT_AUTO1 = new BasicAttackAnimation(0.15F, 0.65F, 0.95F, 0.95F, null, biped.toolR, "biped/combat/bahamut_auto1", biped)
+                .addProperty(AnimationProperty.AttackAnimationProperty.FIXED_MOVE_DISTANCE, true)
+                .addProperty(AnimationProperty.AttackAnimationProperty.BASIS_ATTACK_SPEED, 0.9F);
+        BAHAMUT_AUTO2 = new BasicAttackAnimation(0.15F, 0.45F, 0.85F, 0.95F, null, biped.toolR, "biped/combat/bahamut_auto2", biped)
+                .addProperty(AnimationProperty.AttackAnimationProperty.FIXED_MOVE_DISTANCE, true)
+                .addProperty(AnimationProperty.AttackAnimationProperty.BASIS_ATTACK_SPEED, 1.0F);
+    }
 
     public static class ReusableSources {
         public static final AnimationEvent.AnimationEventConsumer SCREENSHAKE = (entitypatch, animation, params) -> {
