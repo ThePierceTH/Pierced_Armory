@@ -3,6 +3,7 @@ package net.pierceth.pierceth_greatsword.gameasset;
 
 import net.pierceth.pierceth_greatsword.PiercethGreatsword;
 //import net.pierceth.pierceth_greatsword.skill.passive.HoundGreatsword;
+import net.pierceth.pierceth_greatsword.skill.DirectionalBasicAttack;
 import net.pierceth.pierceth_greatsword.skill.passive.RoyalGreatswordMastery;
 import net.pierceth.pierceth_greatsword.skill.weaponinnate.DragonClawSkill;
 import net.minecraft.resources.ResourceLocation;
@@ -26,15 +27,22 @@ import java.util.Set;
 
 @Mod.EventBusSubscriber(modid = PiercethGreatsword.MODID, bus= Mod.EventBusSubscriber.Bus.FORGE)
 public class PierceTHSkills {
+
+    public static Skill DIRECTIONAL_BASIC_ATTACK;
     public static Skill ROYAL_GREATSWORD_MASTERY;
     public static Skill DRAGON_CLAW;
 
     public static void registerSkills(){
+        SkillManager.register(DirectionalBasicAttack::new, DirectionalBasicAttack.createBasicAttackBuilder(), PiercethGreatsword.MODID, "directional_basic_attack");
+
         SkillManager.register(RoyalGreatswordMastery::new, PassiveSkill.createPassiveBuilder().setCategory(SkillCategories.PASSIVE), PiercethGreatsword.MODID, "royal_greatsword");
         SkillManager.register(DragonClawSkill::new, SimpleWeaponInnateSkill.createSimpleWeaponInnateBuilder().setAnimations(new ResourceLocation(PiercethGreatsword.MODID, "biped/skill/dragon_claw")), PiercethGreatsword.MODID, "dragon_claw");
-       }
+    }
+
     @SubscribeEvent
     public static void buildSkillEvent(SkillBuildEvent onBuild) {
+        DIRECTIONAL_BASIC_ATTACK = onBuild.build(PiercethGreatsword.MODID, "directional_basic_attack");
+
         ROYAL_GREATSWORD_MASTERY = onBuild.build(PiercethGreatsword.MODID, "royal_greatsword");
         WeaponInnateSkill DragonClaw = onBuild.build(PiercethGreatsword.MODID, "dragon_claw");
         DragonClaw.newProperty()
