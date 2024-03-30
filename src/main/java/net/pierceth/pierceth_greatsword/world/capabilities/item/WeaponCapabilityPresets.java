@@ -10,6 +10,7 @@ import net.pierceth.pierceth_greatsword.PiercethGreatsword;
 import net.pierceth.pierceth_greatsword.gameasset.PierceTHAnimations;
 import com.google.common.collect.Maps;
 
+import net.pierceth.pierceth_greatsword.gameasset.PierceTHColliders;
 import net.pierceth.pierceth_greatsword.gameasset.PierceTHSkills;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -94,11 +95,12 @@ public class WeaponCapabilityPresets {
         WeaponCapability.Builder builder = WeaponCapability.builder()
                 .category(PierceWeaponCategories.BAHAMUT)
                 .styleProvider((playerpatch) -> Styles.TWO_HAND)
-                .collider(ColliderPreset.SPEAR)
+                .collider(PierceTHColliders.BAHAMUT)
                 .swingSound(EpicFightSounds.WHOOSH_BIG.get())
                 .hitSound(EpicFightSounds.BLADE_HIT.get())
                 .canBePlacedOffhand(false)
-                .newStyleCombo(Styles.TWO_HAND, PierceTHAnimations.BAHAMUT_AUTO1, PierceTHAnimations.BAHAMUT_AUTO2, PierceTHAnimations.BAHAMUT_DASH, Animations.GREATSWORD_AIR_SLASH)
+                .newStyleCombo(Styles.TWO_HAND, PierceTHAnimations.BAHAMUT_AUTO1, PierceTHAnimations.BAHAMUT_AUTO2, PierceTHAnimations.BAHAMUT_AUTO3, PierceTHAnimations.BAHAMUT_AUTO4,
+                        PierceTHAnimations.BAHAMUT_DASH, Animations.GREATSWORD_AIR_SLASH)
                 .innateSkill(Styles.TWO_HAND, (itemStack) -> PierceTHSkills.DRAGON_CLAW)
                 .livingMotionModifier(Styles.TWO_HAND, LivingMotions.IDLE, PierceTHAnimations.HOLD_BAHAMUT)
                 .livingMotionModifier(Styles.TWO_HAND, LivingMotions.WALK, PierceTHAnimations.WALK_BAHAMUT)
