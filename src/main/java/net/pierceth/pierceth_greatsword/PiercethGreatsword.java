@@ -14,6 +14,7 @@ import net.pierceth.pierceth_greatsword.world.item.PierceTHCreativeTabs;
 import org.slf4j.Logger;
 import net.pierceth.pierceth_greatsword.gameasset.PierceTHSkills;
 import net.pierceth.pierceth_greatsword.world.item.PierceTHItems;
+import yesman.epicfight.skill.SkillDataKeys;
 
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -33,6 +34,7 @@ public class PiercethGreatsword
 
         bus.addListener(PierceTHAnimations::registerAnimations);
         PierceTHSkills.registerSkills();
+        SkillDataKeys.DATA_KEYS.register(bus);
 
         bus.addListener(this::commonSetup);
         bus.addListener(this::clientSetup);

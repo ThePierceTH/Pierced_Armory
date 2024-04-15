@@ -37,9 +37,10 @@ public class EntityEvents {
             if (itemCap instanceof VOSWeaponCapability)
                 logger.debug("Is VOS Capability");
 
+            PlayerPatch<?> player = (PlayerPatch<?>) entitypatch;
+            CapabilitySkill skillCapability = player.getSkillCapability();
+
             if (itemCap != null && itemCap instanceof VOSWeaponCapability) {
-                PlayerPatch<?> player = (PlayerPatch<?>) entitypatch;
-                CapabilitySkill skillCapability = player.getSkillCapability();
                 if (((VOSWeaponCapability) itemCap).isDirectional()) {
                     logger.debug("Is Directional");
                     skillCapability.skillContainers[SkillSlots.BASIC_ATTACK.universalOrdinal()].setSkill(PierceTHSkills.DIRECTIONAL_BASIC_ATTACK);
@@ -47,6 +48,10 @@ public class EntityEvents {
                     logger.debug("Not Directional");
                     skillCapability.skillContainers[SkillSlots.BASIC_ATTACK.universalOrdinal()].setSkill(EpicFightSkills.BASIC_ATTACK);
                 }
+            }
+            else {
+                logger.debug("Not Directional");
+                skillCapability.skillContainers[SkillSlots.BASIC_ATTACK.universalOrdinal()].setSkill(EpicFightSkills.BASIC_ATTACK);
             }
         }
     }
