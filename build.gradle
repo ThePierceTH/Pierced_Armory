@@ -90,7 +90,7 @@ minecraft {
 
             property 'mixin.env.remapRefMap', 'true'
             property 'mixin.env.refMapRemappingFile', "${buildDir}/createSrgToMcp/output.srg"
-            args '-mixin.config=epicfight.mixins.json'
+            args '-mixin.config=mixins.epicfight.json'
         }
 
         server {
@@ -99,7 +99,7 @@ minecraft {
 
             property 'mixin.env.remapRefMap', 'true'
             property 'mixin.env.refMapRemappingFile', "${buildDir}/createSrgToMcp/output.srg"
-            args '-mixin.config=epicfight.mixins.json'
+            args '-mixin.config=mixins.epicfight.json'
         }
 
         // This run config launches GameTestServer and runs all registered gametests, then exits.
@@ -110,7 +110,7 @@ minecraft {
 
             property 'mixin.env.remapRefMap', 'true'
             property 'mixin.env.refMapRemappingFile', "${buildDir}/createSrgToMcp/output.srg"
-            args '-mixin.config=epicfight.mixins.json'
+            args '-mixin.config=mixins.epicfight.json'
         }
 
         data {
@@ -119,7 +119,7 @@ minecraft {
 
             property 'mixin.env.remapRefMap', 'true'
             property 'mixin.env.refMapRemappingFile', "${buildDir}/createSrgToMcp/output.srg"
-            args '-mixin.config=epicfight.mixins.json'
+            args '-mixin.config=mixins.epicfight.json'
 
             // Specify the modid for data generation, where to output the resulting resource, and where to look for existing resources.
             args '--mod', mod_id, '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
@@ -141,9 +141,9 @@ repositories {
     }
     // If you have mod jar dependencies in ./libs, you can declare them as a repository like so.
     // See https://docs.gradle.org/current/userguide/declaring_repositories.html#sub:flat_dir_resolver
-    // flatDir {
-    //     dir 'libs'
-    // }
+	flatDir {
+		dir 'libs'
+	}
 }
 
 mixin {
@@ -158,8 +158,9 @@ dependencies {
     // If the group id is "net.minecraft" and the artifact id is one of ["client", "server", "joined"],
     // then special handling is done to allow a setup of a vanilla dependency without the use of an external repository.
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
-
-    implementation fg.deobf("curse.maven:epic-fight-mod-405076:5159623")
+	
+	implementation fg.deobf("local:epicfight:20.8.1")
+    //implementation fg.deobf("curse.maven:epic-fight-mod-405076:5159623")
     implementation fg.deobf("curse.maven:geckolib-388172:5060416")
 
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
