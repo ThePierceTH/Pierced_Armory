@@ -1,5 +1,11 @@
 package net.pierceth.pierceth_greatsword.skill;
 
+import java.util.List;
+import java.util.UUID;
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import io.netty.buffer.Unpooled;
 import net.minecraft.client.player.Input;
 import net.minecraft.network.FriendlyByteBuf;
@@ -13,16 +19,17 @@ import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.pierceth.pierceth_greatsword.PiercethGreatsword;
-import net.pierceth.pierceth_greatsword.world.capabilities.item.VOSSkillDataKeys;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import yesman.epicfight.api.animation.AnimationProvider;
 import yesman.epicfight.api.animation.property.AnimationProperty;
 import yesman.epicfight.api.animation.types.EntityState;
 import yesman.epicfight.api.animation.types.StaticAnimation;
 import yesman.epicfight.client.events.engine.ControllEngine;
 import yesman.epicfight.client.world.capabilites.entitypatch.player.LocalPlayerPatch;
 import yesman.epicfight.network.client.CPExecuteSkill;
-import yesman.epicfight.skill.*;
+import yesman.epicfight.skill.Skill;
+import yesman.epicfight.skill.SkillCategories;
+import yesman.epicfight.skill.SkillContainer;
+import yesman.epicfight.skill.SkillDataManager;
 import yesman.epicfight.world.capabilities.entitypatch.player.PlayerPatch;
 import yesman.epicfight.world.capabilities.entitypatch.player.ServerPlayerPatch;
 import yesman.epicfight.world.capabilities.item.CapabilityItem;
@@ -30,9 +37,6 @@ import yesman.epicfight.world.entity.eventlistener.BasicAttackEvent;
 import yesman.epicfight.world.entity.eventlistener.ComboCounterHandleEvent;
 import yesman.epicfight.world.entity.eventlistener.PlayerEventListener.EventType;
 import yesman.epicfight.world.entity.eventlistener.SkillConsumeEvent;
-
-import java.util.List;
-import java.util.UUID;
 
 public class DirectionalBasicAttack extends Skill {
     private static final UUID EVENT_UUID = UUID.fromString("52c3ecc9-3167-4217-bd7d-2fa889e3ec1f");
@@ -108,14 +112,14 @@ public class DirectionalBasicAttack extends Skill {
 
             if ((entity instanceof PlayerRideableJumping ridable && ridable.canJump()) && cap.availableOnHorse() && cap.getMountAttackMotion() != null) {
                 comboCounter %= cap.getMountAttackMotion().size();
-                attackMotion = cap.getMountAttackMotion().get(comboCounter);
+                attackMotion = cap.getMountAttackMotion().get(comboCounter).get();
                 comboCounter++;
             }
         } else {
             int fw = args.readInt();
             int sw = args.readInt();
 
-            List<StaticAnimation> combo = cap.getAutoAttckMotion(executer);
+            List<AnimationProvider<?>> combo = cap.getAutoAttckMotion(executer);
             int comboSize = combo.size();
             boolean dashAttack = player.isSprinting();
 
@@ -142,7 +146,7 @@ public class DirectionalBasicAttack extends Skill {
                 comboCounter %= comboSize - 2;
             }
 
-            attackMotion = combo.get(comboCounter);
+            attackMotion = combo.get(comboCounter).get();
             comboCounter = dashAttack ? 0 : comboCounter + 1;
         }
 

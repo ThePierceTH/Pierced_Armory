@@ -10,6 +10,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.pierceth.pierceth_greatsword.particle.PierceTHParticles;
+import net.pierceth.pierceth_greatsword.world.capabilities.item.VOSSkillDataKeys;
 import net.pierceth.pierceth_greatsword.world.item.PierceTHCreativeTabs;
 import org.slf4j.Logger;
 import net.pierceth.pierceth_greatsword.gameasset.PierceTHSkills;
@@ -31,9 +32,9 @@ public class PiercethGreatsword
         PierceTHItems.ITEMS.register(bus);
         PierceTHCreativeTabs.TABS.register(bus);
         PierceTHParticles.PARTICLES.register(bus);
-
+        VOSSkillDataKeys.DATA_KEYS.register(bus);
+        
         bus.addListener(PierceTHAnimations::registerAnimations);
-        PierceTHSkills.registerSkills();
         SkillDataKeys.DATA_KEYS.register(bus);
 
         bus.addListener(this::commonSetup);
