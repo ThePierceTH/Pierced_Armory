@@ -3,6 +3,7 @@ package net.pierceth.pierceth_greatsword.skill;
 import java.util.List;
 import java.util.UUID;
 
+import net.minecraft.world.item.ItemStack;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -25,8 +26,11 @@ import yesman.epicfight.api.animation.types.EntityState;
 import yesman.epicfight.api.animation.types.StaticAnimation;
 import yesman.epicfight.client.events.engine.ControllEngine;
 import yesman.epicfight.client.world.capabilites.entitypatch.player.LocalPlayerPatch;
+import yesman.epicfight.network.EpicFightNetworkManager;
 import yesman.epicfight.network.client.CPExecuteSkill;
+import yesman.epicfight.network.server.SPSkillExecutionFeedback;
 import yesman.epicfight.skill.*;
+import yesman.epicfight.world.capabilities.EpicFightCapabilities;
 import yesman.epicfight.world.capabilities.entitypatch.player.PlayerPatch;
 import yesman.epicfight.world.capabilities.entitypatch.player.ServerPlayerPatch;
 import yesman.epicfight.world.capabilities.item.CapabilityItem;
@@ -44,8 +48,6 @@ public class DirectionalBasicAttack extends BasicAttack {
 
     @Override
     public void executeOnServer(ServerPlayerPatch executer, FriendlyByteBuf args) {
-        Logger logger = LogManager.getLogger(PiercethGreatsword.MODID);
-
         SkillConsumeEvent event = new SkillConsumeEvent(executer, this, this.resource, true);
         executer.getEventListener().triggerEvents(EventType.SKILL_CONSUME_EVENT, event);
 
@@ -64,7 +66,7 @@ public class DirectionalBasicAttack extends BasicAttack {
         SkillDataManager dataManager = skillContainer.getDataManager();
         int comboCounter = dataManager.getDataValue(SkillDataKeys.COMBO_COUNTER.get());
 
-        logger.debug("Combo Counter: " + comboCounter);
+        System.out.println("Combo Counter: " + comboCounter);
 
         if (player.isPassenger()) {
             Entity entity = player.getVehicle();
@@ -75,15 +77,20 @@ public class DirectionalBasicAttack extends BasicAttack {
                 comboCounter++;
             }
         } else {
-            logger.debug("Good ");
+            System.out.println("Reading Data");
+            System.out.println("Readable Bytes: " + args.readableBytes());
+            System.out.println("Can Execute: " + this.canExecute(executer));
+            System.out.println("Is Executable State: " + this.isExecutableState(executer));
+            System.out.println("Resource Predicate: " + this.resourcePredicate(executer));
+            System.out.println("Event Cancelled: " + event.isCanceled());
             int fw = args.readInt();
             int sw = args.readInt();
-            logger.debug("Good 2");
+            System.out.println("Successfully Read Data");
             List<AnimationProvider<?>> combo = cap.getAutoAttckMotion(executer);
             int comboSize = combo.size();
             boolean dashAttack = player.isSprinting();
 
-            logger.debug("Combo Size:" + comboSize);
+            System.out.println("Combo Size:" + comboSize);
 
             if (dashAttack) {
                 // Dash Attack
@@ -128,6 +135,8 @@ public class DirectionalBasicAttack extends BasicAttack {
     @OnlyIn(Dist.CLIENT)
     @Override
     public FriendlyByteBuf gatherArguments(LocalPlayerPatch executer, ControllEngine controllEngine) {
+        System.out.println("Gather Arguments");
+
         Input input = executer.getOriginal().input;
         float pulse = Mth.clamp(0.3F + EnchantmentHelper.getSneakingSpeedBonus(executer.getOriginal()), 0.0F, 1.0F);
         input.tick(false, pulse);
@@ -149,6 +158,8 @@ public class DirectionalBasicAttack extends BasicAttack {
     @OnlyIn(Dist.CLIENT)
     @Override
     public Object getExecutionPacket(LocalPlayerPatch executer, FriendlyByteBuf args) {
+        System.out.println("Get Execution Packet");
+
         int forward = args.readInt();
         int backward = args.readInt();
         int left = args.readInt();
