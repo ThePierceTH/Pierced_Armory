@@ -26,10 +26,7 @@ import yesman.epicfight.api.animation.types.StaticAnimation;
 import yesman.epicfight.client.events.engine.ControllEngine;
 import yesman.epicfight.client.world.capabilites.entitypatch.player.LocalPlayerPatch;
 import yesman.epicfight.network.client.CPExecuteSkill;
-import yesman.epicfight.skill.Skill;
-import yesman.epicfight.skill.SkillCategories;
-import yesman.epicfight.skill.SkillContainer;
-import yesman.epicfight.skill.SkillDataManager;
+import yesman.epicfight.skill.*;
 import yesman.epicfight.world.capabilities.entitypatch.player.PlayerPatch;
 import yesman.epicfight.world.capabilities.entitypatch.player.ServerPlayerPatch;
 import yesman.epicfight.world.capabilities.item.CapabilityItem;
@@ -38,48 +35,11 @@ import yesman.epicfight.world.entity.eventlistener.ComboCounterHandleEvent;
 import yesman.epicfight.world.entity.eventlistener.PlayerEventListener.EventType;
 import yesman.epicfight.world.entity.eventlistener.SkillConsumeEvent;
 
-public class DirectionalBasicAttack extends Skill {
+public class DirectionalBasicAttack extends BasicAttack {
     private static final UUID EVENT_UUID = UUID.fromString("52c3ecc9-3167-4217-bd7d-2fa889e3ec1f");
-
-    public static Skill.Builder<DirectionalBasicAttack> createBasicAttackBuilder() {
-        return (new Builder<DirectionalBasicAttack>()).setCategory(SkillCategories.BASIC_ATTACK).setActivateType(ActivateType.ONE_SHOT).setResource(Resource.NONE);
-    }
-
-    public static void setComboCounterWithEvent(ComboCounterHandleEvent.Causal reason, ServerPlayerPatch playerpatch, SkillContainer container, StaticAnimation causalAnimation, int value) {
-        //int prevValue = container.getDataManager().getDataValue(VOSSkillDataKeys.DIRECTIONAL_COMBO_COUNTER.get());
-        //ComboCounterHandleEvent comboResetEvent = new ComboCounterHandleEvent(reason, playerpatch, causalAnimation, prevValue, value);
-        // container.getExecuter().getEventListener().triggerEvents(EventType.COMBO_COUNTER_HANDLE_EVENT, comboResetEvent);
-        //container.getDataManager().setData(VOSSkillDataKeys.DIRECTIONAL_COMBO_COUNTER.get(), comboResetEvent.getNextValue());
-    }
 
     public DirectionalBasicAttack(Builder<? extends Skill> builder) {
         super(builder);
-    }
-
-    @Override
-    public void onInitiate(SkillContainer container) {
-        container.getExecuter().getEventListener().addEventListener(EventType.ACTION_EVENT_SERVER, EVENT_UUID, (event) -> {
-            if (!event.getAnimation().isBasicAttackAnimation() && event.getAnimation().getProperty(AnimationProperty.ActionAnimationProperty.RESET_PLAYER_COMBO_COUNTER).orElse(true)) {
-                CapabilityItem item = event.getPlayerPatch().getHoldingItemCapability(InteractionHand.MAIN_HAND);
-
-                if (item.shouldCancelCombo(event.getPlayerPatch())) {
-                    setComboCounterWithEvent(ComboCounterHandleEvent.Causal.ACTION_ANIMATION_RESET, event.getPlayerPatch(), container, event.getAnimation(), 0);
-                }
-            }
-        });
-    }
-
-    @Override
-    public void onRemoved(SkillContainer container) {
-        container.getExecuter().getEventListener().removeListener(EventType.ACTION_EVENT_SERVER, EVENT_UUID);
-    }
-
-    @Override
-    public boolean isExecutableState(PlayerPatch<?> executer) {
-        EntityState playerState = executer.getEntityState();
-        Player player = executer.getOriginal();
-
-        return !(player.isSpectator() || executer.isUnstable() || !playerState.canBasicAttack());
     }
 
     @Override
@@ -102,10 +62,9 @@ public class DirectionalBasicAttack extends Skill {
         ServerPlayer player = executer.getOriginal();
         SkillContainer skillContainer = executer.getSkill(this);
         SkillDataManager dataManager = skillContainer.getDataManager();
-        //int comboCounter = dataManager.getDataValue(VOSSkillDataKeys.DIRECTIONAL_COMBO_COUNTER.get());
-        int comboCounter = 0;
+        int comboCounter = dataManager.getDataValue(SkillDataKeys.COMBO_COUNTER.get());
 
-        logger.debug("wow");
+        logger.debug("Combo Counter: " + comboCounter);
 
         if (player.isPassenger()) {
             Entity entity = player.getVehicle();
@@ -116,9 +75,10 @@ public class DirectionalBasicAttack extends Skill {
                 comboCounter++;
             }
         } else {
+            logger.debug("Good ");
             int fw = args.readInt();
             int sw = args.readInt();
-
+            logger.debug("Good 2");
             List<AnimationProvider<?>> combo = cap.getAutoAttckMotion(executer);
             int comboSize = combo.size();
             boolean dashAttack = player.isSprinting();
@@ -159,11 +119,10 @@ public class DirectionalBasicAttack extends Skill {
         executer.updateEntityState();
     }
 
+    @OnlyIn(Dist.CLIENT)
     @Override
-    public void updateContainer(SkillContainer container) {
-        //if (!container.getExecuter().isLogicalClient() && container.getExecuter().getTickSinceLastAction() > 16 && container.getDataManager().getDataValue(SkillDataKeys.COMBO_COUNTER.get()) > 0) {
-        //    setComboCounterWithEvent(ComboCounterHandleEvent.Causal.TIME_EXPIRED_RESET, (ServerPlayerPatch)container.getExecuter(), container, null, 0);
-        //}
+    public void executeOnClient(LocalPlayerPatch executer, FriendlyByteBuf args) {
+
     }
 
     @OnlyIn(Dist.CLIENT)

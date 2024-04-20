@@ -13,6 +13,7 @@
 	health_bar_show_option = "HURT"
 	camera_auto_switch = false
 	filter_animation = true
+	aiming_correction = true
 	no_mining_in_combat = true
 	battle_autoswitch_items = []
 
