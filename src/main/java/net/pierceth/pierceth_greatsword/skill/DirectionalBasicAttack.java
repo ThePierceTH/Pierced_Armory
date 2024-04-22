@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.UUID;
 
 import net.minecraft.world.item.ItemStack;
+import net.pierceth.pierceth_greatsword.data.AnimConfig;
+import net.pierceth.pierceth_greatsword.world.capabilities.item.VOSWeaponCapability;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -60,13 +62,14 @@ public class DirectionalBasicAttack extends BasicAttack {
         }
 
         CapabilityItem cap = executer.getHoldingItemCapability(InteractionHand.MAIN_HAND);
+        if (!(cap instanceof VOSWeaponCapability))
+            return;
+
         StaticAnimation attackMotion = null;
         ServerPlayer player = executer.getOriginal();
         SkillContainer skillContainer = executer.getSkill(this);
         SkillDataManager dataManager = skillContainer.getDataManager();
         int comboCounter = dataManager.getDataValue(SkillDataKeys.COMBO_COUNTER.get());
-
-        System.out.println("Combo Counter: " + comboCounter);
 
         if (player.isPassenger()) {
             Entity entity = player.getVehicle();
@@ -77,44 +80,43 @@ public class DirectionalBasicAttack extends BasicAttack {
                 comboCounter++;
             }
         } else {
-            System.out.println("Reading Data");
-            System.out.println("Readable Bytes: " + args.readableBytes());
-            System.out.println("Can Execute: " + this.canExecute(executer));
-            System.out.println("Is Executable State: " + this.isExecutableState(executer));
-            System.out.println("Resource Predicate: " + this.resourcePredicate(executer));
-            System.out.println("Event Cancelled: " + event.isCanceled());
             int fw = args.readInt();
             int sw = args.readInt();
-            System.out.println("Successfully Read Data");
             List<AnimationProvider<?>> combo = cap.getAutoAttckMotion(executer);
+            List<AnimConfig> configs = ((VOSWeaponCapability) cap).getAnimConfigs(executer);
             int comboSize = combo.size();
             boolean dashAttack = player.isSprinting();
 
-            System.out.println("Combo Size:" + comboSize);
-
             if (dashAttack) {
                 // Dash Attack
-                comboCounter = comboSize - 2;
+                System.out.println("Dash Attack");
+                comboCounter = comboCounterValid(AnimConfig.DASH_COMBO, configs, comboCounter);
             }
             else if(sw == -1) {
                 // Right Attack
-                comboCounter = 0;
+                System.out.println("Right Attack");
+                comboCounter = comboCounterValid(AnimConfig.RIGHT_LIGHT_COMBO, configs, comboCounter);
             }
             else if(sw == 1) {
                 // Left Attack
-                comboCounter = 0;
+                System.out.println("Left Attack");
+                comboCounter = comboCounterValid(AnimConfig.LEFT_LIGHT_COMBO, configs, comboCounter);
             }
             else if(fw == -1) {
                 // Back Attack
-                comboCounter = 0;
+                System.out.println("Back Attack");
+                comboCounter = comboCounterValid(AnimConfig.BACK_LIGHT_COMBO, configs, comboCounter);
             }
             else {
                 // Normal Attack
-                comboCounter %= comboSize - 2;
+                System.out.println("Normal Attack");
+                comboCounter = comboCounterValid(AnimConfig.LIGHT_COMBO, configs, comboCounter);
             }
 
+
+            System.out.println("Combo Counter: " + comboCounter);
             attackMotion = combo.get(comboCounter).get();
-            comboCounter = dashAttack ? 0 : comboCounter + 1;
+            comboCounter++;
         }
 
         setComboCounterWithEvent(ComboCounterHandleEvent.Causal.ACTION_ANIMATION_RESET, executer, skillContainer, attackMotion, comboCounter);
@@ -135,8 +137,6 @@ public class DirectionalBasicAttack extends BasicAttack {
     @OnlyIn(Dist.CLIENT)
     @Override
     public FriendlyByteBuf gatherArguments(LocalPlayerPatch executer, ControllEngine controllEngine) {
-        System.out.println("Gather Arguments");
-
         Input input = executer.getOriginal().input;
         float pulse = Mth.clamp(0.3F + EnchantmentHelper.getSneakingSpeedBonus(executer.getOriginal()), 0.0F, 1.0F);
         input.tick(false, pulse);
@@ -158,8 +158,6 @@ public class DirectionalBasicAttack extends BasicAttack {
     @OnlyIn(Dist.CLIENT)
     @Override
     public Object getExecutionPacket(LocalPlayerPatch executer, FriendlyByteBuf args) {
-        System.out.println("Get Execution Packet");
-
         int forward = args.readInt();
         int backward = args.readInt();
         int left = args.readInt();
@@ -172,5 +170,28 @@ public class DirectionalBasicAttack extends BasicAttack {
         packet.getBuffer().writeInt(Integer.compare(horizon, 0));
 
         return packet;
+    }
+
+    private int getComboInitialIndex(AnimConfig animcConfig, List<AnimConfig> animConfigs) {
+        int origIndex = animConfigs.indexOf(animcConfig);
+
+        System.out.println("AnimConfig Index: " + origIndex);
+
+        int totalSize = 0;
+        for (int i = 0; i < origIndex; i++) {
+            totalSize += animConfigs.get(i).getComboSize();
+        }
+
+        return totalSize;
+    }
+
+    private int comboCounterValid(AnimConfig animConfig, List<AnimConfig> animConfigs, int comboCounter) {
+        int initialIndex = getComboInitialIndex(animConfig, animConfigs);
+        int finalIndex = initialIndex + animConfig.getComboSize() - 1;
+
+        System.out.println("Starting Index: " + initialIndex);
+        System.out.println("Ending Index: " + finalIndex);
+
+        return comboCounter >= initialIndex && comboCounter <= finalIndex ? comboCounter : initialIndex;
     }
 }

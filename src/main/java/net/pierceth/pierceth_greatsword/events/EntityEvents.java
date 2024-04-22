@@ -1,5 +1,6 @@
 package net.pierceth.pierceth_greatsword.events;
 
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.Entity;
 import net.minecraftforge.event.entity.living.LivingEquipmentChangeEvent;
@@ -11,6 +12,9 @@ import net.pierceth.pierceth_greatsword.world.capabilities.item.VOSWeaponCapabil
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import yesman.epicfight.gameasset.EpicFightSkills;
+import yesman.epicfight.network.EpicFightNetworkManager;
+import yesman.epicfight.network.client.CPChangeSkill;
+import yesman.epicfight.network.server.SPChangeSkill;
 import yesman.epicfight.skill.SkillSlots;
 import yesman.epicfight.world.capabilities.EpicFightCapabilities;
 import yesman.epicfight.world.capabilities.entitypatch.EntityPatch;
@@ -44,14 +48,17 @@ public class EntityEvents {
                 if (((VOSWeaponCapability) itemCap).isDirectional()) {
                     logger.debug("Is Directional");
                     skillCapability.skillContainers[SkillSlots.BASIC_ATTACK.universalOrdinal()].setSkill(PierceTHSkills.DIRECTIONAL_BASIC_ATTACK);
+                    EpicFightNetworkManager.sendToPlayer(new SPChangeSkill(SkillSlots.BASIC_ATTACK, PierceTHSkills.DIRECTIONAL_BASIC_ATTACK.toString(), SPChangeSkill.State.ENABLE), (ServerPlayer) event.getEntity());
                 } else {
                     logger.debug("Not Directional");
                     skillCapability.skillContainers[SkillSlots.BASIC_ATTACK.universalOrdinal()].setSkill(EpicFightSkills.BASIC_ATTACK);
+                    EpicFightNetworkManager.sendToPlayer(new SPChangeSkill(SkillSlots.BASIC_ATTACK, EpicFightSkills.BASIC_ATTACK.toString(), SPChangeSkill.State.ENABLE), (ServerPlayer) event.getEntity());
                 }
             }
             else {
                 logger.debug("Not Directional");
                 skillCapability.skillContainers[SkillSlots.BASIC_ATTACK.universalOrdinal()].setSkill(EpicFightSkills.BASIC_ATTACK);
+                EpicFightNetworkManager.sendToPlayer(new SPChangeSkill(SkillSlots.BASIC_ATTACK, EpicFightSkills.BASIC_ATTACK.toString(), SPChangeSkill.State.ENABLE), (ServerPlayer) event.getEntity());
             }
         }
     }

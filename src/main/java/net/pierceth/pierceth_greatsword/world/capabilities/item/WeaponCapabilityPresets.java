@@ -6,6 +6,7 @@ import java.util.function.Function;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.pierceth.pierceth_greatsword.PiercethGreatsword;
+import net.pierceth.pierceth_greatsword.data.AnimConfig;
 import net.pierceth.pierceth_greatsword.gameasset.PierceTHAnimations;
 import com.google.common.collect.Maps;
 
@@ -99,11 +100,25 @@ public class WeaponCapabilityPresets {
                 .swingSound(EpicFightSounds.WHOOSH_BIG.get())
                 .hitSound(EpicFightSounds.BLADE_HIT.get())
                 .canBePlacedOffhand(false)
+                .newAnimConfig(Styles.TWO_HAND,
+                        AnimConfig.LIGHT_COMBO.setComboSize(4),
+                        AnimConfig.LEFT_LIGHT_COMBO.setComboSize(2),
+                        AnimConfig.RIGHT_LIGHT_COMBO.setComboSize(2),
+                        AnimConfig.BACK_LIGHT_COMBO.setComboSize(2),
+                        AnimConfig.DASH_COMBO.setComboSize(1),
+                        AnimConfig.AIR_COMBO.setComboSize(1)
+                    )
                 .newStyleCombo(Styles.TWO_HAND,
                         PierceTHAnimations.BAHAMUT_AUTO1,
                         PierceTHAnimations.BAHAMUT_AUTO2,
                         PierceTHAnimations.BAHAMUT_AUTO3,
                         PierceTHAnimations.BAHAMUT_AUTO4,
+                        Animations.DAGGER_AUTO1,
+                        Animations.DAGGER_AUTO2,
+                        Animations.SWORD_AUTO1,
+                        Animations.SWORD_AUTO2,
+                        Animations.LONGSWORD_AUTO1,
+                        Animations.LONGSWORD_AUTO2,
                         PierceTHAnimations.BAHAMUT_DASH,
                         Animations.GREATSWORD_AIR_SLASH)
                 .innateSkill(Styles.TWO_HAND, (itemStack) -> PierceTHSkills.DRAGON_CLAW)

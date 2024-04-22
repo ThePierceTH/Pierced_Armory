@@ -1,10 +1,18 @@
 package net.pierceth.pierceth_greatsword.world.capabilities.item;
 
+import java.util.List;
+import java.util.Map;
+import java.util.function.Function;
+
+import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import com.mojang.datafixers.util.Pair;
+
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.item.ItemStack;
+import net.pierceth.pierceth_greatsword.data.AnimConfig;
 import yesman.epicfight.api.animation.LivingMotion;
 import yesman.epicfight.api.animation.LivingMotions;
 import yesman.epicfight.api.animation.types.StaticAnimation;
@@ -12,25 +20,30 @@ import yesman.epicfight.api.collider.Collider;
 import yesman.epicfight.particle.HitParticleType;
 import yesman.epicfight.skill.Skill;
 import yesman.epicfight.world.capabilities.entitypatch.LivingEntityPatch;
+import yesman.epicfight.world.capabilities.entitypatch.player.PlayerPatch;
 import yesman.epicfight.world.capabilities.item.CapabilityItem;
 import yesman.epicfight.world.capabilities.item.Style;
 import yesman.epicfight.world.capabilities.item.WeaponCapability;
 import yesman.epicfight.world.capabilities.item.WeaponCategory;
 
-import java.util.function.Function;
-
 public class VOSWeaponCapability extends WeaponCapability {
     protected final boolean directional;
+    protected final Map<Style, List<AnimConfig>> animConfigs;
 
     protected VOSWeaponCapability(CapabilityItem.Builder builder) {
         super(builder);
 
         VOSWeaponCapability.Builder weaponBuilder = (VOSWeaponCapability.Builder)builder;
         this.directional = weaponBuilder.directional;
+        this.animConfigs = weaponBuilder.animConfigMap;
     }
 
     public boolean isDirectional() {
         return this.directional;
+    }
+
+    public final List<AnimConfig> getAnimConfigs(PlayerPatch<?> playerPatch) {
+        return this.animConfigs.get(this.getStyle(playerPatch));
     }
 
     public static VOSWeaponCapability.Builder builder() {
@@ -39,14 +52,21 @@ public class VOSWeaponCapability extends WeaponCapability {
 
     public static class Builder extends WeaponCapability.Builder {
         boolean directional;
+        Map<Style, List<AnimConfig>> animConfigMap;
 
         protected Builder() {
             super();
             this.directional = false;
+            this.animConfigMap = Maps.newHashMap();
         }
 
         public Builder isDirectional(boolean value) {
             this.directional = value;
+            return this;
+        }
+
+        public Builder newAnimConfig(Style style, AnimConfig... animConfigs) {
+            this.animConfigMap.put(style, Lists.newArrayList(animConfigs));
             return this;
         }
 
