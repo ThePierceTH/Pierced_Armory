@@ -62,10 +62,14 @@ public class PierceTHAnimations {
     public static StaticAnimation WALK_BAHAMUT;
     public static StaticAnimation RUN_BAHAMUT;
     public static StaticAnimation BAHAMUT_DASH;
+    public static StaticAnimation BAHAMUT_AIRSLASH;
     public static StaticAnimation BAHAMUT_AUTO1;
     public static StaticAnimation BAHAMUT_AUTO2;
     public static StaticAnimation BAHAMUT_AUTO3;
     public static StaticAnimation BAHAMUT_AUTO4;
+    public static StaticAnimation BAHAMUT_RAUTO1;
+    public static StaticAnimation BAHAMUT_LAUTO1;
+    public static StaticAnimation BAHAMUT_BAUTO1;
 
     @SubscribeEvent
     public static void registerAnimations(AnimationRegistryEvent event) {
@@ -145,6 +149,10 @@ public class PierceTHAnimations {
                 .addProperty(AnimationProperty.AttackAnimationProperty.BASIS_ATTACK_SPEED, 0.7F)
                 .addProperty(AnimationProperty.AttackAnimationProperty.FIXED_MOVE_DISTANCE, true)
                 .addProperty(AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(0.6F));
+        BAHAMUT_AIRSLASH = new BasicAttackAnimation(0.15F, 0.65F, 0.95F, 0.85F,
+                null, biped.toolR, "biped/combat/bahamut_airslash", biped)
+                .addProperty(AnimationProperty.AttackAnimationProperty.FIXED_MOVE_DISTANCE, true)
+                .addProperty(AnimationProperty.AttackAnimationProperty.BASIS_ATTACK_SPEED, 1.0F);
 
         BAHAMUT_AUTO1 = new BasicAttackAnimation(0.15F, 0.65F, 0.95F, 0.85F,
                 null, biped.toolR, "biped/combat/bahamut_auto1", biped)
@@ -152,15 +160,30 @@ public class PierceTHAnimations {
                 .addProperty(AnimationProperty.AttackAnimationProperty.BASIS_ATTACK_SPEED, 1.0F);
         BAHAMUT_AUTO2 = new BasicAttackAnimation(0.15F, "biped/combat/bahamut_auto2", biped,
                 new AttackAnimation.Phase(0.45F, 0.65F, 0.65F, 0.9F, 1.5F, 1.0F, biped.toolR, null),
-                new AttackAnimation.Phase(1.0F, 1.4F, 1.2F, 1.8F, 2.0F, Float.MAX_VALUE, biped.toolR, null))
+                new AttackAnimation.Phase(1.0F, 1.4F, 1.4F, 1.8F, 2.0F, Float.MAX_VALUE, biped.toolR, null))
                 .addProperty(AnimationProperty.AttackAnimationProperty.FIXED_MOVE_DISTANCE, true)
                 .addProperty(AnimationProperty.AttackAnimationProperty.BASIS_ATTACK_SPEED, 0.9F);
-        BAHAMUT_AUTO3 = new BasicAttackAnimation(0.15F, 0.55F, 1.35F, 2.5F,
-                null, biped.toolR, "biped/combat/bahamut_auto3", biped)
+        BAHAMUT_AUTO3 = new BasicAttackAnimation(0.15F, "biped/combat/bahamut_auto3", biped,
+                new AttackAnimation.Phase(0.45F, 0.65F, 0.65F, 0.9F, 1.5F, 1.0F, biped.toolR, null),
+                new AttackAnimation.Phase(1.0F, 1.4F, 1.2F, 1.8F, 2.0F, Float.MAX_VALUE, biped.toolR, null))
                 .addProperty(AnimationProperty.AttackAnimationProperty.FIXED_MOVE_DISTANCE, true)
                 .addProperty(AnimationProperty.AttackAnimationProperty.BASIS_ATTACK_SPEED, 1.0F);
-        BAHAMUT_AUTO4 = new BasicAttackAnimation(0.15F, 0.55F, 1.35F, 2.0F,
-                null, biped.toolR, "biped/combat/bahamut_auto4", biped)
+        BAHAMUT_AUTO4 = new BasicAttackAnimation(0.15F, "biped/combat/bahamut_auto4", biped,
+                new AttackAnimation.Phase(0.45F, 0.65F, 0.65F, 0.9F, 1.5F, 1.0F, biped.toolR, null),
+                new AttackAnimation.Phase(1.0F, 1.5F, 1.5F, 1.8F, 2.0F, Float.MAX_VALUE, biped.toolR, null))
+                .addProperty(AnimationProperty.AttackAnimationProperty.FIXED_MOVE_DISTANCE, true)
+                .addProperty(AnimationProperty.AttackAnimationProperty.BASIS_ATTACK_SPEED, 1.0F);
+
+        BAHAMUT_RAUTO1 = new BasicAttackAnimation(0.15F, 0.65F, 0.95F, 0.85F,
+                null, biped.toolR, "biped/combat/bahamut_rauto1", biped)
+                .addProperty(AnimationProperty.AttackAnimationProperty.FIXED_MOVE_DISTANCE, true)
+                .addProperty(AnimationProperty.AttackAnimationProperty.BASIS_ATTACK_SPEED, 0.9F);
+        BAHAMUT_LAUTO1 = new BasicAttackAnimation(0.15F, 0.35F, 0.95F, 0.85F,
+                null, biped.toolR, "biped/combat/bahamut_lauto1", biped)
+                .addProperty(AnimationProperty.AttackAnimationProperty.FIXED_MOVE_DISTANCE, true)
+                .addProperty(AnimationProperty.AttackAnimationProperty.BASIS_ATTACK_SPEED, 1.0F);
+        BAHAMUT_BAUTO1 = new BasicAttackAnimation(0.15F, 0.35F, 0.95F, 0.85F,
+                null, biped.toolR, "biped/combat/bahamut_bauto1", biped)
                 .addProperty(AnimationProperty.AttackAnimationProperty.FIXED_MOVE_DISTANCE, true)
                 .addProperty(AnimationProperty.AttackAnimationProperty.BASIS_ATTACK_SPEED, 1.0F);
 

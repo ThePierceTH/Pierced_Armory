@@ -113,14 +113,14 @@ public class WeaponCapabilityPresets {
                         PierceTHAnimations.BAHAMUT_AUTO2,
                         PierceTHAnimations.BAHAMUT_AUTO3,
                         PierceTHAnimations.BAHAMUT_AUTO4,
-                        Animations.DAGGER_AUTO1,
+                        PierceTHAnimations.BAHAMUT_LAUTO1,
                         Animations.DAGGER_AUTO2,
-                        Animations.SWORD_AUTO1,
+                        PierceTHAnimations.BAHAMUT_RAUTO1,
                         Animations.SWORD_AUTO2,
-                        Animations.LONGSWORD_AUTO1,
+                        PierceTHAnimations.BAHAMUT_BAUTO1,
                         Animations.LONGSWORD_AUTO2,
                         PierceTHAnimations.BAHAMUT_DASH,
-                        Animations.GREATSWORD_AIR_SLASH)
+                        PierceTHAnimations.BAHAMUT_AIRSLASH)
                 .innateSkill(Styles.TWO_HAND, (itemStack) -> PierceTHSkills.DRAGON_CLAW)
                 .livingMotionModifier(Styles.TWO_HAND, LivingMotions.IDLE, PierceTHAnimations.HOLD_BAHAMUT)
                 .livingMotionModifier(Styles.TWO_HAND, LivingMotions.WALK, PierceTHAnimations.WALK_BAHAMUT)
