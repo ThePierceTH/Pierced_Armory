@@ -1,11 +1,13 @@
 package net.pierceth.pierceth_greatsword.world.item;
 
 import java.util.UUID;
+import java.util.function.Consumer;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.ImmutableMultimap.Builder;
 import com.google.common.collect.Multimap;
 
+import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
@@ -16,12 +18,21 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Tier;
 
+import net.minecraftforge.client.extensions.common.IClientItemExtensions;
+import net.pierceth.pierceth_greatsword.renderer.BahamutRenderer;
+import net.pierceth.pierceth_greatsword.renderer.PonguardSlicerRenderer;
+import software.bernie.geckolib.core.animatable.GeoAnimatable;
+import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.core.animatable.instance.SingletonAnimatableInstanceCache;
+import software.bernie.geckolib.core.animation.AnimatableManager;
 import yesman.epicfight.world.item.WeaponItem;
 
-public class PonguardSlicerItem extends WeaponItem {
+public class PonguardSlicerItem extends WeaponItem implements GeoAnimatable {
         protected static final UUID MOVEMENT_SPEED_MODIFIER = UUID.fromString("16295ED8-B092-4A75-9A94-BCD8D56668BB");
         private final float attackDamage;
         private final float attackSpeed;
+
+    private final AnimatableInstanceCache cache = new SingletonAnimatableInstanceCache(this);
 
         @SuppressWarnings("deprecation")
         public PonguardSlicerItem(Item.Properties build, Tier tier) {
@@ -52,4 +63,33 @@ public class PonguardSlicerItem extends WeaponItem {
             }
 
             return super.getAttributeModifiers(slot, stack);
-}}
+}
+
+    @Override
+    public void initializeClient(Consumer<IClientItemExtensions> consumer) {
+        super.initializeClient(consumer);
+        consumer.accept(new IClientItemExtensions() {
+            private final BlockEntityWithoutLevelRenderer renderer = new PonguardSlicerRenderer();
+
+            @Override
+            public BlockEntityWithoutLevelRenderer getCustomRenderer() {
+                return renderer;
+            }
+        });
+    }
+
+    @Override
+    public void registerControllers(AnimatableManager.ControllerRegistrar controllerRegistrar) {
+
+    }
+
+    @Override
+    public AnimatableInstanceCache getAnimatableInstanceCache() {
+        return this.cache;
+    }
+
+    @Override
+    public double getTick(Object o) {
+        return 0;
+    }
+}

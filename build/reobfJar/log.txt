@@ -144,7 +144,11 @@ Conflicting propagated mapping for software/bernie/geckolib/renderer/GeoItemRend
 Conflicting propagated mapping for yesman/epicfight/world/item/WeaponItem/isCorrectToolForDrops(Lnet/minecraft/world/level/block/state/BlockState;)Z from net/minecraft/world/item/SwordItem/isCorrectToolForDrops(Lnet/minecraft/world/level/block/state/BlockState;)Z: isCorrectToolForDrops -> m_8096_
 Conflicting propagated mapping for net/pierceth/pierceth_greatsword/world/item/BahamutItem/appendHoverText(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V from net/minecraft/world/item/Item/appendHoverText(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/level/Level;Ljava/util/List;Lnet/minecraft/world/item/TooltipFlag;)V: appendHoverText -> m_7373_
 Conflicting propagated mapping for net/pierceth/pierceth_greatsword/world/item/BahamutItem/isValidRepairItem(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/item/ItemStack;)Z from net/minecraft/world/item/TieredItem/isValidRepairItem(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/item/ItemStack;)Z: isValidRepairItem -> m_6832_
+Conflicting propagated mapping for net/pierceth/pierceth_greatsword/world/item/PonguardSlicerItem/getEnchantmentValue()I from net/minecraft/world/item/TieredItem/getEnchantmentValue()I: getEnchantmentValue -> m_6473_
+Conflicting propagated mapping for net/pierceth/pierceth_greatsword/world/item/PonguardSlicerItem/hurtEnemy(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/entity/LivingEntity;)Z from net/minecraft/world/item/SwordItem/hurtEnemy(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/entity/LivingEntity;)Z: hurtEnemy -> m_7579_
 Conflicting propagated mapping for net/pierceth/pierceth_greatsword/world/item/LawliethSlicerItem/getEnchantmentValue()I from net/minecraft/world/item/TieredItem/getEnchantmentValue()I: getEnchantmentValue -> m_6473_
+Conflicting propagated mapping for yesman/epicfight/world/damagesource/EpicFightDamageSource/is(Lnet/minecraft/tags/TagKey;)Z from net/minecraft/world/damagesource/DamageSource/is(Lnet/minecraft/tags/TagKey;)Z: is -> m_269533_
+Conflicting propagated mapping for yesman/epicfight/world/damagesource/EpicFightDamageSource/is(Lnet/minecraft/resources/ResourceKey;)Z from net/minecraft/world/damagesource/DamageSource/is(Lnet/minecraft/resources/ResourceKey;)Z: is -> m_276093_
 Conflicting propagated mapping for net/pierceth/pierceth_greatsword/world/item/PierceArmorMaterials/getRepairIngredient()Lnet/minecraft/world/item/crafting/Ingredient; from net/minecraft/world/item/ArmorMaterial/getRepairIngredient()Lnet/minecraft/world/item/crafting/Ingredient;: getRepairIngredient -> m_6230_
 Conflicting propagated mapping for net/pierceth/pierceth_greatsword/world/item/PierceArmorMaterials/getEnchantmentValue()I from net/minecraft/world/item/ArmorMaterial/getEnchantmentValue()I: getEnchantmentValue -> m_6646_
 Conflicting propagated mapping for net/pierceth/pierceth_greatsword/world/item/PierceArmorMaterials/getKnockbackResistance()F from net/minecraft/world/item/ArmorMaterial/getKnockbackResistance()F: getKnockbackResistance -> m_6649_
@@ -153,17 +157,13 @@ Conflicting propagated mapping for net/pierceth/pierceth_greatsword/world/item/P
 Conflicting propagated mapping for net/pierceth/pierceth_greatsword/world/item/PierceArmorMaterials/getDefenseForType(Lnet/minecraft/world/item/ArmorItem$Type;)I from net/minecraft/world/item/ArmorMaterial/getDefenseForType(Lnet/minecraft/world/item/ArmorItem$Type;)I: getDefenseForType -> m_7366_
 Conflicting propagated mapping for net/pierceth/pierceth_greatsword/world/item/PierceArmorMaterials/getEquipSound()Lnet/minecraft/sounds/SoundEvent; from net/minecraft/world/item/ArmorMaterial/getEquipSound()Lnet/minecraft/sounds/SoundEvent;: getEquipSound -> m_7344_
 Conflicting propagated mapping for net/pierceth/pierceth_greatsword/world/item/PierceArmorMaterials/getDurabilityForType(Lnet/minecraft/world/item/ArmorItem$Type;)I from net/minecraft/world/item/ArmorMaterial/getDurabilityForType(Lnet/minecraft/world/item/ArmorItem$Type;)I: getDurabilityForType -> m_266425_
-Conflicting propagated mapping for yesman/epicfight/world/damagesource/EpicFightDamageSource/is(Lnet/minecraft/tags/TagKey;)Z from net/minecraft/world/damagesource/DamageSource/is(Lnet/minecraft/tags/TagKey;)Z: is -> m_269533_
-Conflicting propagated mapping for yesman/epicfight/world/damagesource/EpicFightDamageSource/is(Lnet/minecraft/resources/ResourceKey;)Z from net/minecraft/world/damagesource/DamageSource/is(Lnet/minecraft/resources/ResourceKey;)Z: is -> m_276093_
+Conflicting propagated mapping for net/minecraft/world/entity/LivingEntity/lambda$addAdditionalSaveData$3(Lnet/minecraft/nbt/CompoundTag;Lnet/minecraft/nbt/Tag;)V from net/minecraft/world/entity/player/Player/lambda$addAdditionalSaveData$3(Lnet/minecraft/nbt/CompoundTag;Lnet/minecraft/nbt/Tag;)V: lambda$addAdditionalSaveData$3 -> m_219754_
 Conflicting propagated mapping for yesman/epicfight/world/item/EpicFightItemTier/getUses()I from net/minecraft/world/item/Tier/getUses()I: getUses -> m_6609_
 Conflicting propagated mapping for yesman/epicfight/world/item/EpicFightItemTier/getSpeed()F from net/minecraft/world/item/Tier/getSpeed()F: getSpeed -> m_6624_
 Conflicting propagated mapping for yesman/epicfight/world/item/EpicFightItemTier/getRepairIngredient()Lnet/minecraft/world/item/crafting/Ingredient; from net/minecraft/world/item/Tier/getRepairIngredient()Lnet/minecraft/world/item/crafting/Ingredient;: getRepairIngredient -> m_6282_
 Conflicting propagated mapping for yesman/epicfight/world/item/EpicFightItemTier/getEnchantmentValue()I from net/minecraft/world/item/Tier/getEnchantmentValue()I: getEnchantmentValue -> m_6601_
 Conflicting propagated mapping for yesman/epicfight/world/item/EpicFightItemTier/getLevel()I from net/minecraft/world/item/Tier/getLevel()I: getLevel -> m_6604_
 Conflicting propagated mapping for yesman/epicfight/world/item/EpicFightItemTier/getAttackDamageBonus()F from net/minecraft/world/item/Tier/getAttackDamageBonus()F: getAttackDamageBonus -> m_6631_
-Conflicting propagated mapping for net/pierceth/pierceth_greatsword/world/item/PonguardSlicerItem/getEnchantmentValue()I from net/minecraft/world/item/TieredItem/getEnchantmentValue()I: getEnchantmentValue -> m_6473_
-Conflicting propagated mapping for net/pierceth/pierceth_greatsword/world/item/PonguardSlicerItem/hurtEnemy(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/entity/LivingEntity;)Z from net/minecraft/world/item/SwordItem/hurtEnemy(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/entity/LivingEntity;Lnet/minecraft/world/entity/LivingEntity;)Z: hurtEnemy -> m_7579_
-Conflicting propagated mapping for net/minecraft/world/entity/LivingEntity/lambda$addAdditionalSaveData$3(Lnet/minecraft/nbt/CompoundTag;Lnet/minecraft/nbt/Tag;)V from net/minecraft/world/entity/player/Player/lambda$addAdditionalSaveData$3(Lnet/minecraft/nbt/CompoundTag;Lnet/minecraft/nbt/Tag;)V: lambda$addAdditionalSaveData$3 -> m_219754_
 Conflicting propagated mapping for yesman/epicfight/gameasset/ColliderPreset/reload(Lnet/minecraft/server/packs/resources/PreparableReloadListener$PreparationBarrier;Lnet/minecraft/server/packs/resources/ResourceManager;Lnet/minecraft/util/profiling/ProfilerFiller;Lnet/minecraft/util/profiling/ProfilerFiller;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture; from net/minecraft/server/packs/resources/PreparableReloadListener/reload(Lnet/minecraft/server/packs/resources/PreparableReloadListener$PreparationBarrier;Lnet/minecraft/server/packs/resources/ResourceManager;Lnet/minecraft/util/profiling/ProfilerFiller;Lnet/minecraft/util/profiling/ProfilerFiller;Ljava/util/concurrent/Executor;Ljava/util/concurrent/Executor;)Ljava/util/concurrent/CompletableFuture;: reload -> m_5540_
 Adding extras
 Sorting
@@ -172,6 +172,9 @@ Writing Output: C:\Users\pierc\Desktop\MinecraftModding\Projects\Pierceth Greats
   META-INF/MANIFEST.MF
   META-INF/mods.toml
   assets/
+  assets/minecraft/
+  assets/minecraft/optifine/
+  assets/minecraft/optifine/emissive.properties
   assets/pierceth_greatsword/
   assets/pierceth_greatsword/animmodels/
   assets/pierceth_greatsword/animmodels/animations/
@@ -235,6 +238,7 @@ Writing Output: C:\Users\pierc\Desktop\MinecraftModding\Projects\Pierceth Greats
   assets/pierceth_greatsword/animmodels/animations/biped/skill/guard_greatsword_hit_active2.json
   assets/pierceth_greatsword/geo/
   assets/pierceth_greatsword/geo/bahamut.geo.json
+  assets/pierceth_greatsword/geo/ponguard_slicer.geo.json
   assets/pierceth_greatsword/item_skins/
   assets/pierceth_greatsword/item_skins/bahamut.json
   assets/pierceth_greatsword/item_skins/guardian_swordspear.json
@@ -261,7 +265,6 @@ Writing Output: C:\Users\pierc\Desktop\MinecraftModding\Projects\Pierceth Greats
   assets/pierceth_greatsword/textures/gui/skills/royal_greatsword.png
   assets/pierceth_greatsword/textures/item/
   assets/pierceth_greatsword/textures/item/bahamut.png
-  assets/pierceth_greatsword/textures/item/guardian_swordspear.png
   assets/pierceth_greatsword/textures/item/lawlieth_slicer.png
   assets/pierceth_greatsword/textures/item/ponguard_slicer.png
   assets/pierceth_greatsword/textures/item/ponguard_slicer_e.png
@@ -313,6 +316,8 @@ Writing Output: C:\Users\pierc\Desktop\MinecraftModding\Projects\Pierceth Greats
   net/pierceth/pierceth_greatsword/renderer/
   net/pierceth/pierceth_greatsword/renderer/BahamutModel.class
   net/pierceth/pierceth_greatsword/renderer/BahamutRenderer.class
+  net/pierceth/pierceth_greatsword/renderer/PonguardSlicerModel.class
+  net/pierceth/pierceth_greatsword/renderer/PonguardSlicerRenderer.class
   net/pierceth/pierceth_greatsword/skill/
   net/pierceth/pierceth_greatsword/skill/DirectionalBasicAttack.class
   net/pierceth/pierceth_greatsword/skill/passive/
@@ -337,6 +342,7 @@ Writing Output: C:\Users\pierc\Desktop\MinecraftModding\Projects\Pierceth Greats
   net/pierceth/pierceth_greatsword/world/item/PierceArmorMaterials.class
   net/pierceth/pierceth_greatsword/world/item/PierceTHCreativeTabs.class
   net/pierceth/pierceth_greatsword/world/item/PierceTHItems.class
+  net/pierceth/pierceth_greatsword/world/item/PonguardSlicerItem$1.class
   net/pierceth/pierceth_greatsword/world/item/PonguardSlicerItem.class
   net/pierceth/pierceth_greatsword/world/item/custom/
   net/pierceth/pierceth_greatsword/world/item/custom/JarArmorItem.class

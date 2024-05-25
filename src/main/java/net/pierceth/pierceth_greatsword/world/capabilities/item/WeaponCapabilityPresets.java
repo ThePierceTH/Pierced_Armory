@@ -149,8 +149,6 @@ public class WeaponCapabilityPresets {
     // Register The Capabilities
     @SubscribeEvent
     public static void register(WeaponCapabilityPresetRegistryEvent event) {
-        //event.getTypeEntry().put(new ResourceLocation(PiercethGreatsword.MODID,"greatsword"), GREATSWORD);
-        event.getTypeEntry().put(new ResourceLocation(EpicFightMod.MODID,"greatsword"), GREATSWORD);
         event.getTypeEntry().put(new ResourceLocation(PiercethGreatsword.MODID,"bahamut"), BAHAMUT);
         }
     }
