@@ -1,0 +1,177 @@
+---- Minecraft Crash Report ----
+// Daisy, daisy...
+
+Time: 2024-05-25 04:44:23
+Description: Ticking player
+
+java.lang.NullPointerException: Cannot invoke "yesman.epicfight.skill.SkillDataKey.writeToBuffer(io.netty.buffer.ByteBuf, Object)" because the return value of "yesman.epicfight.skill.SkillDataKey.byId(int)" is null
+	at yesman.epicfight.network.server.SPAddOrRemoveSkillData.toBytes(SPAddOrRemoveSkillData.java:44) ~[epicfight-20.8.1_mapped_parchment_2023.09.03-1.20.1.jar%23198!/:20.8.1] {re:classloading}
+	at net.minecraftforge.network.simple.IndexedMessageCodec.lambda$tryEncode$4(IndexedMessageCodec.java:121) ~[forge-1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23190%23197!/:?] {re:classloading}
+	at java.util.Optional.ifPresent(Optional.java:178) ~[?:?] {}
+	at net.minecraftforge.network.simple.IndexedMessageCodec.tryEncode(IndexedMessageCodec.java:119) ~[forge-1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23190%23197!/:?] {re:classloading}
+	at net.minecraftforge.network.simple.IndexedMessageCodec.build(IndexedMessageCodec.java:134) ~[forge-1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23190%23197!/:?] {re:classloading}
+	at net.minecraftforge.network.simple.SimpleChannel.encodeMessage(SimpleChannel.java:68) ~[forge-1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23190%23197!/:?] {re:classloading}
+	at net.minecraftforge.network.simple.SimpleChannel.toBuffer(SimpleChannel.java:81) ~[forge-1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23190%23197!/:?] {re:classloading}
+	at net.minecraftforge.network.simple.SimpleChannel.toVanillaPacket(SimpleChannel.java:112) ~[forge-1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23190%23197!/:?] {re:classloading}
+	at net.minecraftforge.network.simple.SimpleChannel.send(SimpleChannel.java:107) ~[forge-1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23190%23197!/:?] {re:classloading}
+	at yesman.epicfight.network.EpicFightNetworkManager.sendToClient(EpicFightNetworkManager.java:53) ~[epicfight-20.8.1_mapped_parchment_2023.09.03-1.20.1.jar%23198!/:20.8.1] {re:mixin,re:classloading}
+	at yesman.epicfight.network.EpicFightNetworkManager.sendToAllPlayerTrackingThisEntity(EpicFightNetworkManager.java:61) ~[epicfight-20.8.1_mapped_parchment_2023.09.03-1.20.1.jar%23198!/:20.8.1] {re:mixin,re:classloading}
+	at yesman.epicfight.skill.SkillDataManager.registerData(SkillDataManager.java:39) ~[epicfight-20.8.1_mapped_parchment_2023.09.03-1.20.1.jar%23198!/:20.8.1] {re:classloading}
+	at java.lang.Iterable.forEach(Iterable.java:75) ~[?:?] {}
+	at yesman.epicfight.skill.SkillContainer.setSkill(SkillContainer.java:78) ~[epicfight-20.8.1_mapped_parchment_2023.09.03-1.20.1.jar%23198!/:20.8.1] {re:classloading}
+	at yesman.epicfight.skill.SkillContainer.setSkill(SkillContainer.java:50) ~[epicfight-20.8.1_mapped_parchment_2023.09.03-1.20.1.jar%23198!/:20.8.1] {re:classloading}
+	at yesman.epicfight.world.capabilities.item.CapabilityItem.changeWeaponInnateSkill(CapabilityItem.java:196) ~[epicfight-20.8.1_mapped_parchment_2023.09.03-1.20.1.jar%23198!/:20.8.1] {re:classloading,re:mixin}
+	at yesman.epicfight.world.capabilities.entitypatch.player.ServerPlayerPatch.updateHeldItem(ServerPlayerPatch.java:135) ~[epicfight-20.8.1_mapped_parchment_2023.09.03-1.20.1.jar%23198!/:20.8.1] {re:classloading}
+	at yesman.epicfight.events.EntityEvents.equipChangeEvent(EntityEvents.java:503) ~[epicfight-20.8.1_mapped_parchment_2023.09.03-1.20.1.jar%23198!/:20.8.1] {re:classloading}
+	at yesman.epicfight.events.__EntityEvents_equipChangeEvent_LivingEquipmentChangeEvent.invoke(.dynamic) ~[epicfight-20.8.1_mapped_parchment_2023.09.03-1.20.1.jar%23198!/:20.8.1] {re:classloading,pl:eventbus:B}
+	at net.minecraftforge.eventbus.ASMEventHandler.invoke(ASMEventHandler.java:73) ~[eventbus-6.0.5.jar%23115!/:?] {}
+	at net.minecraftforge.eventbus.EventBus.post(EventBus.java:315) ~[eventbus-6.0.5.jar%23115!/:?] {}
+	at net.minecraftforge.eventbus.EventBus.post(EventBus.java:296) ~[eventbus-6.0.5.jar%23115!/:?] {}
+	at net.minecraft.world.entity.LivingEntity.collectEquipmentChanges(LivingEntity.java:2552) ~[forge-1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:mixins.epicfight.json:MixinLivingEntity,pl:mixin:A}
+	at net.minecraft.world.entity.LivingEntity.detectEquipmentUpdates(LivingEntity.java:2523) ~[forge-1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:mixins.epicfight.json:MixinLivingEntity,pl:mixin:A}
+	at net.minecraft.world.entity.LivingEntity.tick(LivingEntity.java:2429) ~[forge-1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:mixins.epicfight.json:MixinLivingEntity,pl:mixin:A}
+	at net.minecraft.world.entity.player.Player.tick(Player.java:245) ~[forge-1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:mixins.epicfight.json:MixinPlayer,pl:mixin:A}
+	at net.minecraft.server.level.ServerPlayer.doTick(ServerPlayer.java:489) ~[forge-1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:mixins.epicfight.json:MixinServerPlayer,pl:mixin:A}
+	at net.minecraft.server.network.ServerGamePacketListenerImpl.tick(ServerGamePacketListenerImpl.java:267) ~[forge-1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.network.Connection.tick(Connection.java:289) ~[forge-1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/:?] {re:classloading}
+	at net.minecraft.server.network.ServerConnectionListener.tick(ServerConnectionListener.java:159) ~[forge-1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/:?] {re:classloading}
+	at net.minecraft.server.MinecraftServer.tickChildren(MinecraftServer.java:950) ~[forge-1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.tickServer(MinecraftServer.java:857) ~[forge-1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.client.server.IntegratedServer.tickServer(IntegratedServer.java:95) ~[forge-1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:679) ~[forge-1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:251) ~[forge-1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/:?] {re:classloading,pl:accesstransformer:B}
+	at java.lang.Thread.run(Thread.java:840) ~[?:?] {}
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Server thread
+Suspected Mod: 
+	Epic Fight (epicfight), Version: 20.8.1
+		Issue tracker URL: https://github.com/Yesssssman/epicfightmod/issues
+		at TRANSFORMER/epicfight@20.8.1/yesman.epicfight.network.server.SPAddOrRemoveSkillData.toBytes(SPAddOrRemoveSkillData.java:44)
+Stacktrace:
+	at yesman.epicfight.network.server.SPAddOrRemoveSkillData.toBytes(SPAddOrRemoveSkillData.java:44) ~[epicfight-20.8.1_mapped_parchment_2023.09.03-1.20.1.jar%23198!/:20.8.1] {re:classloading}
+	at net.minecraftforge.network.simple.IndexedMessageCodec.lambda$tryEncode$4(IndexedMessageCodec.java:121) ~[forge-1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23190%23197!/:?] {re:classloading}
+	at java.util.Optional.ifPresent(Optional.java:178) ~[?:?] {}
+	at net.minecraftforge.network.simple.IndexedMessageCodec.tryEncode(IndexedMessageCodec.java:119) ~[forge-1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23190%23197!/:?] {re:classloading}
+	at net.minecraftforge.network.simple.IndexedMessageCodec.build(IndexedMessageCodec.java:134) ~[forge-1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23190%23197!/:?] {re:classloading}
+	at net.minecraftforge.network.simple.SimpleChannel.encodeMessage(SimpleChannel.java:68) ~[forge-1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23190%23197!/:?] {re:classloading}
+	at net.minecraftforge.network.simple.SimpleChannel.toBuffer(SimpleChannel.java:81) ~[forge-1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23190%23197!/:?] {re:classloading}
+	at net.minecraftforge.network.simple.SimpleChannel.toVanillaPacket(SimpleChannel.java:112) ~[forge-1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23190%23197!/:?] {re:classloading}
+	at net.minecraftforge.network.simple.SimpleChannel.send(SimpleChannel.java:107) ~[forge-1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23190%23197!/:?] {re:classloading}
+	at yesman.epicfight.network.EpicFightNetworkManager.sendToClient(EpicFightNetworkManager.java:53) ~[epicfight-20.8.1_mapped_parchment_2023.09.03-1.20.1.jar%23198!/:20.8.1] {re:mixin,re:classloading}
+	at yesman.epicfight.network.EpicFightNetworkManager.sendToAllPlayerTrackingThisEntity(EpicFightNetworkManager.java:61) ~[epicfight-20.8.1_mapped_parchment_2023.09.03-1.20.1.jar%23198!/:20.8.1] {re:mixin,re:classloading}
+	at yesman.epicfight.skill.SkillDataManager.registerData(SkillDataManager.java:39) ~[epicfight-20.8.1_mapped_parchment_2023.09.03-1.20.1.jar%23198!/:20.8.1] {re:classloading}
+	at java.lang.Iterable.forEach(Iterable.java:75) ~[?:?] {}
+	at yesman.epicfight.skill.SkillContainer.setSkill(SkillContainer.java:78) ~[epicfight-20.8.1_mapped_parchment_2023.09.03-1.20.1.jar%23198!/:20.8.1] {re:classloading}
+	at yesman.epicfight.skill.SkillContainer.setSkill(SkillContainer.java:50) ~[epicfight-20.8.1_mapped_parchment_2023.09.03-1.20.1.jar%23198!/:20.8.1] {re:classloading}
+	at yesman.epicfight.world.capabilities.item.CapabilityItem.changeWeaponInnateSkill(CapabilityItem.java:196) ~[epicfight-20.8.1_mapped_parchment_2023.09.03-1.20.1.jar%23198!/:20.8.1] {re:classloading,re:mixin}
+	at yesman.epicfight.world.capabilities.entitypatch.player.ServerPlayerPatch.updateHeldItem(ServerPlayerPatch.java:135) ~[epicfight-20.8.1_mapped_parchment_2023.09.03-1.20.1.jar%23198!/:20.8.1] {re:classloading}
+	at yesman.epicfight.events.EntityEvents.equipChangeEvent(EntityEvents.java:503) ~[epicfight-20.8.1_mapped_parchment_2023.09.03-1.20.1.jar%23198!/:20.8.1] {re:classloading}
+	at yesman.epicfight.events.__EntityEvents_equipChangeEvent_LivingEquipmentChangeEvent.invoke(.dynamic) ~[epicfight-20.8.1_mapped_parchment_2023.09.03-1.20.1.jar%23198!/:20.8.1] {re:classloading,pl:eventbus:B}
+	at net.minecraftforge.eventbus.ASMEventHandler.invoke(ASMEventHandler.java:73) ~[eventbus-6.0.5.jar%23115!/:?] {}
+	at net.minecraftforge.eventbus.EventBus.post(EventBus.java:315) ~[eventbus-6.0.5.jar%23115!/:?] {}
+	at net.minecraftforge.eventbus.EventBus.post(EventBus.java:296) ~[eventbus-6.0.5.jar%23115!/:?] {}
+	at net.minecraft.world.entity.LivingEntity.collectEquipmentChanges(LivingEntity.java:2552) ~[forge-1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:mixins.epicfight.json:MixinLivingEntity,pl:mixin:A}
+	at net.minecraft.world.entity.LivingEntity.detectEquipmentUpdates(LivingEntity.java:2523) ~[forge-1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:mixins.epicfight.json:MixinLivingEntity,pl:mixin:A}
+	at net.minecraft.world.entity.LivingEntity.tick(LivingEntity.java:2429) ~[forge-1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:mixins.epicfight.json:MixinLivingEntity,pl:mixin:A}
+	at net.minecraft.world.entity.player.Player.tick(Player.java:245) ~[forge-1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:mixins.epicfight.json:MixinPlayer,pl:mixin:A}
+-- Player being ticked --
+Details:
+	Entity Type: minecraft:player (net.minecraft.server.level.ServerPlayer)
+	Entity ID: 96
+	Entity Name: Dev
+	Entity's Exact location: -25.40, -60.00, -118.53
+	Entity's Block location: World: (-26,-60,-119), Section: (at 6,4,9 in -2,-4,-8; chunk contains blocks -32,-64,-128 to -17,319,-113), Region: (-1,-1; contains chunks -32,-32 to -1,-1, blocks -512,-64,-512 to -1,319,-1)
+	Entity's Momentum: 0.00, -0.08, 0.00
+	Entity's Passengers: []
+	Entity's Vehicle: null
+Stacktrace:
+	at net.minecraft.server.level.ServerPlayer.doTick(ServerPlayer.java:489) ~[forge-1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/:?] {re:mixin,pl:accesstransformer:B,re:computing_frames,pl:accesstransformer:B,re:classloading,pl:accesstransformer:B,pl:mixin:APP:mixins.epicfight.json:MixinServerPlayer,pl:mixin:A}
+	at net.minecraft.server.network.ServerGamePacketListenerImpl.tick(ServerGamePacketListenerImpl.java:267) ~[forge-1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.network.Connection.tick(Connection.java:289) ~[forge-1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/:?] {re:classloading}
+	at net.minecraft.server.network.ServerConnectionListener.tick(ServerConnectionListener.java:159) ~[forge-1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/:?] {re:classloading}
+	at net.minecraft.server.MinecraftServer.tickChildren(MinecraftServer.java:950) ~[forge-1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.tickServer(MinecraftServer.java:857) ~[forge-1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.client.server.IntegratedServer.tickServer(IntegratedServer.java:95) ~[forge-1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/:?] {re:classloading,pl:runtimedistcleaner:A}
+	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:679) ~[forge-1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/:?] {re:classloading,pl:accesstransformer:B}
+	at net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:251) ~[forge-1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/:?] {re:classloading,pl:accesstransformer:B}
+	at java.lang.Thread.run(Thread.java:840) ~[?:?] {}
+
+
+-- System Details --
+Details:
+	Minecraft Version: 1.20.1
+	Minecraft Version ID: 1.20.1
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 17.0.9, Eclipse Adoptium
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), Eclipse Adoptium
+	Memory: 2792933552 bytes (2663 MiB) / 3992977408 bytes (3808 MiB) up to 10687086592 bytes (10192 MiB)
+	CPUs: 12
+	Processor Vendor: GenuineIntel
+	Processor Name: Intel(R) Core(TM) i7-10750H CPU @ 2.60GHz
+	Identifier: Intel64 Family 6 Model 165 Stepping 2
+	Microarchitecture: unknown
+	Frequency (GHz): 2.59
+	Number of physical packages: 1
+	Number of physical CPUs: 6
+	Number of logical CPUs: 12
+	Graphics card #0 name: NVIDIA GeForce RTX 2060
+	Graphics card #0 vendor: NVIDIA (0x10de)
+	Graphics card #0 VRAM (MB): 4095.00
+	Graphics card #0 deviceId: 0x1f15
+	Graphics card #0 versionInfo: DriverVersion=31.0.15.4592
+	Graphics card #1 name: Intel(R) UHD Graphics
+	Graphics card #1 vendor: Intel Corporation (0x8086)
+	Graphics card #1 VRAM (MB): 1024.00
+	Graphics card #1 deviceId: 0x9bc4
+	Graphics card #1 versionInfo: DriverVersion=26.20.100.7985
+	Memory slot #0 capacity (MB): 8192.00
+	Memory slot #0 clockSpeed (GHz): 3.20
+	Memory slot #0 type: DDR4
+	Memory slot #1 capacity (MB): 32768.00
+	Memory slot #1 clockSpeed (GHz): 3.20
+	Memory slot #1 type: DDR4
+	Virtual memory max (MB): 104742.61
+	Virtual memory used (MB): 40198.80
+	Swap memory total (MB): 64000.00
+	Swap memory used (MB): 629.21
+	JVM Flags: 1 total; -XX:HeapDumpPath=MojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump
+	Server Running: true
+	Player Count: 1 / 8; [ServerPlayer['Dev'/96, l='ServerLevel[Testing]', x=-25.40, y=-60.00, z=-118.53]]
+	Data Packs: vanilla, mod:forge, mod:pierceth_greatsword, mod:geckolib, mod:epicfight
+	Enabled Feature Flags: minecraft:vanilla
+	World Generation: Stable
+	Type: Integrated Server (map_client.txt)
+	Is Modded: Definitely; Client brand changed to 'forge'; Server brand changed to 'forge'
+	Launched Version: MOD_DEV
+	ModLauncher: 10.0.9+10.0.9+main.dcd20f30
+	ModLauncher launch target: forgeclientuserdev
+	ModLauncher naming: mcp
+	ModLauncher services: 
+		mixin-0.8.5.jar mixin PLUGINSERVICE 
+		eventbus-6.0.5.jar eventbus PLUGINSERVICE 
+		fmlloader-1.20.1-47.2.20.jar slf4jfixer PLUGINSERVICE 
+		fmlloader-1.20.1-47.2.20.jar object_holder_definalize PLUGINSERVICE 
+		fmlloader-1.20.1-47.2.20.jar runtime_enum_extender PLUGINSERVICE 
+		fmlloader-1.20.1-47.2.20.jar capability_token_subclass PLUGINSERVICE 
+		accesstransformers-8.0.4.jar accesstransformer PLUGINSERVICE 
+		fmlloader-1.20.1-47.2.20.jar runtimedistcleaner PLUGINSERVICE 
+		modlauncher-10.0.9.jar mixin TRANSFORMATIONSERVICE 
+		modlauncher-10.0.9.jar fml TRANSFORMATIONSERVICE 
+	FML Language Providers: 
+		minecraft@1.0
+		lowcodefml@null
+		javafml@null
+	Mod List: 
+		forge-1.20.1-47.2.20_mapped_parchment_2023.09.03-1|Minecraft                     |minecraft                     |1.20.1              |DONE      |Manifest: a1:d4:5e:04:4f:d3:d6:e0:7b:37:97:cf:77:b0:de:ad:4a:47:ce:8c:96:49:5f:0a:cf:8c:ae:b2:6d:4b:8a:3f
+		                                                  |Forge                         |forge                         |47.2.20             |DONE      |Manifest: NOSIGNATURE
+		main                                              |Pierced Armory                |pierceth_greatsword           |1.0-SNAPSHOT        |DONE      |Manifest: NOSIGNATURE
+		geckolib-388172-5060416_mapped_parchment_2023.09.0|GeckoLib 4                    |geckolib                      |4.4.2               |DONE      |Manifest: NOSIGNATURE
+		epicfight-20.8.1_mapped_parchment_2023.09.03-1.20.|Epic Fight                    |epicfight                     |20.8.1              |DONE      |Manifest: NOSIGNATURE
+	Crash Report UUID: 47874199-63e2-4f29-929e-941d75eb7f6b
+	FML: 47.2
+	Forge: net.minecraftforge:47.2.20
