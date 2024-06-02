@@ -1,15 +1,7 @@
-package net.pierceth.pierceth_greatsword.skill;
+package net.pierceth.pierceth_greatsword.skill.weaponinnate;
 
-import java.util.List;
-import java.util.UUID;
-
-import net.minecraft.world.item.ItemStack;
-import net.pierceth.pierceth_greatsword.data.AnimConfig;
-import net.pierceth.pierceth_greatsword.data.AnimType;
-import net.pierceth.pierceth_greatsword.world.capabilities.item.VOSWeaponCapability;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
+// TODO: Remove Comment
+/*
 import io.netty.buffer.Unpooled;
 import net.minecraft.client.player.Input;
 import net.minecraft.network.FriendlyByteBuf;
@@ -18,47 +10,51 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.PlayerRideableJumping;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.pierceth.pierceth_greatsword.PiercethGreatsword;
+import net.pierceth.pierceth_greatsword.data.AnimConfig;
+import net.pierceth.pierceth_greatsword.skill.VOSSkillDataKeys;
+import net.pierceth.pierceth_greatsword.world.capabilities.item.VOSWeaponCapability;
 import yesman.epicfight.api.animation.AnimationProvider;
-import yesman.epicfight.api.animation.property.AnimationProperty;
-import yesman.epicfight.api.animation.types.EntityState;
+import yesman.epicfight.api.animation.AttackAnimationProvider;
+import yesman.epicfight.api.animation.types.AttackAnimation;
 import yesman.epicfight.api.animation.types.StaticAnimation;
 import yesman.epicfight.client.events.engine.ControllEngine;
 import yesman.epicfight.client.world.capabilites.entitypatch.player.LocalPlayerPatch;
-import yesman.epicfight.network.EpicFightNetworkManager;
 import yesman.epicfight.network.client.CPExecuteSkill;
-import yesman.epicfight.network.server.SPSkillExecutionFeedback;
 import yesman.epicfight.skill.*;
-import yesman.epicfight.world.capabilities.EpicFightCapabilities;
-import yesman.epicfight.world.capabilities.entitypatch.player.PlayerPatch;
+import yesman.epicfight.skill.weaponinnate.WeaponInnateSkill;
 import yesman.epicfight.world.capabilities.entitypatch.player.ServerPlayerPatch;
 import yesman.epicfight.world.capabilities.item.CapabilityItem;
 import yesman.epicfight.world.entity.eventlistener.BasicAttackEvent;
 import yesman.epicfight.world.entity.eventlistener.ComboCounterHandleEvent;
-import yesman.epicfight.world.entity.eventlistener.PlayerEventListener.EventType;
+import yesman.epicfight.world.entity.eventlistener.PlayerEventListener;
 import yesman.epicfight.world.entity.eventlistener.SkillConsumeEvent;
 
-public class DirectionalBasicAttack extends BasicAttack {
-    private static final UUID EVENT_UUID = UUID.fromString("52c3ecc9-3167-4217-bd7d-2fa889e3ec1f");
+import java.util.List;
+import java.util.UUID;
 
-    public DirectionalBasicAttack(Builder<? extends Skill> builder) {
+
+public class DirectionalInnateSkill extends WeaponInnateSkill {
+    private static final UUID EVENT_UUID = UUID.fromString("6b2bca14-41d2-4437-91ab-c74943b064a2");
+    private AttackAnimationProvider first;
+    private AttackAnimationProvider second;
+
+    public DirectionalInnateSkill(Builder<? extends Skill> builder) {
         super(builder);
     }
 
     @Override
     public void executeOnServer(ServerPlayerPatch executer, FriendlyByteBuf args) {
         SkillConsumeEvent event = new SkillConsumeEvent(executer, this, this.resource, true);
-        executer.getEventListener().triggerEvents(EventType.SKILL_CONSUME_EVENT, event);
+        executer.getEventListener().triggerEvents(PlayerEventListener.EventType.SKILL_CONSUME_EVENT, event);
 
         if (!event.isCanceled()) {
             event.getResourceType().consumer.consume(this, executer, event.getAmount());
         }
 
-        if (executer.getEventListener().triggerEvents(EventType.BASIC_ATTACK_EVENT, new BasicAttackEvent(executer))) {
+        if (executer.getEventListener().triggerEvents(PlayerEventListener.EventType.BASIC_ATTACK_EVENT, new BasicAttackEvent(executer))) {
             return;
         }
 
@@ -70,7 +66,7 @@ public class DirectionalBasicAttack extends BasicAttack {
         ServerPlayer player = executer.getOriginal();
         SkillContainer skillContainer = executer.getSkill(this);
         SkillDataManager dataManager = skillContainer.getDataManager();
-        int comboCounter = dataManager.getDataValue(SkillDataKeys.COMBO_COUNTER.get());
+        int comboCounter = dataManager.getDataValue(VOSSkillDataKeys.INNATE_COMBO_COUNTER.get());
 
         if (player.isPassenger()) {
             Entity entity = player.getVehicle();
@@ -91,27 +87,27 @@ public class DirectionalBasicAttack extends BasicAttack {
             if (dashAttack) {
                 // Dash Attack
                 System.out.println("Dash Attack");
-                comboCounter = comboCounterValid(AnimType.DASH_COMBO, configs, comboCounter);
+                comboCounter = comboCounterValid(AnimConfig.DASH_COMBO, configs, comboCounter);
             }
             else if(sw == -1) {
                 // Right Attack
                 System.out.println("Right Attack");
-                comboCounter = comboCounterValid(AnimType.RIGHT_LIGHT_COMBO, configs, comboCounter);
+                comboCounter = comboCounterValid(AnimConfig.RIGHT_LIGHT_COMBO, configs, comboCounter);
             }
             else if(sw == 1) {
                 // Left Attack
                 System.out.println("Left Attack");
-                comboCounter = comboCounterValid(AnimType.LEFT_LIGHT_COMBO, configs, comboCounter);
+                comboCounter = comboCounterValid(AnimConfig.LEFT_LIGHT_COMBO, configs, comboCounter);
             }
             else if(fw == -1) {
                 // Back Attack
                 System.out.println("Back Attack");
-                comboCounter = comboCounterValid(AnimType.BACK_LIGHT_COMBO, configs, comboCounter);
+                comboCounter = comboCounterValid(AnimConfig.BACK_LIGHT_COMBO, configs, comboCounter);
             }
             else {
                 // Normal Attack
                 System.out.println("Normal Attack");
-                comboCounter = comboCounterValid(AnimType.LIGHT_COMBO, configs, comboCounter);
+                comboCounter = comboCounterValid(AnimConfig.LIGHT_COMBO, configs, comboCounter);
             }
 
 
@@ -120,7 +116,7 @@ public class DirectionalBasicAttack extends BasicAttack {
             comboCounter++;
         }
 
-        setComboCounterWithEvent(ComboCounterHandleEvent.Causal.ACTION_ANIMATION_RESET, executer, skillContainer, attackMotion, comboCounter);
+        skillContainer.getDataManager().setData(VOSSkillDataKeys.INNATE_COMBO_COUNTER.get(), comboCounter);
 
         if (attackMotion != null) {
             executer.playAnimationSynchronized(attackMotion, 0);
@@ -173,14 +169,8 @@ public class DirectionalBasicAttack extends BasicAttack {
         return packet;
     }
 
-    private int getComboInitialIndex(AnimType type, List<AnimConfig> animConfigs) {
-        int origIndex = 0;
-        for (int i = 0; i < animConfigs.size(); i++) {
-            if (animConfigs.get(i).getType() == type) {
-                origIndex = i;
-                break;
-            }
-        }
+    private int getComboInitialIndex(AnimConfig animcConfig, List<AnimConfig> animConfigs) {
+        int origIndex = animConfigs.indexOf(animcConfig);
 
         System.out.println("AnimConfig Index: " + origIndex);
 
@@ -192,21 +182,9 @@ public class DirectionalBasicAttack extends BasicAttack {
         return totalSize;
     }
 
-    private int getComboSizeFromType(AnimType type, List<AnimConfig> animConfigs) {
-        int comboSize = 0;
-        for (AnimConfig animConfig : animConfigs) {
-            if (animConfig.getType() == type) {
-                comboSize = animConfig.getComboSize();
-                break;
-            }
-        }
-
-        return comboSize;
-    }
-
-    private int comboCounterValid(AnimType type, List<AnimConfig> animConfigs, int comboCounter) {
-        int initialIndex = getComboInitialIndex(type, animConfigs);
-        int finalIndex = initialIndex + getComboSizeFromType(type, animConfigs) - 1;
+    private int comboCounterValid(AnimConfig animConfig, List<AnimConfig> animConfigs, int comboCounter) {
+        int initialIndex = getComboInitialIndex(animConfig, animConfigs);
+        int finalIndex = initialIndex + animConfig.getComboSize() - 1;
 
         System.out.println("Starting Index: " + initialIndex);
         System.out.println("Ending Index: " + finalIndex);
@@ -214,3 +192,4 @@ public class DirectionalBasicAttack extends BasicAttack {
         return comboCounter >= initialIndex && comboCounter <= finalIndex ? comboCounter : initialIndex;
     }
 }
+*/

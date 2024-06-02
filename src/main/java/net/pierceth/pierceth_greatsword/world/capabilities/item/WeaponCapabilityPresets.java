@@ -7,6 +7,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.pierceth.pierceth_greatsword.PiercethGreatsword;
 import net.pierceth.pierceth_greatsword.data.AnimConfig;
+import net.pierceth.pierceth_greatsword.data.AnimType;
 import net.pierceth.pierceth_greatsword.gameasset.PierceTHAnimations;
 import com.google.common.collect.Maps;
 
@@ -101,12 +102,12 @@ public class WeaponCapabilityPresets {
                 .hitSound(EpicFightSounds.BLADE_HIT.get())
                 .canBePlacedOffhand(false)
                 .newAnimConfig(Styles.TWO_HAND,
-                        AnimConfig.LIGHT_COMBO.setComboSize(4),
-                        AnimConfig.LEFT_LIGHT_COMBO.setComboSize(2),
-                        AnimConfig.RIGHT_LIGHT_COMBO.setComboSize(2),
-                        AnimConfig.BACK_LIGHT_COMBO.setComboSize(2),
-                        AnimConfig.DASH_COMBO.setComboSize(1),
-                        AnimConfig.AIR_COMBO.setComboSize(1)
+                        new AnimConfig(AnimType.LIGHT_COMBO, 4),
+                        new AnimConfig(AnimType.LEFT_LIGHT_COMBO, 2),
+                        new AnimConfig(AnimType.RIGHT_LIGHT_COMBO, 2),
+                        new AnimConfig(AnimType.BACK_LIGHT_COMBO, 2),
+                        new AnimConfig(AnimType.DASH_COMBO, 1),
+                        new AnimConfig(AnimType.AIR_COMBO, 1)
                     )
                 .newStyleCombo(Styles.TWO_HAND,
                         PierceTHAnimations.BAHAMUT_AUTO1,

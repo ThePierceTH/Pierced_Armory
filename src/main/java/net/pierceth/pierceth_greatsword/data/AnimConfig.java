@@ -1,16 +1,19 @@
 package net.pierceth.pierceth_greatsword.data;
 
-public enum AnimConfig {
-    LIGHT_COMBO, LEFT_LIGHT_COMBO, RIGHT_LIGHT_COMBO, BACK_LIGHT_COMBO, HEAVY_COMBO, LEFT_HEAVY_COMBO, RIGHT_HEAVY_COMBO, BACK_HEAVY_COMBO, AIR_COMBO, DASH_COMBO;
-
+public class AnimConfig {
     private int nAttacks;
+    private AnimType type;
 
-    public AnimConfig setComboSize(int nAttacks) {
+    public AnimConfig(AnimType type, int nAttacks) {
+        this.type = type;
         this.nAttacks = nAttacks;
-        return this;
     }
 
     public int getComboSize() {
         return nAttacks;
+    }
+
+    public AnimType getType() {
+        return type;
     }
 }
