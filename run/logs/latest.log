@@ -1,360 +1,168 @@
-[02Jun2024 12:32:02.297] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeclientuserdev, --version, MOD_DEV, --assetIndex, 5, --assetsDir, C:\Users\ruben\.gradle\caches\forge_gradle\assets, --gameDir, ., --fml.forgeVersion, 47.2.20, --fml.mcVersion, 1.20.1, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20230612.114412, -mixin.config=mixins.epicfight.json, --mixin.config, pierceth_greatsword.mixins.json]
-[02Jun2024 12:32:02.300] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.0.9+10.0.9+main.dcd20f30 starting: java version 17.0.8.1 by Eclipse Adoptium; OS Windows 11 arch amd64 version 10.0
-[02Jun2024 12:32:02.408] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: Loading ImmediateWindowProvider fmlearlywindow
-[02Jun2024 12:32:02.464] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.6
-[02Jun2024 12:32:02.585] [main/INFO] [EARLYDISPLAY/]: Requested GL version 4.6 got version 4.6
-[02Jun2024 12:32:02.662] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/C:/Users/ruben/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23128!/ Service=ModLauncher Env=CLIENT
-[02Jun2024 12:32:02.697] [pool-2-thread-1/INFO] [EARLYDISPLAY/]: GL info: NVIDIA GeForce RTX 3070/PCIe/SSE2 GL version 4.6.0 NVIDIA 551.86, NVIDIA Corporation
-[02Jun2024 12:32:02.880] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\ruben\.gradle\caches\modules-2\files-2.1\net.minecraftforge\javafmllanguage\1.20.1-47.2.20\918959a037ab7191a0c45a359f4746ab76c110c3\javafmllanguage-1.20.1-47.2.20.jar is missing mods.toml file
-[02Jun2024 12:32:02.884] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\ruben\.gradle\caches\modules-2\files-2.1\net.minecraftforge\lowcodelanguage\1.20.1-47.2.20\c1d1efcb98e8bfcf3dbfed0d1e81b55b648b86bf\lowcodelanguage-1.20.1-47.2.20.jar is missing mods.toml file
-[02Jun2024 12:32:02.886] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\ruben\.gradle\caches\modules-2\files-2.1\net.minecraftforge\mclanguage\1.20.1-47.2.20\efca3bee89c0085192b122d47334692b921ca7d1\mclanguage-1.20.1-47.2.20.jar is missing mods.toml file
-[02Jun2024 12:32:02.890] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\ruben\.gradle\caches\modules-2\files-2.1\net.minecraftforge\fmlcore\1.20.1-47.2.20\12cd436f148405b50c9b16bd8f3cc6f18db89824\fmlcore-1.20.1-47.2.20.jar is missing mods.toml file
-[02Jun2024 12:32:03.007] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: Found 1 dependencies adding them to mods collection
-[02Jun2024 12:32:03.931] [main/INFO] [mixin/]: Compatibility level set to JAVA_17
-[02Jun2024 12:32:03.939] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeclientuserdev' with arguments [--version, MOD_DEV, --gameDir, ., --assetsDir, C:\Users\ruben\.gradle\caches\forge_gradle\assets, --assetIndex, 5]
-[02Jun2024 12:32:04.001] [main/WARN] [mixin/]: Reference map 'epicfight.mixins.refmap.json' for mixins.epicfight.json could not be read. If this is a development environment you can ignore this message
-[02Jun2024 12:32:04.003] [main/WARN] [mixin/]: Reference map 'net.pierceth.pierceth_greatsword.mixins.refmap.json' for pierceth_greatsword.mixins.json could not be read. If this is a development environment you can ignore this message
-[02Jun2024 12:32:04.165] [main/INFO] [mixin/]: Remapping refMap geckolib.refmap.json using C:\Users\ruben\Documents\MC Mods\Pierced_Armory\build/createSrgToMcp/output.srg
-[02Jun2024 12:32:06.081] [pool-4-thread-1/WARN] [mixin/]: @Final field nextHeadUpdate:[I in mixins.epicfight.json:MixinWitherBoss should be final
-[02Jun2024 12:32:06.081] [pool-4-thread-1/WARN] [mixin/]: @Final field idleHeadUpdates:[I in mixins.epicfight.json:MixinWitherBoss should be final
-[02Jun2024 12:32:06.879] [Datafixer Bootstrap/INFO] [com.mojang.datafixers.DataFixerBuilder/]: 188 Datafixer optimizations took 78 milliseconds
-[02Jun2024 12:32:07.921] [Render thread/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/ruben/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/assets/.mcassetsroot' uses unexpected schema
-[02Jun2024 12:32:07.921] [Render thread/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/ruben/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/data/.mcassetsroot' uses unexpected schema
-[02Jun2024 12:32:07.936] [Render thread/INFO] [com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService/]: Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD'
-[02Jun2024 12:32:07.940] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Setting user: Dev
-[02Jun2024 12:32:07.996] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Backend library: LWJGL version 3.3.1 build 7
-[02Jun2024 12:32:08.249] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 47.2.20, for MC 1.20.1 with MCP 20230612.114412
-[02Jun2024 12:32:08.249] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v47.2.20 Initialized
-[02Jun2024 12:32:08.339] [modloading-worker-0/INFO] [epicfight/]: Loaded mod compat: GeckolibCompat
-[02Jun2024 12:32:09.093] [Render thread/INFO] [net.minecraftforge.gametest.ForgeGameTestHooks/]: Enabled Gametest Namespaces: [pierceth_greatsword]
-[02Jun2024 12:32:09.316] [Render thread/INFO] [net.minecraft.server.packs.resources.ReloadableResourceManager/]: Reloading ResourceManager: vanilla, mod_resources
-[02Jun2024 12:32:09.445] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [forge] Starting version check at https://files.minecraftforge.net/net/minecraftforge/forge/promotions_slim.json
-[02Jun2024 12:32:09.468] [Worker-Main-8/INFO] [net.minecraft.client.gui.font.providers.UnihexProvider/]: Found unifont_all_no_pua-15.0.06.hex, loading
-[02Jun2024 12:32:09.675] [Worker-Main-1/INFO] [epicfight/]: Register animations from pierceth_greatsword
-[02Jun2024 12:32:09.702] [Worker-Main-1/INFO] [epicfight/]: Register animations from epicfight
-[02Jun2024 12:32:09.974] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [forge] Found status: OUTDATED Current: 47.2.20 Target: 47.2.32
-[02Jun2024 12:32:10.526] [Worker-Main-6/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model pierceth_greatsword:jar_hat#inventory:
+[01Jul2024 18:14:42.398] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgeclientuserdev, --version, MOD_DEV, --assetIndex, 5, --assetsDir, C:\Users\ruben\.gradle\caches\forge_gradle\assets, --gameDir, ., --fml.forgeVersion, 47.2.20, --fml.mcVersion, 1.20.1, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20230612.114412, -mixin.config=mixins.epicfight.json, --mixin.config, pierceth_greatsword.mixins.json]
+[01Jul2024 18:14:42.401] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.0.9+10.0.9+main.dcd20f30 starting: java version 17.0.8.1 by Eclipse Adoptium; OS Windows 11 arch amd64 version 10.0
+[01Jul2024 18:14:42.496] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: Loading ImmediateWindowProvider fmlearlywindow
+[01Jul2024 18:14:42.549] [main/INFO] [EARLYDISPLAY/]: Trying GL version 4.6
+[01Jul2024 18:14:42.667] [main/INFO] [EARLYDISPLAY/]: Requested GL version 4.6 got version 4.6
+[01Jul2024 18:14:42.743] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/C:/Users/ruben/.gradle/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23128!/ Service=ModLauncher Env=CLIENT
+[01Jul2024 18:14:42.775] [pool-2-thread-1/INFO] [EARLYDISPLAY/]: GL info: NVIDIA GeForce RTX 3070/PCIe/SSE2 GL version 4.6.0 NVIDIA 551.86, NVIDIA Corporation
+[01Jul2024 18:14:43.000] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\ruben\.gradle\caches\modules-2\files-2.1\net.minecraftforge\javafmllanguage\1.20.1-47.2.20\918959a037ab7191a0c45a359f4746ab76c110c3\javafmllanguage-1.20.1-47.2.20.jar is missing mods.toml file
+[01Jul2024 18:14:43.005] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\ruben\.gradle\caches\modules-2\files-2.1\net.minecraftforge\lowcodelanguage\1.20.1-47.2.20\c1d1efcb98e8bfcf3dbfed0d1e81b55b648b86bf\lowcodelanguage-1.20.1-47.2.20.jar is missing mods.toml file
+[01Jul2024 18:14:43.009] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\ruben\.gradle\caches\modules-2\files-2.1\net.minecraftforge\mclanguage\1.20.1-47.2.20\efca3bee89c0085192b122d47334692b921ca7d1\mclanguage-1.20.1-47.2.20.jar is missing mods.toml file
+[01Jul2024 18:14:43.012] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\Users\ruben\.gradle\caches\modules-2\files-2.1\net.minecraftforge\fmlcore\1.20.1-47.2.20\12cd436f148405b50c9b16bd8f3cc6f18db89824\fmlcore-1.20.1-47.2.20.jar is missing mods.toml file
+[01Jul2024 18:14:43.147] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: Found 1 dependencies adding them to mods collection
+[01Jul2024 18:14:44.085] [main/INFO] [mixin/]: Compatibility level set to JAVA_17
+[01Jul2024 18:14:44.093] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgeclientuserdev' with arguments [--version, MOD_DEV, --gameDir, ., --assetsDir, C:\Users\ruben\.gradle\caches\forge_gradle\assets, --assetIndex, 5]
+[01Jul2024 18:14:44.156] [main/WARN] [mixin/]: Reference map 'epicfight.mixins.refmap.json' for mixins.epicfight.json could not be read. If this is a development environment you can ignore this message
+[01Jul2024 18:14:44.160] [main/WARN] [mixin/]: Reference map 'net.pierceth.pierceth_greatsword.mixins.refmap.json' for pierceth_greatsword.mixins.json could not be read. If this is a development environment you can ignore this message
+[01Jul2024 18:14:44.307] [main/INFO] [mixin/]: Remapping refMap geckolib.refmap.json using C:\Users\ruben\Documents\MC Mods\Pierced_Armory\build/createSrgToMcp/output.srg
+[01Jul2024 18:14:46.336] [pool-4-thread-1/WARN] [mixin/]: @Final field nextHeadUpdate:[I in mixins.epicfight.json:MixinWitherBoss should be final
+[01Jul2024 18:14:46.337] [pool-4-thread-1/WARN] [mixin/]: @Final field idleHeadUpdates:[I in mixins.epicfight.json:MixinWitherBoss should be final
+[01Jul2024 18:14:47.150] [Datafixer Bootstrap/INFO] [com.mojang.datafixers.DataFixerBuilder/]: 188 Datafixer optimizations took 84 milliseconds
+[01Jul2024 18:14:48.199] [Render thread/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/ruben/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/assets/.mcassetsroot' uses unexpected schema
+[01Jul2024 18:14:48.199] [Render thread/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/Users/ruben/.gradle/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1/forge-1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/data/.mcassetsroot' uses unexpected schema
+[01Jul2024 18:14:48.214] [Render thread/INFO] [com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService/]: Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD'
+[01Jul2024 18:14:48.217] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Setting user: Dev
+[01Jul2024 18:14:48.270] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Backend library: LWJGL version 3.3.1 build 7
+[01Jul2024 18:14:48.524] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 47.2.20, for MC 1.20.1 with MCP 20230612.114412
+[01Jul2024 18:14:48.524] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v47.2.20 Initialized
+[01Jul2024 18:14:48.623] [modloading-worker-0/INFO] [epicfight/]: Loaded mod compat: GeckolibCompat
+[01Jul2024 18:14:49.327] [Render thread/INFO] [net.minecraftforge.gametest.ForgeGameTestHooks/]: Enabled Gametest Namespaces: [pierceth_greatsword]
+[01Jul2024 18:14:49.541] [Render thread/INFO] [net.minecraft.server.packs.resources.ReloadableResourceManager/]: Reloading ResourceManager: vanilla, mod_resources
+[01Jul2024 18:14:49.674] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [forge] Starting version check at https://files.minecraftforge.net/net/minecraftforge/forge/promotions_slim.json
+[01Jul2024 18:14:49.685] [Worker-Main-9/INFO] [net.minecraft.client.gui.font.providers.UnihexProvider/]: Found unifont_all_no_pua-15.0.06.hex, loading
+[01Jul2024 18:14:49.879] [Worker-Main-7/INFO] [epicfight/]: Register animations from pierceth_greatsword
+[01Jul2024 18:14:49.911] [Worker-Main-7/INFO] [epicfight/]: Register animations from epicfight
+[01Jul2024 18:14:50.195] [Forge Version Check/INFO] [net.minecraftforge.fml.VersionChecker/]: [forge] Found status: OUTDATED Current: 47.2.20 Target: 47.3.0
+[01Jul2024 18:14:50.722] [Worker-Main-12/WARN] [net.minecraft.client.resources.model.ModelManager/]: Missing textures in model pierceth_greatsword:jar_hat#inventory:
     minecraft:textures/atlas/blocks.png:minecraft:block/jar_hat
-[02Jun2024 12:32:11.304] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:item.goat_horn.play
-[02Jun2024 12:32:11.304] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:entity.goat.screaming.horn_break
-[02Jun2024 12:32:11.972] [Render thread/INFO] [com.mojang.blaze3d.audio.Library/]: OpenAL initialized on device OpenAL Soft on Headphones (2- WH-1000XM5)
-[02Jun2024 12:32:11.972] [Render thread/INFO] [net.minecraft.client.sounds.SoundEngine/SOUNDS]: Sound engine started
-[02Jun2024 12:32:12.051] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 2048x1024x4 minecraft:textures/atlas/blocks.png-atlas
-[02Jun2024 12:32:12.058] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x4 minecraft:textures/atlas/signs.png-atlas
-[02Jun2024 12:32:12.059] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
-[02Jun2024 12:32:12.059] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
-[02Jun2024 12:32:12.059] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 1024x1024x4 minecraft:textures/atlas/armor_trims.png-atlas
-[02Jun2024 12:32:12.061] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 128x64x4 minecraft:textures/atlas/decorated_pot.png-atlas
-[02Jun2024 12:32:12.062] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
-[02Jun2024 12:32:12.062] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
-[02Jun2024 12:32:12.062] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
-[02Jun2024 12:32:12.153] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_translucent_emissive could not find sampler named Sampler2 in the specified shader program.
-[02Jun2024 12:32:12.196] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 2048x1024x0 minecraft:textures/atlas/particles.png-atlas
-[02Jun2024 12:32:12.199] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x0 minecraft:textures/atlas/paintings.png-atlas
-[02Jun2024 12:32:12.199] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x128x0 minecraft:textures/atlas/mob_effects.png-atlas
-[02Jun2024 12:32:12.201] [Render thread/ERROR] [epicfight/]: Failed to load User animation pierceth_greatsword:biped/living/walk_hound_greatsword because of java.lang.IllegalStateException: No constructor information has provided in User animation pierceth_greatsword:biped/living/walk_hound_greatsword. Skipped.
-[02Jun2024 12:32:12.202] [Render thread/WARN] [epicfight/]: [Item Skins] Item named pierceth_greatsword:lawlieth_slicer does not exist
-[02Jun2024 12:32:12.353] [Realms Notification Availability checker #1/INFO] [com.mojang.realmsclient.client.RealmsClient/]: Could not authorize you against Realms server: Invalid session id
-[02Jun2024 12:32:15.692] [Render thread/INFO] [net.minecraftforge.registries.GameData/REGISTRIES]: Injecting existing registry data into this CLIENT instance
-[02Jun2024 12:32:16.897] [Render thread/INFO] [net.minecraft.world.item.crafting.RecipeManager/]: Loaded 7 recipes
-[02Jun2024 12:32:16.958] [Render thread/INFO] [net.minecraft.advancements.AdvancementList/]: Loaded 1271 advancements
-[02Jun2024 12:32:16.973] [Render thread/WARN] [epicfight/]: Error while deserializing datapack for pierceth_greatsword:lawlieth_slicer
-[02Jun2024 12:32:17.301] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Starting integrated minecraft server version 1.20.1
-[02Jun2024 12:32:17.302] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Generating keypair
-[02Jun2024 12:32:17.481] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Preparing start region for dimension minecraft:overworld
-[02Jun2024 12:32:18.451] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 0%
-[02Jun2024 12:32:18.451] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 0%
-[02Jun2024 12:32:18.506] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 0%
-[02Jun2024 12:32:18.997] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 89%
-[02Jun2024 12:32:19.008] [Server thread/INFO] [net.minecraftforge.server.permission.PermissionAPI/]: Successfully initialized permission handler forge:default_handler
-[02Jun2024 12:32:19.015] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Time elapsed: 1526 ms
-[02Jun2024 12:32:19.091] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Changing view distance to 12, from 10
-[02Jun2024 12:32:19.093] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Changing simulation distance to 12, from 0
-[02Jun2024 12:32:19.175] [Render thread/WARN] [io.netty.util.internal.SystemPropertyUtil/]: Unable to parse the boolean system property 'java.net.preferIPv6Addresses':system - using the default value: false
-[02Jun2024 12:32:19.525] [Netty Local Client IO #0/INFO] [net.minecraftforge.network.NetworkHooks/]: Connected to a modded server.
-[02Jun2024 12:32:19.568] [Server thread/INFO] [net.minecraft.server.players.PlayerList/]: Dev[local:E:52007f18] logged in with entity id 83 at (-4.955011784027028, -60.0, 11.893732518938581)
-[02Jun2024 12:32:19.621] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Dev joined the game
-[02Jun2024 12:32:20.121] [Render thread/INFO] [net.minecraft.advancements.AdvancementList/]: Loaded 2 advancements
-[02Jun2024 12:32:20.246] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint IKThigh_R in the animation file, StaticAnimation pierceth_greatsword:animmodels/animations/biped/living/hold_bahamut.json
-[02Jun2024 12:32:20.246] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint IKLeg_R in the animation file, StaticAnimation pierceth_greatsword:animmodels/animations/biped/living/hold_bahamut.json
-[02Jun2024 12:32:20.246] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint IKThigh_L in the animation file, StaticAnimation pierceth_greatsword:animmodels/animations/biped/living/hold_bahamut.json
-[02Jun2024 12:32:20.246] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint IKLeg_L in the animation file, StaticAnimation pierceth_greatsword:animmodels/animations/biped/living/hold_bahamut.json
-[02Jun2024 12:32:20.246] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint FKTorso in the animation file, StaticAnimation pierceth_greatsword:animmodels/animations/biped/living/hold_bahamut.json
-[02Jun2024 12:32:20.246] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint FKChest in the animation file, StaticAnimation pierceth_greatsword:animmodels/animations/biped/living/hold_bahamut.json
-[02Jun2024 12:32:20.247] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint FKArm_L in the animation file, StaticAnimation pierceth_greatsword:animmodels/animations/biped/living/hold_bahamut.json
-[02Jun2024 12:32:20.247] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint FKHand_L in the animation file, StaticAnimation pierceth_greatsword:animmodels/animations/biped/living/hold_bahamut.json
-[02Jun2024 12:32:20.247] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint FKArm_R in the animation file, StaticAnimation pierceth_greatsword:animmodels/animations/biped/living/hold_bahamut.json
-[02Jun2024 12:32:20.247] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint FKHand_R in the animation file, StaticAnimation pierceth_greatsword:animmodels/animations/biped/living/hold_bahamut.json
-[02Jun2024 12:32:20.247] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneeIK_L in the animation file, StaticAnimation pierceth_greatsword:animmodels/animations/biped/living/hold_bahamut.json
-[02Jun2024 12:32:20.247] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneelIK_R in the animation file, StaticAnimation pierceth_greatsword:animmodels/animations/biped/living/hold_bahamut.json
-[02Jun2024 12:32:20.247] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_L in the animation file, StaticAnimation pierceth_greatsword:animmodels/animations/biped/living/hold_bahamut.json
-[02Jun2024 12:32:20.247] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_R in the animation file, StaticAnimation pierceth_greatsword:animmodels/animations/biped/living/hold_bahamut.json
-[02Jun2024 12:32:20.247] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HipControl in the animation file, StaticAnimation pierceth_greatsword:animmodels/animations/biped/living/hold_bahamut.json
-[02Jun2024 12:32:20.247] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HipIK in the animation file, StaticAnimation pierceth_greatsword:animmodels/animations/biped/living/hold_bahamut.json
-[02Jun2024 12:32:20.247] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WeaponIK_R in the animation file, StaticAnimation pierceth_greatsword:animmodels/animations/biped/living/hold_bahamut.json
-[02Jun2024 12:32:20.247] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WeaponIK_L in the animation file, StaticAnimation pierceth_greatsword:animmodels/animations/biped/living/hold_bahamut.json
-[02Jun2024 12:32:20.247] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint GodNode in the animation file, StaticAnimation pierceth_greatsword:animmodels/animations/biped/living/hold_bahamut.json
-[02Jun2024 12:32:20.247] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint Upper Rot in the animation file, StaticAnimation pierceth_greatsword:animmodels/animations/biped/living/hold_bahamut.json
-[02Jun2024 12:32:20.247] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeadIKF in the animation file, StaticAnimation pierceth_greatsword:animmodels/animations/biped/living/hold_bahamut.json
-[02Jun2024 12:32:20.247] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint Tool_R_Control in the animation file, StaticAnimation pierceth_greatsword:animmodels/animations/biped/living/hold_bahamut.json
-[02Jun2024 12:32:20.247] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint Tool_L_Control in the animation file, StaticAnimation pierceth_greatsword:animmodels/animations/biped/living/hold_bahamut.json
-[02Jun2024 12:32:21.901] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint IKThigh_R in the animation file, MovementAnimation pierceth_greatsword:animmodels/animations/biped/living/walk_bahamut.json
-[02Jun2024 12:32:21.901] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint IKLeg_R in the animation file, MovementAnimation pierceth_greatsword:animmodels/animations/biped/living/walk_bahamut.json
-[02Jun2024 12:32:21.901] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint IKThigh_L in the animation file, MovementAnimation pierceth_greatsword:animmodels/animations/biped/living/walk_bahamut.json
-[02Jun2024 12:32:21.901] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint IKLeg_L in the animation file, MovementAnimation pierceth_greatsword:animmodels/animations/biped/living/walk_bahamut.json
-[02Jun2024 12:32:21.901] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint FKTorso in the animation file, MovementAnimation pierceth_greatsword:animmodels/animations/biped/living/walk_bahamut.json
-[02Jun2024 12:32:21.901] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint FKChest in the animation file, MovementAnimation pierceth_greatsword:animmodels/animations/biped/living/walk_bahamut.json
-[02Jun2024 12:32:21.901] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint FKArm_L in the animation file, MovementAnimation pierceth_greatsword:animmodels/animations/biped/living/walk_bahamut.json
-[02Jun2024 12:32:21.901] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint FKHand_L in the animation file, MovementAnimation pierceth_greatsword:animmodels/animations/biped/living/walk_bahamut.json
-[02Jun2024 12:32:21.901] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint FKArm_R in the animation file, MovementAnimation pierceth_greatsword:animmodels/animations/biped/living/walk_bahamut.json
-[02Jun2024 12:32:21.901] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint FKHand_R in the animation file, MovementAnimation pierceth_greatsword:animmodels/animations/biped/living/walk_bahamut.json
-[02Jun2024 12:32:21.901] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneeIK_L in the animation file, MovementAnimation pierceth_greatsword:animmodels/animations/biped/living/walk_bahamut.json
-[02Jun2024 12:32:21.901] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneelIK_R in the animation file, MovementAnimation pierceth_greatsword:animmodels/animations/biped/living/walk_bahamut.json
-[02Jun2024 12:32:21.901] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_L in the animation file, MovementAnimation pierceth_greatsword:animmodels/animations/biped/living/walk_bahamut.json
-[02Jun2024 12:32:21.901] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_R in the animation file, MovementAnimation pierceth_greatsword:animmodels/animations/biped/living/walk_bahamut.json
-[02Jun2024 12:32:21.901] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HipControl in the animation file, MovementAnimation pierceth_greatsword:animmodels/animations/biped/living/walk_bahamut.json
-[02Jun2024 12:32:21.901] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HipIK in the animation file, MovementAnimation pierceth_greatsword:animmodels/animations/biped/living/walk_bahamut.json
-[02Jun2024 12:32:21.901] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WeaponIK_R in the animation file, MovementAnimation pierceth_greatsword:animmodels/animations/biped/living/walk_bahamut.json
-[02Jun2024 12:32:21.901] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WeaponIK_L in the animation file, MovementAnimation pierceth_greatsword:animmodels/animations/biped/living/walk_bahamut.json
-[02Jun2024 12:32:21.901] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint GodNode in the animation file, MovementAnimation pierceth_greatsword:animmodels/animations/biped/living/walk_bahamut.json
-[02Jun2024 12:32:21.901] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint Upper Rot in the animation file, MovementAnimation pierceth_greatsword:animmodels/animations/biped/living/walk_bahamut.json
-[02Jun2024 12:32:21.901] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeadIKF in the animation file, MovementAnimation pierceth_greatsword:animmodels/animations/biped/living/walk_bahamut.json
-[02Jun2024 12:32:21.901] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint Tool_R_Control in the animation file, MovementAnimation pierceth_greatsword:animmodels/animations/biped/living/walk_bahamut.json
-[02Jun2024 12:32:21.902] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint Tool_L_Control in the animation file, MovementAnimation pierceth_greatsword:animmodels/animations/biped/living/walk_bahamut.json
-[02Jun2024 12:32:23.456] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint IKThigh_R in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto1.json
-[02Jun2024 12:32:23.456] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint IKLeg_R in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto1.json
-[02Jun2024 12:32:23.456] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint IKThigh_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto1.json
-[02Jun2024 12:32:23.456] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint IKLeg_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto1.json
-[02Jun2024 12:32:23.456] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint FKTorso in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto1.json
-[02Jun2024 12:32:23.456] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint FKChest in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto1.json
-[02Jun2024 12:32:23.456] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint IKArm_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto1.json
-[02Jun2024 12:32:23.456] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint IKHand_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto1.json
-[02Jun2024 12:32:23.456] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint FKArm_R in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto1.json
-[02Jun2024 12:32:23.456] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint FKHand_R in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto1.json
-[02Jun2024 12:32:23.456] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneeIK_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto1.json
-[02Jun2024 12:32:23.456] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneelIK_R in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto1.json
-[02Jun2024 12:32:23.456] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto1.json
-[02Jun2024 12:32:23.456] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_R in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto1.json
-[02Jun2024 12:32:23.456] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ElbowIK_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto1.json
-[02Jun2024 12:32:23.457] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WristIK_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto1.json
-[02Jun2024 12:32:23.457] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HipControl in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto1.json
-[02Jun2024 12:32:23.457] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HipIK in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto1.json
-[02Jun2024 12:32:23.457] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WeaponIK_R in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto1.json
-[02Jun2024 12:32:23.457] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WeaponIK_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto1.json
-[02Jun2024 12:32:23.457] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint GodNode in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto1.json
-[02Jun2024 12:32:23.457] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint Upper Rot in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto1.json
-[02Jun2024 12:32:23.457] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeadIKF in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto1.json
-[02Jun2024 12:32:23.457] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint Tool_R_Control in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto1.json
-[02Jun2024 12:32:23.457] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint Tool_L_Control in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto1.json
-[02Jun2024 12:32:24.566] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint IKThigh_R in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto2.json
-[02Jun2024 12:32:24.566] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint IKLeg_R in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto2.json
-[02Jun2024 12:32:24.566] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint IKThigh_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto2.json
-[02Jun2024 12:32:24.566] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint IKLeg_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto2.json
-[02Jun2024 12:32:24.566] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint FKTorso in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto2.json
-[02Jun2024 12:32:24.566] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint FKChest in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto2.json
-[02Jun2024 12:32:24.566] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint IKArm_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto2.json
-[02Jun2024 12:32:24.566] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint IKHand_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto2.json
-[02Jun2024 12:32:24.566] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint FKArm_R in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto2.json
-[02Jun2024 12:32:24.566] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint FKHand_R in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto2.json
-[02Jun2024 12:32:24.566] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneeIK_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto2.json
-[02Jun2024 12:32:24.566] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneelIK_R in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto2.json
-[02Jun2024 12:32:24.566] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto2.json
-[02Jun2024 12:32:24.566] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_R in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto2.json
-[02Jun2024 12:32:24.566] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ElbowIK_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto2.json
-[02Jun2024 12:32:24.566] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WristIK_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto2.json
-[02Jun2024 12:32:24.566] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HipControl in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto2.json
-[02Jun2024 12:32:24.566] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HipIK in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto2.json
-[02Jun2024 12:32:24.566] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WeaponIK_R in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto2.json
-[02Jun2024 12:32:24.566] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WeaponIK_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto2.json
-[02Jun2024 12:32:24.566] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint GodNode in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto2.json
-[02Jun2024 12:32:24.566] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint Upper Rot in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto2.json
-[02Jun2024 12:32:24.566] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeadIKF in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto2.json
-[02Jun2024 12:32:24.566] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint Tool_R_Control in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto2.json
-[02Jun2024 12:32:24.566] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint Tool_L_Control in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto2.json
-[02Jun2024 12:32:26.710] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint IKThigh_R in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto3.json
-[02Jun2024 12:32:26.711] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint IKLeg_R in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto3.json
-[02Jun2024 12:32:26.711] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint IKThigh_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto3.json
-[02Jun2024 12:32:26.711] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint IKLeg_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto3.json
-[02Jun2024 12:32:26.711] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint FKTorso in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto3.json
-[02Jun2024 12:32:26.711] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint FKChest in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto3.json
-[02Jun2024 12:32:26.711] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint IKArm_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto3.json
-[02Jun2024 12:32:26.711] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint IKHand_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto3.json
-[02Jun2024 12:32:26.711] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint FKArm_R in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto3.json
-[02Jun2024 12:32:26.711] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint FKHand_R in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto3.json
-[02Jun2024 12:32:26.711] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneeIK_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto3.json
-[02Jun2024 12:32:26.711] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneelIK_R in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto3.json
-[02Jun2024 12:32:26.711] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto3.json
-[02Jun2024 12:32:26.711] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_R in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto3.json
-[02Jun2024 12:32:26.711] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ElbowIK_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto3.json
-[02Jun2024 12:32:26.711] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WristIK_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto3.json
-[02Jun2024 12:32:26.711] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HipControl in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto3.json
-[02Jun2024 12:32:26.711] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HipIK in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto3.json
-[02Jun2024 12:32:26.711] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WeaponIK_R in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto3.json
-[02Jun2024 12:32:26.711] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WeaponIK_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto3.json
-[02Jun2024 12:32:26.711] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint GodNode in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto3.json
-[02Jun2024 12:32:26.711] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint Upper Rot in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto3.json
-[02Jun2024 12:32:26.711] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeadIKF in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto3.json
-[02Jun2024 12:32:26.711] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint Tool_R_Control in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto3.json
-[02Jun2024 12:32:26.711] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint Tool_L_Control in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto3.json
-[02Jun2024 12:32:28.459] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint IKThigh_R in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto4.json
-[02Jun2024 12:32:28.459] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint IKLeg_R in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto4.json
-[02Jun2024 12:32:28.459] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint IKThigh_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto4.json
-[02Jun2024 12:32:28.459] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint IKLeg_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto4.json
-[02Jun2024 12:32:28.459] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint FKTorso in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto4.json
-[02Jun2024 12:32:28.459] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint FKChest in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto4.json
-[02Jun2024 12:32:28.459] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint IKArm_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto4.json
-[02Jun2024 12:32:28.459] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint IKHand_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto4.json
-[02Jun2024 12:32:28.459] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint FKArm_R in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto4.json
-[02Jun2024 12:32:28.459] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint FKHand_R in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto4.json
-[02Jun2024 12:32:28.459] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneeIK_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto4.json
-[02Jun2024 12:32:28.459] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneelIK_R in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto4.json
-[02Jun2024 12:32:28.459] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto4.json
-[02Jun2024 12:32:28.459] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_R in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto4.json
-[02Jun2024 12:32:28.459] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ElbowIK_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto4.json
-[02Jun2024 12:32:28.459] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WristIK_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto4.json
-[02Jun2024 12:32:28.459] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HipControl in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto4.json
-[02Jun2024 12:32:28.459] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HipIK in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto4.json
-[02Jun2024 12:32:28.459] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WeaponIK_R in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto4.json
-[02Jun2024 12:32:28.459] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WeaponIK_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto4.json
-[02Jun2024 12:32:28.459] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint GodNode in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto4.json
-[02Jun2024 12:32:28.459] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint Upper Rot in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto4.json
-[02Jun2024 12:32:28.459] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeadIKF in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto4.json
-[02Jun2024 12:32:28.459] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint Tool_R_Control in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto4.json
-[02Jun2024 12:32:28.459] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint Tool_L_Control in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_auto4.json
-[02Jun2024 12:32:39.552] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint IKThigh_R in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_rauto1.json
-[02Jun2024 12:32:39.552] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint IKLeg_R in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_rauto1.json
-[02Jun2024 12:32:39.552] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint IKThigh_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_rauto1.json
-[02Jun2024 12:32:39.552] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint IKLeg_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_rauto1.json
-[02Jun2024 12:32:39.552] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint FKTorso in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_rauto1.json
-[02Jun2024 12:32:39.552] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint FKChest in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_rauto1.json
-[02Jun2024 12:32:39.552] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint FKArm_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_rauto1.json
-[02Jun2024 12:32:39.552] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint FKHand_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_rauto1.json
-[02Jun2024 12:32:39.552] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint FKArm_R in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_rauto1.json
-[02Jun2024 12:32:39.552] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint FKHand_R in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_rauto1.json
-[02Jun2024 12:32:39.552] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneeIK_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_rauto1.json
-[02Jun2024 12:32:39.552] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneelIK_R in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_rauto1.json
-[02Jun2024 12:32:39.552] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_rauto1.json
-[02Jun2024 12:32:39.552] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_R in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_rauto1.json
-[02Jun2024 12:32:39.552] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HipControl in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_rauto1.json
-[02Jun2024 12:32:39.552] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HipIK in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_rauto1.json
-[02Jun2024 12:32:39.552] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WeaponIK_R in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_rauto1.json
-[02Jun2024 12:32:39.552] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WeaponIK_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_rauto1.json
-[02Jun2024 12:32:39.552] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint GodNode in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_rauto1.json
-[02Jun2024 12:32:39.552] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint Upper Rot in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_rauto1.json
-[02Jun2024 12:32:39.552] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeadIKF in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_rauto1.json
-[02Jun2024 12:32:39.552] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint Tool_R_Control in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_rauto1.json
-[02Jun2024 12:32:39.552] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint Tool_L_Control in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_rauto1.json
-[02Jun2024 12:32:43.899] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneeIK_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_lauto1.json
-[02Jun2024 12:32:43.899] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneelIK_R in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_lauto1.json
-[02Jun2024 12:32:43.899] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_lauto1.json
-[02Jun2024 12:32:43.899] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_R in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_lauto1.json
-[02Jun2024 12:32:43.899] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ElbowIK_R in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_lauto1.json
-[02Jun2024 12:32:43.900] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ElbowIK_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_lauto1.json
-[02Jun2024 12:32:43.900] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WristIK_R in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_lauto1.json
-[02Jun2024 12:32:43.900] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WristIK_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_lauto1.json
-[02Jun2024 12:32:43.900] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ShoulderControl_R in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_lauto1.json
-[02Jun2024 12:32:43.900] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ShoulderControl_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_lauto1.json
-[02Jun2024 12:32:43.900] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint CoreIK in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_lauto1.json
-[02Jun2024 12:32:43.900] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HipControl in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_lauto1.json
-[02Jun2024 12:32:43.900] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HipIK in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_lauto1.json
-[02Jun2024 12:32:43.900] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeadIK in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_lauto1.json
-[02Jun2024 12:32:43.900] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WeaponIK_R in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_lauto1.json
-[02Jun2024 12:32:43.900] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WeaponIK_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_lauto1.json
-[02Jun2024 12:32:47.902] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint IKThigh_R in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_bauto1.json
-[02Jun2024 12:32:47.902] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint IKLeg_R in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_bauto1.json
-[02Jun2024 12:32:47.902] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint IKThigh_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_bauto1.json
-[02Jun2024 12:32:47.902] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint IKLeg_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_bauto1.json
-[02Jun2024 12:32:47.902] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint FKTorso in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_bauto1.json
-[02Jun2024 12:32:47.902] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint FKChest in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_bauto1.json
-[02Jun2024 12:32:47.902] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint IKArm_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_bauto1.json
-[02Jun2024 12:32:47.902] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint IKHand_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_bauto1.json
-[02Jun2024 12:32:47.902] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint FKArm_R in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_bauto1.json
-[02Jun2024 12:32:47.902] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint FKHand_R in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_bauto1.json
-[02Jun2024 12:32:47.902] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneeIK_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_bauto1.json
-[02Jun2024 12:32:47.902] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneelIK_R in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_bauto1.json
-[02Jun2024 12:32:47.902] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_bauto1.json
-[02Jun2024 12:32:47.902] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_R in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_bauto1.json
-[02Jun2024 12:32:47.902] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint ElbowIK_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_bauto1.json
-[02Jun2024 12:32:47.903] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WristIK_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_bauto1.json
-[02Jun2024 12:32:47.903] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HipControl in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_bauto1.json
-[02Jun2024 12:32:47.903] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HipIK in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_bauto1.json
-[02Jun2024 12:32:47.903] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WeaponIK_R in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_bauto1.json
-[02Jun2024 12:32:47.903] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WeaponIK_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_bauto1.json
-[02Jun2024 12:32:47.903] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint GodNode in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_bauto1.json
-[02Jun2024 12:32:47.903] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint Upper Rot in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_bauto1.json
-[02Jun2024 12:32:47.903] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeadIKF in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_bauto1.json
-[02Jun2024 12:32:47.903] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint Tool_R_Control in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_bauto1.json
-[02Jun2024 12:32:47.903] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint Tool_L_Control in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_bauto1.json
-[02Jun2024 12:32:56.206] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint IKThigh_R in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_airslash.json
-[02Jun2024 12:32:56.207] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint IKLeg_R in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_airslash.json
-[02Jun2024 12:32:56.207] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint IKThigh_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_airslash.json
-[02Jun2024 12:32:56.207] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint IKLeg_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_airslash.json
-[02Jun2024 12:32:56.207] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint FKTorso in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_airslash.json
-[02Jun2024 12:32:56.207] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint FKChest in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_airslash.json
-[02Jun2024 12:32:56.207] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint FKArm_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_airslash.json
-[02Jun2024 12:32:56.207] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint FKHand_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_airslash.json
-[02Jun2024 12:32:56.207] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint FKArm_R in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_airslash.json
-[02Jun2024 12:32:56.207] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint FKHand_R in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_airslash.json
-[02Jun2024 12:32:56.207] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneeIK_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_airslash.json
-[02Jun2024 12:32:56.207] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneelIK_R in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_airslash.json
-[02Jun2024 12:32:56.207] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_airslash.json
-[02Jun2024 12:32:56.207] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_R in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_airslash.json
-[02Jun2024 12:32:56.207] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HipControl in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_airslash.json
-[02Jun2024 12:32:56.207] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HipIK in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_airslash.json
-[02Jun2024 12:32:56.207] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WeaponIK_R in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_airslash.json
-[02Jun2024 12:32:56.207] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WeaponIK_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_airslash.json
-[02Jun2024 12:32:56.207] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint GodNode in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_airslash.json
-[02Jun2024 12:32:56.207] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint Upper Rot in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_airslash.json
-[02Jun2024 12:32:56.207] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeadIKF in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_airslash.json
-[02Jun2024 12:32:56.207] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint Tool_R_Control in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_airslash.json
-[02Jun2024 12:32:56.207] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint Tool_L_Control in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_airslash.json
-[02Jun2024 12:33:00.205] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint IKThigh_R in the animation file, MovementAnimation pierceth_greatsword:animmodels/animations/biped/living/run_bahamut.json
-[02Jun2024 12:33:00.205] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint IKLeg_R in the animation file, MovementAnimation pierceth_greatsword:animmodels/animations/biped/living/run_bahamut.json
-[02Jun2024 12:33:00.205] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint IKThigh_L in the animation file, MovementAnimation pierceth_greatsword:animmodels/animations/biped/living/run_bahamut.json
-[02Jun2024 12:33:00.205] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint IKLeg_L in the animation file, MovementAnimation pierceth_greatsword:animmodels/animations/biped/living/run_bahamut.json
-[02Jun2024 12:33:00.205] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint FKTorso in the animation file, MovementAnimation pierceth_greatsword:animmodels/animations/biped/living/run_bahamut.json
-[02Jun2024 12:33:00.205] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint FKChest in the animation file, MovementAnimation pierceth_greatsword:animmodels/animations/biped/living/run_bahamut.json
-[02Jun2024 12:33:00.205] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint FKArm_L in the animation file, MovementAnimation pierceth_greatsword:animmodels/animations/biped/living/run_bahamut.json
-[02Jun2024 12:33:00.205] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint FKHand_L in the animation file, MovementAnimation pierceth_greatsword:animmodels/animations/biped/living/run_bahamut.json
-[02Jun2024 12:33:00.205] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint FKArm_R in the animation file, MovementAnimation pierceth_greatsword:animmodels/animations/biped/living/run_bahamut.json
-[02Jun2024 12:33:00.205] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint FKHand_R in the animation file, MovementAnimation pierceth_greatsword:animmodels/animations/biped/living/run_bahamut.json
-[02Jun2024 12:33:00.205] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneeIK_L in the animation file, MovementAnimation pierceth_greatsword:animmodels/animations/biped/living/run_bahamut.json
-[02Jun2024 12:33:00.205] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneelIK_R in the animation file, MovementAnimation pierceth_greatsword:animmodels/animations/biped/living/run_bahamut.json
-[02Jun2024 12:33:00.205] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_L in the animation file, MovementAnimation pierceth_greatsword:animmodels/animations/biped/living/run_bahamut.json
-[02Jun2024 12:33:00.205] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_R in the animation file, MovementAnimation pierceth_greatsword:animmodels/animations/biped/living/run_bahamut.json
-[02Jun2024 12:33:00.205] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HipControl in the animation file, MovementAnimation pierceth_greatsword:animmodels/animations/biped/living/run_bahamut.json
-[02Jun2024 12:33:00.205] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HipIK in the animation file, MovementAnimation pierceth_greatsword:animmodels/animations/biped/living/run_bahamut.json
-[02Jun2024 12:33:00.205] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WeaponIK_R in the animation file, MovementAnimation pierceth_greatsword:animmodels/animations/biped/living/run_bahamut.json
-[02Jun2024 12:33:00.205] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WeaponIK_L in the animation file, MovementAnimation pierceth_greatsword:animmodels/animations/biped/living/run_bahamut.json
-[02Jun2024 12:33:00.205] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint GodNode in the animation file, MovementAnimation pierceth_greatsword:animmodels/animations/biped/living/run_bahamut.json
-[02Jun2024 12:33:00.205] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint Upper Rot in the animation file, MovementAnimation pierceth_greatsword:animmodels/animations/biped/living/run_bahamut.json
-[02Jun2024 12:33:00.205] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeadIKF in the animation file, MovementAnimation pierceth_greatsword:animmodels/animations/biped/living/run_bahamut.json
-[02Jun2024 12:33:00.205] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint Tool_R_Control in the animation file, MovementAnimation pierceth_greatsword:animmodels/animations/biped/living/run_bahamut.json
-[02Jun2024 12:33:00.205] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint Tool_L_Control in the animation file, MovementAnimation pierceth_greatsword:animmodels/animations/biped/living/run_bahamut.json
-[02Jun2024 12:33:00.302] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint IKThigh_R in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_dash.json
-[02Jun2024 12:33:00.302] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint IKLeg_R in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_dash.json
-[02Jun2024 12:33:00.302] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint IKThigh_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_dash.json
-[02Jun2024 12:33:00.302] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint IKLeg_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_dash.json
-[02Jun2024 12:33:00.302] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint FKTorso in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_dash.json
-[02Jun2024 12:33:00.302] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint FKChest in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_dash.json
-[02Jun2024 12:33:00.302] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint FKArm_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_dash.json
-[02Jun2024 12:33:00.302] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint FKHand_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_dash.json
-[02Jun2024 12:33:00.302] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint FKArm_R in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_dash.json
-[02Jun2024 12:33:00.302] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint FKHand_R in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_dash.json
-[02Jun2024 12:33:00.302] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneeIK_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_dash.json
-[02Jun2024 12:33:00.302] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneelIK_R in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_dash.json
-[02Jun2024 12:33:00.303] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_dash.json
-[02Jun2024 12:33:00.303] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_R in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_dash.json
-[02Jun2024 12:33:00.303] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HipControl in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_dash.json
-[02Jun2024 12:33:00.303] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HipIK in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_dash.json
-[02Jun2024 12:33:00.303] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WeaponIK_R in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_dash.json
-[02Jun2024 12:33:00.303] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WeaponIK_L in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_dash.json
-[02Jun2024 12:33:00.303] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint GodNode in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_dash.json
-[02Jun2024 12:33:00.303] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint Upper Rot in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_dash.json
-[02Jun2024 12:33:00.303] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeadIKF in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_dash.json
-[02Jun2024 12:33:00.303] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint Tool_R_Control in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_dash.json
-[02Jun2024 12:33:00.303] [Server thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint Tool_L_Control in the animation file, BasicAttackAnimation pierceth_greatsword:animmodels/animations/biped/combat/bahamut_dash.json
-[02Jun2024 12:33:11.509] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
-[02Jun2024 12:33:11.516] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
-[02Jun2024 12:33:11.521] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
-[02Jun2024 12:33:11.523] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
+[01Jul2024 18:14:52.468] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:item.goat_horn.play
+[01Jul2024 18:14:52.468] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:entity.goat.screaming.horn_break
+[01Jul2024 18:14:53.326] [Render thread/INFO] [com.mojang.blaze3d.audio.Library/]: OpenAL initialized on device OpenAL Soft on Headphones (2- WH-1000XM5)
+[01Jul2024 18:14:53.326] [Render thread/INFO] [net.minecraft.client.sounds.SoundEngine/SOUNDS]: Sound engine started
+[01Jul2024 18:14:53.402] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 2048x1024x4 minecraft:textures/atlas/blocks.png-atlas
+[01Jul2024 18:14:53.410] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x4 minecraft:textures/atlas/signs.png-atlas
+[01Jul2024 18:14:53.410] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
+[01Jul2024 18:14:53.411] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
+[01Jul2024 18:14:53.411] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 1024x1024x4 minecraft:textures/atlas/armor_trims.png-atlas
+[01Jul2024 18:14:53.413] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
+[01Jul2024 18:14:53.414] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 128x64x4 minecraft:textures/atlas/decorated_pot.png-atlas
+[01Jul2024 18:14:53.414] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
+[01Jul2024 18:14:53.414] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
+[01Jul2024 18:14:53.530] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_translucent_emissive could not find sampler named Sampler2 in the specified shader program.
+[01Jul2024 18:14:53.593] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 2048x1024x0 minecraft:textures/atlas/particles.png-atlas
+[01Jul2024 18:14:53.596] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x0 minecraft:textures/atlas/paintings.png-atlas
+[01Jul2024 18:14:53.596] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x128x0 minecraft:textures/atlas/mob_effects.png-atlas
+[01Jul2024 18:14:53.598] [Render thread/ERROR] [epicfight/]: Failed to load User animation pierceth_greatsword:biped/living/walk_hound_greatsword because of java.lang.IllegalStateException: No constructor information has provided in User animation pierceth_greatsword:biped/living/walk_hound_greatsword. Skipped.
+[01Jul2024 18:14:53.600] [Render thread/WARN] [epicfight/]: [Item Skins] Item named pierceth_greatsword:lawlieth_slicer does not exist
+[01Jul2024 18:14:53.957] [Realms Notification Availability checker #1/INFO] [com.mojang.realmsclient.client.RealmsClient/]: Could not authorize you against Realms server: Invalid session id
+[01Jul2024 18:16:52.477] [Render thread/INFO] [net.minecraftforge.registries.GameData/REGISTRIES]: Injecting existing registry data into this CLIENT instance
+[01Jul2024 18:16:53.547] [Render thread/INFO] [net.minecraft.world.item.crafting.RecipeManager/]: Loaded 7 recipes
+[01Jul2024 18:16:53.599] [Render thread/INFO] [net.minecraft.advancements.AdvancementList/]: Loaded 1271 advancements
+[01Jul2024 18:16:53.613] [Render thread/WARN] [epicfight/]: Error while deserializing datapack for pierceth_greatsword:lawlieth_slicer
+[01Jul2024 18:16:53.915] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Starting integrated minecraft server version 1.20.1
+[01Jul2024 18:16:53.915] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Generating keypair
+[01Jul2024 18:16:54.155] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Preparing start region for dimension minecraft:overworld
+[01Jul2024 18:16:55.119] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 0%
+[01Jul2024 18:16:55.119] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 0%
+[01Jul2024 18:16:55.177] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 0%
+[01Jul2024 18:16:55.588] [Server thread/INFO] [net.minecraftforge.server.permission.PermissionAPI/]: Successfully initialized permission handler forge:default_handler
+[01Jul2024 18:16:55.592] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Time elapsed: 1425 ms
+[01Jul2024 18:16:55.665] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Changing view distance to 12, from 10
+[01Jul2024 18:16:55.667] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Changing simulation distance to 12, from 0
+[01Jul2024 18:16:55.743] [Render thread/WARN] [io.netty.util.internal.SystemPropertyUtil/]: Unable to parse the boolean system property 'java.net.preferIPv6Addresses':system - using the default value: false
+[01Jul2024 18:16:56.107] [Netty Local Client IO #0/INFO] [net.minecraftforge.network.NetworkHooks/]: Connected to a modded server.
+[01Jul2024 18:16:56.140] [Server thread/INFO] [net.minecraft.server.players.PlayerList/]: Dev[local:E:d6043808] logged in with entity id 83 at (-92.53222883363817, -60.0, 79.29955910903315)
+[01Jul2024 18:16:56.195] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Dev joined the game
+[01Jul2024 18:16:56.677] [Render thread/INFO] [net.minecraft.advancements.AdvancementList/]: Loaded 2 advancements
+[01Jul2024 18:16:56.834] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint IKThigh_R in the animation file, StaticAnimation pierceth_greatsword:animmodels/animations/biped/living/hold_bahamut.json
+[01Jul2024 18:16:56.834] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint IKLeg_R in the animation file, StaticAnimation pierceth_greatsword:animmodels/animations/biped/living/hold_bahamut.json
+[01Jul2024 18:16:56.834] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint IKThigh_L in the animation file, StaticAnimation pierceth_greatsword:animmodels/animations/biped/living/hold_bahamut.json
+[01Jul2024 18:16:56.834] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint IKLeg_L in the animation file, StaticAnimation pierceth_greatsword:animmodels/animations/biped/living/hold_bahamut.json
+[01Jul2024 18:16:56.834] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint FKTorso in the animation file, StaticAnimation pierceth_greatsword:animmodels/animations/biped/living/hold_bahamut.json
+[01Jul2024 18:16:56.834] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint FKChest in the animation file, StaticAnimation pierceth_greatsword:animmodels/animations/biped/living/hold_bahamut.json
+[01Jul2024 18:16:56.834] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint FKArm_L in the animation file, StaticAnimation pierceth_greatsword:animmodels/animations/biped/living/hold_bahamut.json
+[01Jul2024 18:16:56.834] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint FKHand_L in the animation file, StaticAnimation pierceth_greatsword:animmodels/animations/biped/living/hold_bahamut.json
+[01Jul2024 18:16:56.834] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint FKArm_R in the animation file, StaticAnimation pierceth_greatsword:animmodels/animations/biped/living/hold_bahamut.json
+[01Jul2024 18:16:56.834] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint FKHand_R in the animation file, StaticAnimation pierceth_greatsword:animmodels/animations/biped/living/hold_bahamut.json
+[01Jul2024 18:16:56.834] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneeIK_L in the animation file, StaticAnimation pierceth_greatsword:animmodels/animations/biped/living/hold_bahamut.json
+[01Jul2024 18:16:56.834] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint KneelIK_R in the animation file, StaticAnimation pierceth_greatsword:animmodels/animations/biped/living/hold_bahamut.json
+[01Jul2024 18:16:56.834] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_L in the animation file, StaticAnimation pierceth_greatsword:animmodels/animations/biped/living/hold_bahamut.json
+[01Jul2024 18:16:56.834] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeelIK_R in the animation file, StaticAnimation pierceth_greatsword:animmodels/animations/biped/living/hold_bahamut.json
+[01Jul2024 18:16:56.834] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HipControl in the animation file, StaticAnimation pierceth_greatsword:animmodels/animations/biped/living/hold_bahamut.json
+[01Jul2024 18:16:56.834] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HipIK in the animation file, StaticAnimation pierceth_greatsword:animmodels/animations/biped/living/hold_bahamut.json
+[01Jul2024 18:16:56.834] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WeaponIK_R in the animation file, StaticAnimation pierceth_greatsword:animmodels/animations/biped/living/hold_bahamut.json
+[01Jul2024 18:16:56.834] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint WeaponIK_L in the animation file, StaticAnimation pierceth_greatsword:animmodels/animations/biped/living/hold_bahamut.json
+[01Jul2024 18:16:56.834] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint GodNode in the animation file, StaticAnimation pierceth_greatsword:animmodels/animations/biped/living/hold_bahamut.json
+[01Jul2024 18:16:56.834] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint Upper Rot in the animation file, StaticAnimation pierceth_greatsword:animmodels/animations/biped/living/hold_bahamut.json
+[01Jul2024 18:16:56.834] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint HeadIKF in the animation file, StaticAnimation pierceth_greatsword:animmodels/animations/biped/living/hold_bahamut.json
+[01Jul2024 18:16:56.834] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint Tool_R_Control in the animation file, StaticAnimation pierceth_greatsword:animmodels/animations/biped/living/hold_bahamut.json
+[01Jul2024 18:16:56.834] [Render thread/WARN] [epicfight/]: [EpicFightMod] Can't find the joint Tool_L_Control in the animation file, StaticAnimation pierceth_greatsword:animmodels/animations/biped/living/hold_bahamut.json
+[01Jul2024 18:16:57.377] [Server thread/ERROR] [net.minecraftforge.eventbus.EventBus/EVENTBUS]: Exception caught during firing event: Cannot invoke "java.lang.Integer.intValue()" because the return value of "yesman.epicfight.skill.SkillDataManager.getDataValue(yesman.epicfight.skill.SkillDataKey)" is null
+	Index: 1
+	Listeners:
+		0: NORMAL
+		1: ASM: class yesman.epicfight.events.EntityEvents updateEvent(Lnet/minecraftforge/event/entity/living/LivingEvent$LivingTickEvent;)V
+java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" because the return value of "yesman.epicfight.skill.SkillDataManager.getDataValue(yesman.epicfight.skill.SkillDataKey)" is null
+	at TRANSFORMER/epicfight@20.8.1/yesman.epicfight.skill.BasicAttack.updateContainer(BasicAttack.java:122)
+	at TRANSFORMER/epicfight@20.8.1/yesman.epicfight.skill.SkillContainer.update(SkillContainer.java:262)
+	at TRANSFORMER/epicfight@20.8.1/yesman.epicfight.world.capabilities.entitypatch.player.PlayerPatch.tick(PlayerPatch.java:219)
+	at TRANSFORMER/epicfight@20.8.1/yesman.epicfight.world.capabilities.entitypatch.player.ServerPlayerPatch.tick(ServerPlayerPatch.java:116)
+	at TRANSFORMER/epicfight@20.8.1/yesman.epicfight.events.EntityEvents.updateEvent(EntityEvents.java:101)
+	at TRANSFORMER/epicfight@20.8.1/yesman.epicfight.events.__EntityEvents_updateEvent_LivingTickEvent.invoke(.dynamic)
+	at MC-BOOTSTRAP/net.minecraftforge.eventbus/net.minecraftforge.eventbus.ASMEventHandler.invoke(ASMEventHandler.java:73)
+	at MC-BOOTSTRAP/net.minecraftforge.eventbus/net.minecraftforge.eventbus.EventBus.post(EventBus.java:315)
+	at MC-BOOTSTRAP/net.minecraftforge.eventbus/net.minecraftforge.eventbus.EventBus.post(EventBus.java:296)
+	at TRANSFORMER/forge@47.2.20/net.minecraftforge.common.ForgeHooks.onLivingTick(ForgeHooks.java:266)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.world.entity.LivingEntity.tick(LivingEntity.java:2400)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.world.entity.player.Player.tick(Player.java:245)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.server.level.ServerPlayer.doTick(ServerPlayer.java:489)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.server.network.ServerGamePacketListenerImpl.tick(ServerGamePacketListenerImpl.java:267)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.network.Connection.tick(Connection.java:289)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.server.network.ServerConnectionListener.tick(ServerConnectionListener.java:159)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.server.MinecraftServer.tickChildren(MinecraftServer.java:950)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.server.MinecraftServer.tickServer(MinecraftServer.java:857)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.client.server.IntegratedServer.tickServer(IntegratedServer.java:95)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:679)
+	at TRANSFORMER/minecraft@1.20.1/net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:251)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+
+[01Jul2024 18:16:57.598] [Server thread/ERROR] [net.minecraft.server.MinecraftServer/]: Encountered an unexpected exception
+net.minecraft.ReportedException: Ticking player
+	at net.minecraft.server.network.ServerConnectionListener.tick(ServerConnectionListener.java:162) ~[forge-1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/:?]
+	at net.minecraft.server.MinecraftServer.tickChildren(MinecraftServer.java:950) ~[forge-1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/:?]
+	at net.minecraft.server.MinecraftServer.tickServer(MinecraftServer.java:857) ~[forge-1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/:?]
+	at net.minecraft.client.server.IntegratedServer.tickServer(IntegratedServer.java:95) ~[forge-1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/:?]
+	at net.minecraft.server.MinecraftServer.runServer(MinecraftServer.java:679) ~[forge-1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/:?]
+	at net.minecraft.server.MinecraftServer.lambda$spin$2(MinecraftServer.java:251) ~[forge-1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/:?]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+Caused by: java.lang.NullPointerException: Cannot invoke "java.lang.Integer.intValue()" because the return value of "yesman.epicfight.skill.SkillDataManager.getDataValue(yesman.epicfight.skill.SkillDataKey)" is null
+	at yesman.epicfight.skill.BasicAttack.updateContainer(BasicAttack.java:122) ~[epicfight-20.8.1_mapped_parchment_2023.09.03-1.20.1.jar%23198!/:20.8.1]
+	at yesman.epicfight.skill.SkillContainer.update(SkillContainer.java:262) ~[epicfight-20.8.1_mapped_parchment_2023.09.03-1.20.1.jar%23198!/:20.8.1]
+	at yesman.epicfight.world.capabilities.entitypatch.player.PlayerPatch.tick(PlayerPatch.java:219) ~[epicfight-20.8.1_mapped_parchment_2023.09.03-1.20.1.jar%23198!/:20.8.1]
+	at yesman.epicfight.world.capabilities.entitypatch.player.ServerPlayerPatch.tick(ServerPlayerPatch.java:116) ~[epicfight-20.8.1_mapped_parchment_2023.09.03-1.20.1.jar%23198!/:20.8.1]
+	at yesman.epicfight.events.EntityEvents.updateEvent(EntityEvents.java:101) ~[epicfight-20.8.1_mapped_parchment_2023.09.03-1.20.1.jar%23198!/:20.8.1]
+	at yesman.epicfight.events.__EntityEvents_updateEvent_LivingTickEvent.invoke(.dynamic) ~[epicfight-20.8.1_mapped_parchment_2023.09.03-1.20.1.jar%23198!/:20.8.1]
+	at net.minecraftforge.eventbus.ASMEventHandler.invoke(ASMEventHandler.java:73) ~[eventbus-6.0.5.jar%23115!/:?]
+	at net.minecraftforge.eventbus.EventBus.post(EventBus.java:315) ~[eventbus-6.0.5.jar%23115!/:?]
+	at net.minecraftforge.eventbus.EventBus.post(EventBus.java:296) ~[eventbus-6.0.5.jar%23115!/:?]
+	at net.minecraftforge.common.ForgeHooks.onLivingTick(ForgeHooks.java:266) ~[forge-1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23190%23197!/:?]
+	at net.minecraft.world.entity.LivingEntity.tick(LivingEntity.java:2400) ~[forge-1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/:?]
+	at net.minecraft.world.entity.player.Player.tick(Player.java:245) ~[forge-1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/:?]
+	at net.minecraft.server.level.ServerPlayer.doTick(ServerPlayer.java:489) ~[forge-1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/:?]
+	at net.minecraft.server.network.ServerGamePacketListenerImpl.tick(ServerGamePacketListenerImpl.java:267) ~[forge-1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/:?]
+	at net.minecraft.network.Connection.tick(Connection.java:289) ~[forge-1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/:?]
+	at net.minecraft.server.network.ServerConnectionListener.tick(ServerConnectionListener.java:159) ~[forge-1.20.1-47.2.20_mapped_parchment_2023.09.03-1.20.1-recomp.jar%23191!/:?]
+	... 6 more
+[01Jul2024 18:16:57.631] [Server thread/FATAL] [net.minecraftforge.common.ForgeMod/]: Preparing crash report with UUID f6a15be0-07f5-4f0c-8dfd-430d3aa6de05
+[01Jul2024 18:16:57.633] [Server thread/ERROR] [net.minecraft.server.MinecraftServer/]: This crash report has been saved to: C:\Users\ruben\Documents\MC Mods\Pierced_Armory\run\.\crash-reports\crash-2024-07-01_18.16.57-server.txt
+[01Jul2024 18:16:57.633] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Stopping server
+[01Jul2024 18:16:57.634] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving players
+[01Jul2024 18:16:57.645] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving worlds
+[01Jul2024 18:16:57.665] [Render thread/FATAL] [net.minecraftforge.common.ForgeMod/]: Preparing crash report with UUID d7ee743e-8194-403b-ae3d-56e430b585e4
+[01Jul2024 18:16:58.210] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
+[01Jul2024 18:16:58.287] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
+[01Jul2024 18:16:58.288] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
+[01Jul2024 18:16:58.306] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (New World (1)): All chunks are saved
+[01Jul2024 18:16:58.306] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (DIM1): All chunks are saved
+[01Jul2024 18:16:58.306] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage (DIM-1): All chunks are saved
+[01Jul2024 18:16:58.306] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: ThreadedAnvilChunkStorage: All dimensions are saved

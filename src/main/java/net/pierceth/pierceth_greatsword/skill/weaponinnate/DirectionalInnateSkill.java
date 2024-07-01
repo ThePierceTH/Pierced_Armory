@@ -1,7 +1,5 @@
 package net.pierceth.pierceth_greatsword.skill.weaponinnate;
 
-// TODO: Remove Comment
-/*
 import io.netty.buffer.Unpooled;
 import net.minecraft.client.player.Input;
 import net.minecraft.network.FriendlyByteBuf;
@@ -14,6 +12,7 @@ import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.pierceth.pierceth_greatsword.data.AnimConfig;
+import net.pierceth.pierceth_greatsword.data.AnimType;
 import net.pierceth.pierceth_greatsword.skill.VOSSkillDataKeys;
 import net.pierceth.pierceth_greatsword.world.capabilities.item.VOSWeaponCapability;
 import yesman.epicfight.api.animation.AnimationProvider;
@@ -34,7 +33,6 @@ import yesman.epicfight.world.entity.eventlistener.SkillConsumeEvent;
 
 import java.util.List;
 import java.util.UUID;
-
 
 public class DirectionalInnateSkill extends WeaponInnateSkill {
     private static final UUID EVENT_UUID = UUID.fromString("6b2bca14-41d2-4437-91ab-c74943b064a2");
@@ -66,7 +64,7 @@ public class DirectionalInnateSkill extends WeaponInnateSkill {
         ServerPlayer player = executer.getOriginal();
         SkillContainer skillContainer = executer.getSkill(this);
         SkillDataManager dataManager = skillContainer.getDataManager();
-        int comboCounter = dataManager.getDataValue(VOSSkillDataKeys.INNATE_COMBO_COUNTER.get());
+        int comboCounter = dataManager.getDataValue(SkillDataKeys.COMBO_COUNTER.get());
 
         if (player.isPassenger()) {
             Entity entity = player.getVehicle();
@@ -82,32 +80,26 @@ public class DirectionalInnateSkill extends WeaponInnateSkill {
             List<AnimationProvider<?>> combo = cap.getAutoAttckMotion(executer);
             List<AnimConfig> configs = ((VOSWeaponCapability) cap).getAnimConfigs(executer);
             int comboSize = combo.size();
-            boolean dashAttack = player.isSprinting();
 
-            if (dashAttack) {
-                // Dash Attack
-                System.out.println("Dash Attack");
-                comboCounter = comboCounterValid(AnimConfig.DASH_COMBO, configs, comboCounter);
-            }
-            else if(sw == -1) {
+            if(sw == -1) {
                 // Right Attack
                 System.out.println("Right Attack");
-                comboCounter = comboCounterValid(AnimConfig.RIGHT_LIGHT_COMBO, configs, comboCounter);
+                comboCounter = comboCounterValid(AnimType.RIGHT_HEAVY_COMBO, configs, comboCounter);
             }
             else if(sw == 1) {
                 // Left Attack
                 System.out.println("Left Attack");
-                comboCounter = comboCounterValid(AnimConfig.LEFT_LIGHT_COMBO, configs, comboCounter);
+                comboCounter = comboCounterValid(AnimType.LEFT_HEAVY_COMBO, configs, comboCounter);
             }
             else if(fw == -1) {
                 // Back Attack
                 System.out.println("Back Attack");
-                comboCounter = comboCounterValid(AnimConfig.BACK_LIGHT_COMBO, configs, comboCounter);
+                comboCounter = comboCounterValid(AnimType.BACK_HEAVY_COMBO, configs, comboCounter);
             }
             else {
                 // Normal Attack
                 System.out.println("Normal Attack");
-                comboCounter = comboCounterValid(AnimConfig.LIGHT_COMBO, configs, comboCounter);
+                comboCounter = comboCounterValid(AnimType.HEAVY_COMBO, configs, comboCounter);
             }
 
 
@@ -116,7 +108,7 @@ public class DirectionalInnateSkill extends WeaponInnateSkill {
             comboCounter++;
         }
 
-        skillContainer.getDataManager().setData(VOSSkillDataKeys.INNATE_COMBO_COUNTER.get(), comboCounter);
+        skillContainer.getDataManager().setData(SkillDataKeys.COMBO_COUNTER.get(), comboCounter);
 
         if (attackMotion != null) {
             executer.playAnimationSynchronized(attackMotion, 0);
@@ -169,8 +161,14 @@ public class DirectionalInnateSkill extends WeaponInnateSkill {
         return packet;
     }
 
-    private int getComboInitialIndex(AnimConfig animcConfig, List<AnimConfig> animConfigs) {
-        int origIndex = animConfigs.indexOf(animcConfig);
+    private int getComboInitialIndex(AnimType type, List<AnimConfig> animConfigs) {
+        int origIndex = 0;
+        for (int i = 0; i < animConfigs.size(); i++) {
+            if (animConfigs.get(i).getType() == type) {
+                origIndex = i;
+                break;
+            }
+        }
 
         System.out.println("AnimConfig Index: " + origIndex);
 
@@ -182,9 +180,21 @@ public class DirectionalInnateSkill extends WeaponInnateSkill {
         return totalSize;
     }
 
-    private int comboCounterValid(AnimConfig animConfig, List<AnimConfig> animConfigs, int comboCounter) {
-        int initialIndex = getComboInitialIndex(animConfig, animConfigs);
-        int finalIndex = initialIndex + animConfig.getComboSize() - 1;
+    private int getComboSizeFromType(AnimType type, List<AnimConfig> animConfigs) {
+        int comboSize = 0;
+        for (AnimConfig animConfig : animConfigs) {
+            if (animConfig.getType() == type) {
+                comboSize = animConfig.getComboSize();
+                break;
+            }
+        }
+
+        return comboSize;
+    }
+
+    private int comboCounterValid(AnimType type, List<AnimConfig> animConfigs, int comboCounter) {
+        int initialIndex = getComboInitialIndex(type, animConfigs);
+        int finalIndex = initialIndex + getComboSizeFromType(type, animConfigs) - 1;
 
         System.out.println("Starting Index: " + initialIndex);
         System.out.println("Ending Index: " + finalIndex);
@@ -192,4 +202,3 @@ public class DirectionalInnateSkill extends WeaponInnateSkill {
         return comboCounter >= initialIndex && comboCounter <= finalIndex ? comboCounter : initialIndex;
     }
 }
-*/
