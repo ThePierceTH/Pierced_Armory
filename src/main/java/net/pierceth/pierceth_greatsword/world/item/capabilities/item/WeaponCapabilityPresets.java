@@ -225,7 +225,7 @@ public class WeaponCapabilityPresets {
                         PierceTHAnimations.CARVER_AUTO1,
                         PierceTHAnimations.CARVER_AUTO2,
                         PierceTHAnimations.CARVER_AUTO3,
-                        PierceTHAnimations.BAHAMUT_DASH,
+                        PierceTHAnimations.MIDAS_AUTO4,
                         PierceTHAnimations.CARVER_DASH,
                         PierceTHAnimations.MIDAS_AIRSLASH)
                 .innateSkill(Styles.ONE_HAND, (itemStack) -> EpicFightSkills.RELENTLESS_COMBO)
