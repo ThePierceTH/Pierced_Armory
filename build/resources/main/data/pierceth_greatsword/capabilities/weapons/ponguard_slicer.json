@@ -4,9 +4,9 @@
 		"common":
 		{
 			"armor_negation":20.0,
-			"impact":4.4,
+			"impact":2.0,
 			"max_strikes":6
 		}
 	},
-	"type":"epicfight:greatsword"
+	"type":"pierceth_greatsword:ponguard"
 }

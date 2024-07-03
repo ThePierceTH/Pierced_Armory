@@ -1,24 +1,8 @@
 package net.pierceth.pierceth_greatsword.skill.weaponinnate;
 
-import java.util.List;
-import java.util.Set;
-import java.util.UUID;
-
-import com.google.common.collect.Lists;
-import com.google.common.collect.Multimap;
-import com.google.common.collect.Sets;
-
-import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
-import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.entity.MobType;
-import net.minecraft.world.entity.ai.attributes.Attribute;
-import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.enchantment.EnchantmentHelper;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.api.distmarker.OnlyIn;
 import yesman.epicfight.api.animation.property.AnimationProperty.AttackPhaseProperty;
 import yesman.epicfight.api.utils.math.ValueModifier;
 import yesman.epicfight.gameasset.Animations;
@@ -28,6 +12,9 @@ import yesman.epicfight.world.capabilities.entitypatch.player.PlayerPatch;
 import yesman.epicfight.world.capabilities.item.CapabilityItem;
 import yesman.epicfight.world.damagesource.EpicFightDamageType;
 import yesman.epicfight.world.entity.eventlistener.PlayerEventListener.EventType;
+
+import java.util.List;
+import java.util.UUID;
 
 public class DragonClawSkill extends SimpleWeaponInnateSkill {
     private static final UUID EVENT_UUID = UUID.fromString("3874f771-4f71-4eb9-b8c6-7a70ed16a602");

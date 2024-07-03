@@ -37,14 +37,14 @@ public class PonguardSlicerItem extends WeaponItem implements GeoAnimatable {
         @SuppressWarnings("deprecation")
         public PonguardSlicerItem(Item.Properties build, Tier tier) {
             super(tier, 0, 0.0F, build);
-            this.attackDamage = 11.0F + tier.getAttackDamageBonus();
+            this.attackDamage = 7.0F + tier.getAttackDamageBonus();
             this.attackSpeed = -2.85F - (0.05F * tier.getLevel());
         }
 
     @Override
-    public boolean hurtEnemy(ItemStack p_43278_, LivingEntity p_43279_, LivingEntity p_43280_) {
-            p_43279_.setSecondsOnFire(2);
-        return super.hurtEnemy(p_43278_, p_43279_, p_43280_);
+    public boolean hurtEnemy(ItemStack itemStack, LivingEntity pTarget, LivingEntity pAttacker) {
+            pTarget.setSecondsOnFire(2);
+        return super.hurtEnemy(itemStack, pTarget, pAttacker);
     }
 
     @Override
@@ -58,7 +58,6 @@ public class PonguardSlicerItem extends WeaponItem implements GeoAnimatable {
                 Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
                 builder.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(BASE_ATTACK_DAMAGE_UUID, "Weapon modifier", this.attackDamage, Operation.ADDITION));
                 builder.put(Attributes.ATTACK_SPEED, new AttributeModifier(BASE_ATTACK_SPEED_UUID, "Weapon modifier", this.attackSpeed, Operation.ADDITION));
-                builder.put(Attributes.MOVEMENT_SPEED, new AttributeModifier(MOVEMENT_SPEED_MODIFIER, "Weapon modifier", -0.02D, Operation.ADDITION));
                 return builder.build();
             }
 

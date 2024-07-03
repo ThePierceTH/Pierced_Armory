@@ -8,19 +8,17 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.pierceth.pierceth_greatsword.PiercethGreatsword;
 import net.pierceth.pierceth_greatsword.gameasset.PierceTHSkills;
-import net.pierceth.pierceth_greatsword.world.capabilities.item.VOSWeaponCapability;
+import net.pierceth.pierceth_greatsword.world.item.capabilities.item.VOSWeaponCapability;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import yesman.epicfight.gameasset.EpicFightSkills;
 import yesman.epicfight.network.EpicFightNetworkManager;
-import yesman.epicfight.network.client.CPChangeSkill;
 import yesman.epicfight.network.server.SPChangeSkill;
 import yesman.epicfight.skill.SkillSlots;
 import yesman.epicfight.world.capabilities.EpicFightCapabilities;
 import yesman.epicfight.world.capabilities.entitypatch.EntityPatch;
 import yesman.epicfight.world.capabilities.entitypatch.player.PlayerPatch;
 import yesman.epicfight.world.capabilities.item.CapabilityItem;
-import yesman.epicfight.world.capabilities.provider.ItemCapabilityProvider;
 import yesman.epicfight.world.capabilities.skill.CapabilitySkill;
 
 @Mod.EventBusSubscriber(modid= PiercethGreatsword.MODID)

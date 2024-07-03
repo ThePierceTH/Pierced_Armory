@@ -13,7 +13,6 @@ public class RoyalGreatswordMastery extends PassiveSkill {
     public RoyalGreatswordMastery(Builder<? extends Skill> builder) {
         super(builder);
     }
-
     @Override
     public void onInitiate(SkillContainer container) {
         super.onInitiate(container);
