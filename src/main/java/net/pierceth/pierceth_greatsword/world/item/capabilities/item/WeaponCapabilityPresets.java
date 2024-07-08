@@ -225,9 +225,9 @@ public class WeaponCapabilityPresets {
                         PierceTHAnimations.CARVER_AUTO1,
                         PierceTHAnimations.CARVER_AUTO2,
                         PierceTHAnimations.CARVER_AUTO3,
-                        PierceTHAnimations.MIDAS_AUTO4,
+                        PierceTHAnimations.CARVER_AUTO4,
                         PierceTHAnimations.CARVER_DASH,
-                        PierceTHAnimations.MIDAS_AIRSLASH)
+                        PierceTHAnimations.CARVER_AIRSLASH)
                 .innateSkill(Styles.ONE_HAND, (itemStack) -> EpicFightSkills.RELENTLESS_COMBO)
                 .livingMotionModifier(Styles.ONE_HAND, LivingMotions.IDLE, PierceTHAnimations.HOLD_CARVER)
                 .livingMotionModifier(Styles.ONE_HAND, LivingMotions.WALK, PierceTHAnimations.WALK_CARVER)

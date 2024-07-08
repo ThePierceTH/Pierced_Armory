@@ -96,7 +96,9 @@ public class PierceTHAnimations {
     public static StaticAnimation CARVER_AUTO1;
     public static StaticAnimation CARVER_AUTO2;
     public static StaticAnimation CARVER_AUTO3;
+    public static StaticAnimation CARVER_AUTO4;
     public static StaticAnimation CARVER_DASH;
+    public static StaticAnimation CARVER_AIRSLASH;
 
     @SubscribeEvent
     public static void registerAnimations(AnimationRegistryEvent event) {
@@ -336,20 +338,30 @@ public class PierceTHAnimations {
         WALK_CARVER = new MovementAnimation(true, "biped/living/walk_carver", biped);
         RUN_CARVER = new MovementAnimation(true, "biped/living/run_carver", biped);
 
-        CARVER_AUTO1 = new BasicAttackAnimation(0.1F, 0.75F, 0.9F, 1.2F,
+        CARVER_AUTO1 = new BasicAttackAnimation(0.1F, 0.75F, 0.9F, 1.3F,
                 null, biped.toolR, "biped/combat/carver_auto1", biped)
-                .addProperty(AnimationProperty.AttackAnimationProperty.BASIS_ATTACK_SPEED, 3.2F)
+                .addProperty(AnimationProperty.AttackAnimationProperty.BASIS_ATTACK_SPEED, 3.0F)
                 .addProperty(AnimationProperty.AttackAnimationProperty.FIXED_MOVE_DISTANCE, true);
-        CARVER_AUTO2 = new BasicAttackAnimation(0.1F, 0.7F, 0.9F, 1.2F,
+        CARVER_AUTO2 = new BasicAttackAnimation(0.1F, 0.7F, 0.9F, 1.3F,
                 null, biped.toolR, "biped/combat/carver_auto2", biped)
-                .addProperty(AnimationProperty.AttackAnimationProperty.BASIS_ATTACK_SPEED, 3.3F)
+                .addProperty(AnimationProperty.AttackAnimationProperty.BASIS_ATTACK_SPEED, 3.1F)
                 .addProperty(AnimationProperty.AttackAnimationProperty.FIXED_MOVE_DISTANCE, true);
         CARVER_AUTO3 = new BasicAttackAnimation(0.1F, 1.0F, 1.5F, 1.8F,
                 null, biped.toolR, "biped/combat/carver_auto3", biped)
-                .addProperty(AnimationProperty.AttackAnimationProperty.BASIS_ATTACK_SPEED, 3.4F)
+                .addProperty(AnimationProperty.AttackAnimationProperty.BASIS_ATTACK_SPEED, 3.2F)
                 .addProperty(AnimationProperty.AttackAnimationProperty.FIXED_MOVE_DISTANCE, true);
+        CARVER_AUTO4 = new BasicAttackAnimation(0.1F, 1.0F, 1.6F, 2.0F,
+                null, biped.toolR, "biped/combat/carver_auto4", biped)
+                .addProperty(AnimationProperty.AttackAnimationProperty.BASIS_ATTACK_SPEED, 3.6F)
+                .addProperty(AnimationProperty.AttackAnimationProperty.FIXED_MOVE_DISTANCE, true)
+                .addEvents(AnimationEvent.TimeStampedEvent.create(1.1F, PierceTHAnimations.ReusableSources.FRACTURE_GROUND_SPEED_BASED, AnimationEvent.Side.CLIENT).params(new Vec3f(0.0F, -0.5F, -2.0F), Armatures.BIPED.rootJoint, 1.1D, 10D, 0.55F),
+                        //AnimationEvent.TimeStampedEvent.create(1.0F, ReusableSources.SCREENSHAKE, AnimationEvent.Side.CLIENT).params((int)5, (float)3.0, (float)20.0),
+                        AnimationEvent.TimeStampedEvent.create(1.15F, ReusableSources.DUST_CLOUD, AnimationEvent.Side.CLIENT).params(new Vec3f(0.0F, -0.5F, -1.0F), Armatures.BIPED.rootJoint, 1.1D, 0.55F));
 
         CARVER_DASH = (new BasicAttackAnimation(0.1F, 0.75F, 1.0F, 1.8F, null, biped.toolR, "biped/combat/carver_dash", biped))
+                .addProperty(AnimationProperty.AttackAnimationProperty.BASIS_ATTACK_SPEED, 4.0F)
+                .addProperty(AnimationProperty.AttackAnimationProperty.FIXED_MOVE_DISTANCE, true);
+        CARVER_AIRSLASH = (new BasicAttackAnimation(0.1F, 0.75F, 1.0F, 1.8F, null, biped.toolR, "biped/combat/carver_airslash", biped))
                 .addProperty(AnimationProperty.AttackAnimationProperty.BASIS_ATTACK_SPEED, 4.0F)
                 .addProperty(AnimationProperty.AttackAnimationProperty.FIXED_MOVE_DISTANCE, true);
 
