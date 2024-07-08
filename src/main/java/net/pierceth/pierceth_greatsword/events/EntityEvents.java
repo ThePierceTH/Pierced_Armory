@@ -6,28 +6,26 @@ import net.minecraft.world.entity.Entity;
 import net.minecraftforge.event.entity.living.LivingEquipmentChangeEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.pierceth.pierceth_greatsword.PiercethGreatsword;
-import net.pierceth.pierceth_greatsword.gameasset.PierceTHSkills;
-import net.pierceth.pierceth_greatsword.world.capabilities.item.VOSWeaponCapability;
+import net.pierceth.pierceth_greatsword.Constants;
+import net.pierceth.pierceth_greatsword.compat.efm.gameasset.PierceTHSkills;
+import net.pierceth.pierceth_greatsword.common.capabilities.item.VOSWeaponCapability;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import yesman.epicfight.gameasset.EpicFightSkills;
 import yesman.epicfight.network.EpicFightNetworkManager;
-import yesman.epicfight.network.client.CPChangeSkill;
 import yesman.epicfight.network.server.SPChangeSkill;
 import yesman.epicfight.skill.SkillSlots;
 import yesman.epicfight.world.capabilities.EpicFightCapabilities;
 import yesman.epicfight.world.capabilities.entitypatch.EntityPatch;
 import yesman.epicfight.world.capabilities.entitypatch.player.PlayerPatch;
 import yesman.epicfight.world.capabilities.item.CapabilityItem;
-import yesman.epicfight.world.capabilities.provider.ItemCapabilityProvider;
 import yesman.epicfight.world.capabilities.skill.CapabilitySkill;
 
-@Mod.EventBusSubscriber(modid= PiercethGreatsword.MODID)
+@Mod.EventBusSubscriber(modid = Constants.MOD_ID)
 public class EntityEvents {
     @SubscribeEvent
     public static void equipChangeEvent(LivingEquipmentChangeEvent event) {
-        Logger logger = LogManager.getLogger(PiercethGreatsword.MODID);
+        Logger logger = LogManager.getLogger(Constants.MOD_ID);
 
         EntityPatch<Entity> entitypatch = EpicFightCapabilities.getEntityPatch(event.getEntity(), EntityPatch.class);
 
