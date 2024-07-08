@@ -1,6 +1,40 @@
 package net.pierceth.pierceth_greatsword.compat.efm.skill.weaponinnate;
 
-/*
+
+import io.netty.buffer.Unpooled;
+import net.minecraft.client.player.Input;
+import net.minecraft.network.FriendlyByteBuf;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.util.Mth;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.PlayerRideableJumping;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
+import net.pierceth.pierceth_greatsword.common.capabilities.item.VOSWeaponCapability;
+import net.pierceth.pierceth_greatsword.common.data.AnimConfig;
+import net.pierceth.pierceth_greatsword.common.data.AnimType;
+import net.pierceth.pierceth_greatsword.common.init.VOSSkillDataKeys;
+import yesman.epicfight.api.animation.AnimationProvider;
+import yesman.epicfight.api.animation.AttackAnimationProvider;
+import yesman.epicfight.api.animation.types.StaticAnimation;
+import yesman.epicfight.client.events.engine.ControllEngine;
+import yesman.epicfight.client.world.capabilites.entitypatch.player.LocalPlayerPatch;
+import yesman.epicfight.network.client.CPExecuteSkill;
+import yesman.epicfight.skill.Skill;
+import yesman.epicfight.skill.SkillContainer;
+import yesman.epicfight.skill.SkillDataKeys;
+import yesman.epicfight.skill.SkillDataManager;
+import yesman.epicfight.skill.weaponinnate.WeaponInnateSkill;
+import yesman.epicfight.world.capabilities.entitypatch.player.ServerPlayerPatch;
+import yesman.epicfight.world.capabilities.item.CapabilityItem;
+import yesman.epicfight.world.entity.eventlistener.BasicAttackEvent;
+import yesman.epicfight.world.entity.eventlistener.PlayerEventListener;
+import yesman.epicfight.world.entity.eventlistener.SkillConsumeEvent;
+
+import java.util.List;
+import java.util.UUID;
 
 public class DirectionalInnateSkill extends WeaponInnateSkill {
     private static final UUID EVENT_UUID = UUID.fromString("6b2bca14-41d2-4437-91ab-c74943b064a2");
@@ -32,7 +66,7 @@ public class DirectionalInnateSkill extends WeaponInnateSkill {
         ServerPlayer player = executer.getOriginal();
         SkillContainer skillContainer = executer.getSkill(this);
         SkillDataManager dataManager = skillContainer.getDataManager();
-        int comboCounter = dataManager.getDataValue(SkillDataKeys.COMBO_COUNTER.get());
+        int comboCounter = dataManager.getDataValue(VOSSkillDataKeys.INNATE_COMBO_COUNTER.get());
 
         if (player.isPassenger()) {
             Entity entity = player.getVehicle();
@@ -76,7 +110,7 @@ public class DirectionalInnateSkill extends WeaponInnateSkill {
             comboCounter++;
         }
 
-        skillContainer.getDataManager().setData(SkillDataKeys.COMBO_COUNTER.get(), comboCounter);
+        skillContainer.getDataManager().setData(VOSSkillDataKeys.INNATE_COMBO_COUNTER.get(), comboCounter);
 
         if (attackMotion != null) {
             executer.playAnimationSynchronized(attackMotion, 0);
@@ -170,4 +204,3 @@ public class DirectionalInnateSkill extends WeaponInnateSkill {
         return comboCounter >= initialIndex && comboCounter <= finalIndex ? comboCounter : initialIndex;
     }
 }
-*/

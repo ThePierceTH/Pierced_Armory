@@ -5,7 +5,7 @@ import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.pierceth.pierceth_greatsword.Constants;
-import net.pierceth.pierceth_greatsword.client.particle.PierceTHParticles;
+import net.pierceth.pierceth_greatsword.common.init.VOSParticles;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import yesman.epicfight.api.animation.Joint;
@@ -207,7 +207,7 @@ public class PierceTHAnimations {
                 float speedy = 0.1F;
                 float speedz = (float)(random.nextDouble() * 0.5f) - 0.25f;
 
-                level.addParticle(PierceTHParticles.DUST.get(),
+                level.addParticle(VOSParticles.DUST.get(),
                         true,
                         cloudPos.x,
                         cloudPos.y,

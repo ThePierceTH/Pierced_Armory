@@ -9,16 +9,16 @@ import net.pierceth.pierceth_greatsword.Constants;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 
-public class PierceTHCreativeTabs {
+public class VOSCreativeTabs {
     public static final DeferredRegister<CreativeModeTab> TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, Constants.MOD_ID);
 
     public static final RegistryObject<CreativeModeTab> ITEMS = TABS.register("items",
             () -> CreativeModeTab.builder()
                     .title(Component.translatable("itemGroup." + Constants.MOD_ID + ".items"))
-                    .icon(() -> new ItemStack(PierceTHItems.PONGUARD_SLICER.get()))
+                    .icon(() -> new ItemStack(VOSItems.PONGUARD_SLICER.get()))
                     .withTabsBefore(CreativeModeTabs.SPAWN_EGGS)
                     .displayItems((params, output) -> {
-                        PierceTHItems.ITEMS.getEntries().forEach(it -> {
+                        VOSItems.ITEMS.getEntries().forEach(it -> {
                             output.accept(it.get());
                         });
                     })

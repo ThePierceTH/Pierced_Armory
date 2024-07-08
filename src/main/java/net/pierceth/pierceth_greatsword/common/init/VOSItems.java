@@ -13,7 +13,7 @@ import net.pierceth.pierceth_greatsword.common.world.item.PonguardSlicerItem;
 import net.pierceth.pierceth_greatsword.common.world.item.custom.JarArmorItem;
 
 
-public class PierceTHItems {
+public class VOSItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Constants.MOD_ID);
     public static final RegistryObject<Item> PONGUARD_SLICER = ITEMS.register("ponguard_slicer", () -> new PonguardSlicerItem(new Item.Properties().fireResistant().rarity(Rarity.EPIC), Tiers.NETHERITE));
     public static final RegistryObject<Item> BAHAMUT = ITEMS.register("bahamut", () -> new BahamutItem(new Item.Properties().fireResistant().rarity(Rarity.EPIC)));
