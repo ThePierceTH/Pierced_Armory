@@ -21,7 +21,6 @@ public class PiercethGreatsword {
         CommonClass.init(bus);
         
         bus.addListener(PierceTHAnimations::registerAnimations);
-//        SkillDataKeys.DATA_KEYS.register(bus);
 
         bus.addListener(this::commonSetup);
         bus.addListener(this::clientSetup);
