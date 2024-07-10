@@ -9,15 +9,16 @@
     <facet type="minecraft" name="Minecraft">
       <configuration>
         <autoDetectTypes>
-          <platformType>MCP</platformType>
-          <platformType>MIXIN</platformType>
           <platformType>FORGE</platformType>
+          <platformType>MIXIN</platformType>
+          <platformType>MCP</platformType>
         </autoDetectTypes>
+        <projectReimportVersion>1</projectReimportVersion>
       </configuration>
     </facet>
   </component>
   <component name="McpModuleSettings">
-    <option name="mappingFile" value="C:\Users\pierc\Desktop\MinecraftModding\Projects\Pierceth Greatsword\build\createMcpToSrg\output.tsrg" />
+    <option name="mappingFile" value="C:\Users\Bryce\Documents\Mods\Pierced_Armory\build\createMcpToSrg\output.tsrg" />
     <option name="mcpVersion" value="official_1.18.2" />
     <option name="minecraftVersion" value="1.18.2" />
     <option name="platformVersion" value="40.2.14" />
