@@ -21,6 +21,7 @@ import yesman.epicfight.gameasset.Animations;
 import yesman.epicfight.gameasset.Armatures;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import yesman.epicfight.model.armature.HumanoidArmature;
+import yesman.epicfight.world.capabilities.entitypatch.player.PlayerPatch;
 import yesman.epicfight.world.damagesource.EpicFightDamageType;
 
 import java.util.Random;
@@ -217,6 +218,12 @@ public class PierceTHAnimations {
                         speedz);
             }
         };
+
+/*        public static final AnimationEvent.AnimationEventConsumer GUARD_ATTACK = (livingEntityPatch, staticAnimation, objects) -> {
+            if (livingEntityPatch instanceof PlayerPatch<?> playerPatch) {
+                playerPatch.getEventListener().
+            }
+        };*/
 
         public static final AnimationEvent.AnimationEventConsumer FRACTURE_GROUND_SPEED_BASED = (entitypatch, animation, params) -> {
             Logger logger = LogManager.getLogger(Constants.MOD_ID);

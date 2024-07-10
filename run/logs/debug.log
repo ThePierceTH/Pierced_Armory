@@ -1370,3 +1370,9 @@ java.lang.IllegalAccessException: class io.netty.util.internal.PlatformDependent
 [09Jul2024 22:46:01.546] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
 [09Jul2024 22:46:01.548] [Server thread/DEBUG] [net.minecraftforge.common.ForgeHooks/WP]: Gathering id map for writing to world save New World
 [09Jul2024 22:46:01.563] [Server thread/DEBUG] [net.minecraftforge.common.ForgeHooks/WP]: ID Map collection complete New World
+[09Jul2024 22:49:19.512] [Thread-3/WARN] [net.minecraftforge.fml.config.ConfigFileTypeHandler/CONFIG]: Configuration file C:\Users\Bryce\Documents\Mods\Pierced_Armory\run\config\epicfight-client.toml is not correct. Correcting
+[09Jul2024 22:49:19.522] [Thread-3/DEBUG] [net.minecraftforge.fml.config.ConfigFileTypeHandler/CONFIG]: Config file epicfight-client.toml changed, sending notifies
+[09Jul2024 22:49:19.533] [Thread-3/WARN] [net.minecraftforge.fml.config.ConfigFileTypeHandler/CONFIG]: Configuration file C:\Users\Bryce\Documents\Mods\Pierced_Armory\run\config\forge-client.toml is not correct. Correcting
+[09Jul2024 22:49:19.538] [Thread-3/DEBUG] [net.minecraftforge.fml.config.ConfigFileTypeHandler/CONFIG]: Config file forge-client.toml changed, sending notifies
+[09Jul2024 22:49:19.538] [Thread-3/DEBUG] [net.minecraftforge.common.ForgeConfig/FORGEMOD]: Forge config just got changed on the file system!
+[09Jul2024 22:52:07.592] [Thread-3/DEBUG] [net.minecraftforge.fml.config.ConfigFileTypeHandler/CONFIG]: Config file epicfight-client.toml changed, sending notifies

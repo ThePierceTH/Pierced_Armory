@@ -308,3 +308,5 @@
 [09Jul2024 22:46:01.529] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
 [09Jul2024 22:46:01.545] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
 [09Jul2024 22:46:01.546] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
+[09Jul2024 22:49:19.512] [Thread-3/WARN] [net.minecraftforge.fml.config.ConfigFileTypeHandler/CONFIG]: Configuration file C:\Users\Bryce\Documents\Mods\Pierced_Armory\run\config\epicfight-client.toml is not correct. Correcting
+[09Jul2024 22:49:19.533] [Thread-3/WARN] [net.minecraftforge.fml.config.ConfigFileTypeHandler/CONFIG]: Configuration file C:\Users\Bryce\Documents\Mods\Pierced_Armory\run\config\forge-client.toml is not correct. Correcting
