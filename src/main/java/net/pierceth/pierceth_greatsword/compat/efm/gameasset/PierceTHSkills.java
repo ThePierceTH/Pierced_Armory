@@ -8,6 +8,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.pierceth.pierceth_greatsword.Constants;
 import net.pierceth.pierceth_greatsword.compat.efm.skill.DirectionalBasicAttack;
 import net.pierceth.pierceth_greatsword.compat.efm.skill.passive.RoyalGreatswordMastery;
+import net.pierceth.pierceth_greatsword.compat.efm.skill.weaponinnate.DirectionalInnateSkill;
 import net.pierceth.pierceth_greatsword.compat.efm.skill.weaponinnate.DragonClawSkill;
 import yesman.epicfight.api.animation.property.AnimationProperty;
 import yesman.epicfight.api.animation.types.AttackAnimation;
@@ -36,7 +37,7 @@ public class PierceTHSkills {
     	ModRegistryWorker registryWorker = onBuild.createRegistryWorker(Constants.MOD_ID);
     	
         DIRECTIONAL_BASIC_ATTACK = registryWorker.build("directional_basic_attack", DirectionalBasicAttack::new, DirectionalBasicAttack.createBasicAttackBuilder());
-//        DIRECTIONAL_INNATE_SKILL = registryWorker.build("directional_basic_attack", DirectionalInnateSkill::new, DirectionalInnateSkill.createWeaponInnateBuilder());
+        DIRECTIONAL_INNATE_SKILL = registryWorker.build("directional_innate_skill", DirectionalInnateSkill::new, DirectionalInnateSkill.createWeaponInnateBuilder());
 
         ROYAL_GREATSWORD_MASTERY = registryWorker.build("royal_greatsword", RoyalGreatswordMastery::new, PassiveSkill.createPassiveBuilder().setCategory(SkillCategories.PASSIVE));
         WeaponInnateSkill DragonClaw = registryWorker.build("dragon_claw", DragonClawSkill::new, SimpleWeaponInnateSkill.createSimpleWeaponInnateBuilder().setAnimations(() -> (AttackAnimation)PierceTHAnimations.DRAGON_CLAW));

@@ -38,8 +38,6 @@ import java.util.UUID;
 
 public class DirectionalInnateSkill extends WeaponInnateSkill {
     private static final UUID EVENT_UUID = UUID.fromString("6b2bca14-41d2-4437-91ab-c74943b064a2");
-    private AttackAnimationProvider first;
-    private AttackAnimationProvider second;
 
     public DirectionalInnateSkill(Builder<? extends Skill> builder) {
         super(builder);
@@ -52,10 +50,6 @@ public class DirectionalInnateSkill extends WeaponInnateSkill {
 
         if (!event.isCanceled()) {
             event.getResourceType().consumer.consume(this, executer, event.getAmount());
-        }
-
-        if (executer.getEventListener().triggerEvents(PlayerEventListener.EventType.BASIC_ATTACK_EVENT, new BasicAttackEvent(executer))) {
-            return;
         }
 
         CapabilityItem cap = executer.getHoldingItemCapability(InteractionHand.MAIN_HAND);
@@ -85,27 +79,27 @@ public class DirectionalInnateSkill extends WeaponInnateSkill {
 
             if(sw == -1) {
                 // Right Attack
-                System.out.println("Right Attack");
+                System.out.println("Right Heavy Attack");
                 comboCounter = comboCounterValid(AnimType.RIGHT_HEAVY_COMBO, configs, comboCounter);
             }
             else if(sw == 1) {
                 // Left Attack
-                System.out.println("Left Attack");
+                System.out.println("Left Heavy Attack");
                 comboCounter = comboCounterValid(AnimType.LEFT_HEAVY_COMBO, configs, comboCounter);
             }
             else if(fw == -1) {
                 // Back Attack
-                System.out.println("Back Attack");
+                System.out.println("Back Heavy Attack");
                 comboCounter = comboCounterValid(AnimType.BACK_HEAVY_COMBO, configs, comboCounter);
             }
             else {
                 // Normal Attack
-                System.out.println("Normal Attack");
+                System.out.println("Normal Heavy Attack");
                 comboCounter = comboCounterValid(AnimType.HEAVY_COMBO, configs, comboCounter);
             }
 
 
-            System.out.println("Combo Counter: " + comboCounter);
+            System.out.println("Heavy Combo Counter: " + comboCounter);
             attackMotion = combo.get(comboCounter).get();
             comboCounter++;
         }

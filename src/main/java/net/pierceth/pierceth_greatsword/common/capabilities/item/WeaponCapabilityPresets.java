@@ -106,6 +106,10 @@ public class WeaponCapabilityPresets {
                         new AnimConfig(AnimType.LEFT_LIGHT_COMBO, 2),
                         new AnimConfig(AnimType.RIGHT_LIGHT_COMBO, 2),
                         new AnimConfig(AnimType.BACK_LIGHT_COMBO, 2),
+                        new AnimConfig(AnimType.HEAVY_COMBO, 2),
+                        new AnimConfig(AnimType.LEFT_HEAVY_COMBO, 2),
+                        new AnimConfig(AnimType.RIGHT_HEAVY_COMBO, 2),
+                        new AnimConfig(AnimType.BACK_HEAVY_COMBO, 2),
                         new AnimConfig(AnimType.DASH_COMBO, 1),
                         new AnimConfig(AnimType.AIR_COMBO, 1)
                     )
@@ -120,9 +124,17 @@ public class WeaponCapabilityPresets {
                         Animations.SWORD_AUTO2,
                         PierceTHAnimations.BAHAMUT_BAUTO1,
                         Animations.LONGSWORD_AUTO2,
+                        Animations.GREATSWORD_AUTO1,
+                        Animations.GREATSWORD_AUTO2,
+                        Animations.LONGSWORD_AUTO1,
+                        Animations.LONGSWORD_AUTO2,
+                        Animations.DAGGER_AUTO1,
+                        Animations.DAGGER_AUTO2,
+                        Animations.SWORD_AUTO1,
+                        Animations.SWORD_AUTO2,
                         PierceTHAnimations.BAHAMUT_DASH,
                         PierceTHAnimations.BAHAMUT_AIRSLASH)
-                .innateSkill(Styles.TWO_HAND, (itemStack) -> PierceTHSkills.DRAGON_CLAW)
+                .innateSkill(Styles.TWO_HAND, (itemStack) -> PierceTHSkills.DIRECTIONAL_INNATE_SKILL)
                 .livingMotionModifier(Styles.TWO_HAND, LivingMotions.IDLE, PierceTHAnimations.HOLD_BAHAMUT)
                 .livingMotionModifier(Styles.TWO_HAND, LivingMotions.WALK, PierceTHAnimations.WALK_BAHAMUT)
                 .livingMotionModifier(Styles.TWO_HAND, LivingMotions.CHASE, Animations.BIPED_WALK_GREATSWORD)
