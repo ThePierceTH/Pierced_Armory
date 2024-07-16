@@ -3,7 +3,7 @@ package net.pierceth.pierceth_greatsword.common.capabilities.item;
 import yesman.epicfight.world.capabilities.item.WeaponCategory;
 
 public enum PierceWeaponCategories implements WeaponCategory {
-    BAHAMUT;
+    BAHAMUT, PONGUARD, MIDAS, CARVER;
 
     final int id;
 

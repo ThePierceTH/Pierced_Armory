@@ -14,7 +14,7 @@ import yesman.epicfight.world.item.WeaponItem;
 
 import java.util.UUID;
 
-public class LawliethSlicerItem extends WeaponItem {
+public class LawliethSlicerItem extends VOSWeaponItem {
     protected static final UUID MOVEMENT_SPEED_MODIFIER = UUID.fromString("16295ED8-B092-4A75-9A94-BCD8D56668BB");
     private final float attackDamage;
     private final float attackSpeed;

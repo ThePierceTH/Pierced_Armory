@@ -1,6 +1,10 @@
 package net.pierceth.pierceth_greatsword.compat.efm.gameasset;
 
+import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.BushBlock;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -20,9 +24,11 @@ import yesman.epicfight.api.utils.math.Vec3f;
 import yesman.epicfight.gameasset.Animations;
 import yesman.epicfight.gameasset.Armatures;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
+import yesman.epicfight.gameasset.EpicFightSounds;
 import yesman.epicfight.model.armature.HumanoidArmature;
 import yesman.epicfight.world.capabilities.entitypatch.player.PlayerPatch;
 import yesman.epicfight.world.damagesource.EpicFightDamageType;
+import yesman.epicfight.world.damagesource.StunType;
 
 import java.util.Random;
 import java.util.Set;
@@ -60,8 +66,35 @@ public class PierceTHAnimations {
     public static StaticAnimation BAHAMUT_AUTO3;
     public static StaticAnimation BAHAMUT_AUTO4;
     public static StaticAnimation BAHAMUT_RAUTO1;
+    public static StaticAnimation BAHAMUT_RAUTO2;
     public static StaticAnimation BAHAMUT_LAUTO1;
+    public static StaticAnimation BAHAMUT_LAUTO2;
     public static StaticAnimation BAHAMUT_BAUTO1;
+    public static StaticAnimation BAHAMUT_BAUTO2;
+
+    /** Midas **/
+
+    public static StaticAnimation HOLD_MIDAS;
+    public static StaticAnimation WALK_MIDAS;
+    public static StaticAnimation RUN_MIDAS;
+    public static StaticAnimation MIDAS_AUTO1;
+    public static StaticAnimation MIDAS_AUTO2;
+    public static StaticAnimation MIDAS_AUTO3;
+    public static StaticAnimation MIDAS_AUTO4;
+    public static StaticAnimation MIDAS_DASH;
+    public static StaticAnimation MIDAS_AIRSLASH;
+
+    /** Carver **/
+
+    public static StaticAnimation HOLD_CARVER;
+    public static StaticAnimation WALK_CARVER;
+    public static StaticAnimation RUN_CARVER;
+    public static StaticAnimation CARVER_AUTO1;
+    public static StaticAnimation CARVER_AUTO2;
+    public static StaticAnimation CARVER_AUTO3;
+    public static StaticAnimation CARVER_AUTO4;
+    public static StaticAnimation CARVER_DASH;
+    public static StaticAnimation CARVER_AIRSLASH;
 
     @SubscribeEvent
     public static void registerAnimations(AnimationRegistryEvent event) {
@@ -77,7 +110,7 @@ public class PierceTHAnimations {
                 .addEvents(AnimationEvent.TimeStampedEvent.create(0.05F, ReusableSources.DUST_CLOUD, AnimationEvent.Side.CLIENT).params(new Vec3f(0.0F, -1.0F, 1.0F), Armatures.BIPED.rootJoint, 1.1D, 0.55F));
         BIPED_WALK_ROYAL_GREATSWORD = new MovementAnimation(true, "biped/living/walk_greatsword", biped);
         BIPED_HOLD_ROYAL_GREATSWORD = new StaticAnimation(true, "biped/living/hold_greatsword", biped);
-        ROYAL_GREATSWORD_DASH = (new BasicAttackAnimation(0.15F, 0.55F, 0.9F, 1.2F, null, biped.toolR, "biped/combat/greatsword_dash", biped))
+        ROYAL_GREATSWORD_DASH = (new BasicAttackAnimation(0.15F, 0.65F, 1.1F, 1.5F, null, biped.toolR, "biped/combat/greatsword_dash", biped))
                 .addProperty(AttackPhaseProperty.SOURCE_TAG, Set.of(EpicFightDamageType.FINISHER))
                 .addProperty(AnimationProperty.AttackAnimationProperty.BASIS_ATTACK_SPEED, 1.2F)
                 .addProperty(AnimationProperty.AttackAnimationProperty.FIXED_MOVE_DISTANCE, true)
@@ -85,6 +118,25 @@ public class PierceTHAnimations {
                 //.addProperty(AnimationProperty.ActionAnimationProperty.NO_GRAVITY_TIME, TimePairList.create(0.01F, 0.95F))
                 .addProperty(AnimationProperty.ActionAnimationProperty.MOVE_VERTICAL, true)
                 .addProperty(AnimationProperty.ActionAnimationProperty.STOP_MOVEMENT, false)
+                .addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, (self, entitypatch, speed, elapsedTime) -> {
+                    if (elapsedTime >= 0.55F && elapsedTime < 1.0F) {
+                        float dpx = (float) entitypatch.getOriginal().getX();
+                        float dpy = (float) entitypatch.getOriginal().getY();
+                        float dpz = (float) entitypatch.getOriginal().getZ();
+                        BlockState block = entitypatch.getOriginal().level().getBlockState(new BlockPos.MutableBlockPos(dpx,dpy,dpz));
+
+                        while ((block.getBlock() instanceof BushBlock || block.isAir()) && !block.is(Blocks.VOID_AIR)) {
+                            dpy--;
+                            block = entitypatch.getOriginal().level().getBlockState(new BlockPos.MutableBlockPos(dpx,dpy,dpz));
+                        }
+
+                        float distanceToGround = (float) Math.max(Math.abs(entitypatch.getOriginal().getY() - dpy)-1, 0.0F);
+
+                        return 1 - (1 / (-distanceToGround - 1.F) + 1.0f);
+                    }
+
+                    return 1.0F;
+                })
                 .addEvents(
                         //AnimationEvent.TimeStampedEvent.create(0.75F, Animations.ReusableSources.FRACTURE_GROUND_SIMPLE, AnimationEvent.Side.CLIENT).params(new Vec3f(0.0F, -2.5F, -4.0F), Armatures.BIPED.rootJoint, 1.1D, 0.55F),
                         AnimationEvent.TimeStampedEvent.create(0.75F, PierceTHAnimations.ReusableSources.FRACTURE_GROUND_SPEED_BASED, AnimationEvent.Side.CLIENT).params(new Vec3f(0.0F, -2.5F, -4.0F), Armatures.BIPED.rootJoint, 1.1D, 10D, 0.55F),
@@ -99,7 +151,7 @@ public class PierceTHAnimations {
                 .addProperty(AnimationProperty.AttackAnimationProperty.FIXED_MOVE_DISTANCE, true)
                 .addProperty(AnimationProperty.AttackAnimationProperty.BASIS_ATTACK_SPEED, 1.0F)
                 .addEvents(AnimationEvent.TimeStampedEvent.create(0.55F, Animations.ReusableSources.FRACTURE_GROUND_SIMPLE, AnimationEvent.Side.CLIENT).params(new Vec3f(0.0F, 0.1F, -1.0F), Armatures.BIPED.toolR, 1.1D, 0.55F),
-                           AnimationEvent.TimeStampedEvent.create(0.55F, ReusableSources.SCREENSHAKE, AnimationEvent.Side.CLIENT).params((int)5, (float)1.5, (float)20.0));
+                        AnimationEvent.TimeStampedEvent.create(0.55F, ReusableSources.SCREENSHAKE, AnimationEvent.Side.CLIENT).params((int)5, (float)1.5, (float)20.0));
         ROYAL_GREATSWORD_AUTO3 = new BasicAttackAnimation(0.25F, 0.35F, 0.65F, 0.65F, null, biped.toolR, "biped/combat/greatsword_auto3", biped)
                 .addProperty(AnimationProperty.AttackAnimationProperty.FIXED_MOVE_DISTANCE, true)
                 .addProperty(AnimationProperty.AttackAnimationProperty.BASIS_ATTACK_SPEED, 1.0F);
@@ -128,8 +180,8 @@ public class PierceTHAnimations {
                         AnimationEvent.TimeStampedEvent.create(1.0F, Animations.ReusableSources.FRACTURE_GROUND_SIMPLE, AnimationEvent.Side.CLIENT).params(new Vec3f(0.0F, -0.24F, -1.0F), Armatures.BIPED.toolR, 1.1D, 0.55F),
                         AnimationEvent.TimeStampedEvent.create(1.0F, ReusableSources.SCREENSHAKE, AnimationEvent.Side.CLIENT).params((int)10, (float)8.0, (float)30.0));
 
-                //---//---//--//
-            /** Bahamut **/
+        //---//---//--//
+        /** Bahamut **/
         //---//---//--//
 
         HOLD_BAHAMUT = new StaticAnimation(true, "biped/living/hold_bahamut", biped);
@@ -157,7 +209,7 @@ public class PierceTHAnimations {
                 .addProperty(AnimationProperty.AttackAnimationProperty.BASIS_ATTACK_SPEED, 0.9F);
         BAHAMUT_AUTO3 = new BasicAttackAnimation(0.15F, "biped/combat/bahamut_auto3", biped,
                 new AttackAnimation.Phase(0.45F, 0.65F, 0.65F, 0.9F, 1.5F, 1.0F, biped.toolR, null),
-                new AttackAnimation.Phase(1.0F, 1.4F, 1.2F, 1.8F, 2.0F, Float.MAX_VALUE, biped.toolR, null))
+                new AttackAnimation.Phase(1.0F, 1.25F, 1.2F, 1.8F, 2.0F, Float.MAX_VALUE, biped.toolR, null))
                 .addProperty(AnimationProperty.AttackAnimationProperty.FIXED_MOVE_DISTANCE, true)
                 .addProperty(AnimationProperty.AttackAnimationProperty.BASIS_ATTACK_SPEED, 1.0F);
         BAHAMUT_AUTO4 = new BasicAttackAnimation(0.15F, "biped/combat/bahamut_auto4", biped,
@@ -166,18 +218,149 @@ public class PierceTHAnimations {
                 .addProperty(AnimationProperty.AttackAnimationProperty.FIXED_MOVE_DISTANCE, true)
                 .addProperty(AnimationProperty.AttackAnimationProperty.BASIS_ATTACK_SPEED, 1.0F);
 
-        BAHAMUT_RAUTO1 = new BasicAttackAnimation(0.15F, 0.65F, 0.95F, 0.85F,
+        BAHAMUT_RAUTO1 = new BasicAttackAnimation(0.1F, 0.0F, 0.0F, 0.4F,
                 null, biped.toolR, "biped/combat/bahamut_rauto1", biped)
                 .addProperty(AnimationProperty.AttackAnimationProperty.FIXED_MOVE_DISTANCE, true)
-                .addProperty(AnimationProperty.AttackAnimationProperty.BASIS_ATTACK_SPEED, 0.9F);
-        BAHAMUT_LAUTO1 = new BasicAttackAnimation(0.15F, 0.35F, 0.95F, 0.85F,
+                .addProperty(AnimationProperty.AttackAnimationProperty.BASIS_ATTACK_SPEED, 1.0F);
+        BAHAMUT_RAUTO2 = new BasicAttackAnimation(0.15F, 0.35F, 0.95F, 0.85F,
+                null, biped.toolR, "biped/combat/bahamut_rauto2", biped)
+                .addProperty(AnimationProperty.AttackAnimationProperty.FIXED_MOVE_DISTANCE, true)
+                .addProperty(AnimationProperty.AttackAnimationProperty.BASIS_ATTACK_SPEED, 1.0F);
+        BAHAMUT_LAUTO1 = new BasicAttackAnimation(0.1F, 0.0F, 0.0F, 0.4F,
                 null, biped.toolR, "biped/combat/bahamut_lauto1", biped)
                 .addProperty(AnimationProperty.AttackAnimationProperty.FIXED_MOVE_DISTANCE, true)
                 .addProperty(AnimationProperty.AttackAnimationProperty.BASIS_ATTACK_SPEED, 1.0F);
-        BAHAMUT_BAUTO1 = new BasicAttackAnimation(0.15F, 0.35F, 0.95F, 0.85F,
-                null, biped.toolR, "biped/combat/bahamut_bauto1", biped)
+        BAHAMUT_LAUTO2 = new BasicAttackAnimation(0.15F, 0.35F, 0.95F, 0.85F,
+                null, biped.toolR, "biped/combat/bahamut_rauto2", biped)
                 .addProperty(AnimationProperty.AttackAnimationProperty.FIXED_MOVE_DISTANCE, true)
                 .addProperty(AnimationProperty.AttackAnimationProperty.BASIS_ATTACK_SPEED, 1.0F);
+        BAHAMUT_BAUTO1 = new BasicAttackAnimation(0.15F, 0.35F, 0.95F, 1.0F,
+                null, biped.toolR, "biped/combat/bahamut_bauto1", biped)
+                .addProperty(AnimationProperty.AttackAnimationProperty.FIXED_MOVE_DISTANCE, true)
+                .addProperty(AnimationProperty.AttackAnimationProperty.BASIS_ATTACK_SPEED, 0.8F);
+        BAHAMUT_BAUTO2 = new BasicAttackAnimation(0.15F, 0.55F, 0.95F, 0.85F,
+                null, biped.toolR, "biped/combat/bahamut_bauto2", biped)
+                .addProperty(AnimationProperty.AttackAnimationProperty.FIXED_MOVE_DISTANCE, true)
+                .addProperty(AnimationProperty.AttackAnimationProperty.BASIS_ATTACK_SPEED, 1.0F);
+
+        //---//---//--//
+        /** Midas **/
+        //---//---//--//
+
+        HOLD_MIDAS = new StaticAnimation(true, "biped/living/hold_midas", biped);
+        WALK_MIDAS = new MovementAnimation(true, "biped/living/walk_midas", biped);
+        RUN_MIDAS = new MovementAnimation(true, "biped/living/run_midas", biped);
+
+        MIDAS_AUTO1 = new BasicAttackAnimation(0.15F, 0.45F, 0.95F, 1.0F,
+                null, biped.toolR, "biped/combat/midas_auto1", biped)
+                .addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(3.5f))
+                .addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.SHORT)
+                .addProperty(AnimationProperty.AttackPhaseProperty.HIT_SOUND, EpicFightSounds.BLUNT_HIT.get())
+                .addProperty(AnimationProperty.AttackAnimationProperty.FIXED_MOVE_DISTANCE, true)
+                .addProperty(AnimationProperty.AttackAnimationProperty.BASIS_ATTACK_SPEED, 2.8F);
+        MIDAS_AUTO2 = new BasicAttackAnimation(0.15F, 0.75F, 1.1F, 1.0F,
+                null, biped.toolR, "biped/combat/midas_auto2", biped)
+                .addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(4.0f))
+                .addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.LONG)
+                .addProperty(AnimationProperty.AttackPhaseProperty.SWING_SOUND, EpicFightSounds.WHOOSH_BIG.get())
+                .addProperty(AnimationProperty.AttackPhaseProperty.HIT_SOUND, EpicFightSounds.BLUNT_HIT_HARD.get())
+                .addProperty(AnimationProperty.AttackAnimationProperty.FIXED_MOVE_DISTANCE, true)
+                .addProperty(AnimationProperty.AttackAnimationProperty.BASIS_ATTACK_SPEED, 2.8F);
+        MIDAS_AUTO3 = new BasicAttackAnimation(0.15F, 1.1F, 1.5F, 1.65F,
+                null, biped.toolR, "biped/combat/midas_auto3", biped)
+                .addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(4.5f))
+                .addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.SHORT)
+                .addProperty(AnimationProperty.AttackPhaseProperty.HIT_SOUND, EpicFightSounds.BLUNT_HIT.get())
+                .addProperty(AnimationProperty.AttackAnimationProperty.FIXED_MOVE_DISTANCE, true)
+                .addProperty(AnimationProperty.AttackAnimationProperty.BASIS_ATTACK_SPEED, 3.2F)
+                .addEvents(
+                        //AnimationEvent.TimeStampedEvent.create(0.75F, Animations.ReusableSources.FRACTURE_GROUND_SIMPLE, AnimationEvent.Side.CLIENT).params(new Vec3f(0.0F, -2.5F, -4.0F), Armatures.BIPED.rootJoint, 1.1D, 0.55F),
+                        AnimationEvent.TimeStampedEvent.create(1.1F, PierceTHAnimations.ReusableSources.FRACTURE_GROUND_SPEED_BASED, AnimationEvent.Side.CLIENT).params(new Vec3f(0.0F, -1.5F, -1.0F), Armatures.BIPED.rootJoint, 1.1D, 10D, 0.55F),
+                        AnimationEvent.TimeStampedEvent.create(1.0F, ReusableSources.SCREENSHAKE, AnimationEvent.Side.CLIENT).params((int)5, (float)3.0, (float)20.0),
+                        AnimationEvent.TimeStampedEvent.create(1.15F, ReusableSources.DUST_CLOUD, AnimationEvent.Side.CLIENT).params(new Vec3f(0.0F, -1.5F, 0.0F), Armatures.BIPED.rootJoint, 1.1D, 0.55F));
+        MIDAS_AUTO4 = new BasicAttackAnimation(0.15F, 0.75F, 1.1F, 1.0F,
+                null, biped.toolR, "biped/combat/midas_auto4", biped)
+                .addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(4.0f))
+                .addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.KNOCKDOWN)
+                .addProperty(AnimationProperty.AttackPhaseProperty.SWING_SOUND, EpicFightSounds.WHOOSH_BIG.get())
+                .addProperty(AnimationProperty.AttackPhaseProperty.HIT_SOUND, EpicFightSounds.BLUNT_HIT_HARD.get())
+                .addProperty(AnimationProperty.AttackAnimationProperty.FIXED_MOVE_DISTANCE, true)
+                .addProperty(AnimationProperty.AttackAnimationProperty.BASIS_ATTACK_SPEED, 3.1F);
+
+        MIDAS_DASH = (new BasicAttackAnimation(0.1F, 0.65F, 1.2F, 1.4F, null, biped.toolR, "biped/combat/midas_dash", biped))
+                .addProperty(AttackPhaseProperty.SOURCE_TAG, Set.of(EpicFightDamageType.FINISHER))
+                .addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(7.0f))
+                .addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.NEUTRALIZE)
+                .addProperty(AnimationProperty.AttackPhaseProperty.SWING_SOUND, EpicFightSounds.WHOOSH_BIG.get())
+                .addProperty(AnimationProperty.AttackPhaseProperty.HIT_SOUND, EpicFightSounds.BLUNT_HIT_HARD.get())
+                .addProperty(AnimationProperty.AttackAnimationProperty.BASIS_ATTACK_SPEED, 3.2F)
+                .addProperty(AnimationProperty.AttackAnimationProperty.FIXED_MOVE_DISTANCE, true);
+        MIDAS_AIRSLASH = (new BasicAttackAnimation(0.1F, 0.55F, 1.0F, 0.9F, null, biped.toolR, "biped/combat/midas_airslash", biped))
+                .addProperty(AttackPhaseProperty.SOURCE_TAG, Set.of(EpicFightDamageType.FINISHER))
+                .addProperty(AnimationProperty.AttackPhaseProperty.DAMAGE_MODIFIER, ValueModifier.multiplier(5.0f))
+                .addProperty(AnimationProperty.AttackPhaseProperty.STUN_TYPE, StunType.SHORT)
+                .addProperty(AnimationProperty.AttackPhaseProperty.SWING_SOUND, EpicFightSounds.WHOOSH_BIG.get())
+                .addProperty(AnimationProperty.AttackPhaseProperty.HIT_SOUND, EpicFightSounds.BLUNT_HIT_HARD.get())
+                .addProperty(AnimationProperty.AttackAnimationProperty.BASIS_ATTACK_SPEED, 2.8F)
+                .addProperty(AnimationProperty.AttackAnimationProperty.FIXED_MOVE_DISTANCE, true)
+                .addProperty(AnimationProperty.StaticAnimationProperty.PLAY_SPEED_MODIFIER, (self, entitypatch, speed, elapsedTime) -> {
+                    if (elapsedTime >= 0.5F && elapsedTime < 0.75F) {
+                        float dpx = (float) entitypatch.getOriginal().getX();
+                        float dpy = (float) entitypatch.getOriginal().getY();
+                        float dpz = (float) entitypatch.getOriginal().getZ();
+                        BlockState block = entitypatch.getOriginal().level().getBlockState(new BlockPos.MutableBlockPos(dpx,dpy,dpz));
+
+                        while ((block.getBlock() instanceof BushBlock || block.isAir()) && !block.is(Blocks.VOID_AIR)) {
+                            dpy--;
+                            block = entitypatch.getOriginal().level().getBlockState(new BlockPos.MutableBlockPos(dpx,dpy,dpz));
+                        }
+
+                        float distanceToGround = (float) Math.max(Math.abs(entitypatch.getOriginal().getY() - dpy)-1, 0.0F);
+
+                        return 1 - (1 / (-distanceToGround - 1.F) + 1.0f);
+                    }
+
+                    return 1.0F;
+                })
+                .addEvents(
+                        AnimationEvent.TimeStampedEvent.create(0.65F, ReusableSources.DUST_CLOUD, AnimationEvent.Side.CLIENT).params(new Vec3f(0.0F, -0.5F, 0.0F), Armatures.BIPED.rootJoint, 1.1D, 0.55F),
+                        AnimationEvent.TimeStampedEvent.create(0.65F, PierceTHAnimations.ReusableSources.FRACTURE_GROUND_SPEED_BASED, AnimationEvent.Side.CLIENT).params(new Vec3f(0.0F, -0.5F, -1.0F), Armatures.BIPED.rootJoint, 1.0D, 10D, 0.55F));
+
+        //---//---//--//
+        /** Pale Carver **/
+        //---//---//--//
+
+        HOLD_CARVER = new StaticAnimation(true, "biped/living/hold_carver", biped);
+        WALK_CARVER = new MovementAnimation(true, "biped/living/walk_carver", biped);
+        RUN_CARVER = new MovementAnimation(true, "biped/living/run_carver", biped);
+
+        CARVER_AUTO1 = new BasicAttackAnimation(0.1F, 0.75F, 0.9F, 1.3F,
+                null, biped.toolR, "biped/combat/carver_auto1", biped)
+                .addProperty(AnimationProperty.AttackAnimationProperty.BASIS_ATTACK_SPEED, 3.0F)
+                .addProperty(AnimationProperty.AttackAnimationProperty.FIXED_MOVE_DISTANCE, true);
+        CARVER_AUTO2 = new BasicAttackAnimation(0.1F, 0.7F, 0.9F, 1.3F,
+                null, biped.toolR, "biped/combat/carver_auto2", biped)
+                .addProperty(AnimationProperty.AttackAnimationProperty.BASIS_ATTACK_SPEED, 3.1F)
+                .addProperty(AnimationProperty.AttackAnimationProperty.FIXED_MOVE_DISTANCE, true);
+        CARVER_AUTO3 = new BasicAttackAnimation(0.1F, 1.0F, 1.5F, 1.8F,
+                null, biped.toolR, "biped/combat/carver_auto3", biped)
+                .addProperty(AnimationProperty.AttackAnimationProperty.BASIS_ATTACK_SPEED, 3.2F)
+                .addProperty(AnimationProperty.AttackAnimationProperty.FIXED_MOVE_DISTANCE, true);
+        CARVER_AUTO4 = new BasicAttackAnimation(0.1F, 1.1F, 1.6F, 2.0F,
+                null, biped.toolR, "biped/combat/carver_auto4", biped)
+                .addProperty(AnimationProperty.AttackAnimationProperty.BASIS_ATTACK_SPEED, 3.6F)
+                .addProperty(AnimationProperty.AttackAnimationProperty.FIXED_MOVE_DISTANCE, true)
+                .addEvents(AnimationEvent.TimeStampedEvent.create(1.25F, PierceTHAnimations.ReusableSources.FRACTURE_GROUND_SPEED_BASED, AnimationEvent.Side.CLIENT).params(new Vec3f(0.0F, -0.5F, -2.0F), Armatures.BIPED.rootJoint, 1.1D, 10D, 0.55F),
+                        //AnimationEvent.TimeStampedEvent.create(1.0F, ReusableSources.SCREENSHAKE, AnimationEvent.Side.CLIENT).params((int)5, (float)3.0, (float)20.0),
+                        AnimationEvent.TimeStampedEvent.create(1.25F, ReusableSources.DUST_CLOUD, AnimationEvent.Side.CLIENT).params(new Vec3f(0.0F, -0.5F, -1.0F), Armatures.BIPED.rootJoint, 1.1D, 0.55F));
+
+        CARVER_DASH = (new BasicAttackAnimation(0.1F, 0.75F, 1.0F, 1.8F, null, biped.toolR, "biped/combat/carver_dash", biped))
+                .addProperty(AnimationProperty.AttackAnimationProperty.BASIS_ATTACK_SPEED, 4.0F)
+                .addProperty(AnimationProperty.AttackAnimationProperty.FIXED_MOVE_DISTANCE, true);
+        CARVER_AIRSLASH = (new BasicAttackAnimation(0.1F, 0.75F, 1.0F, 1.8F, null, biped.toolR, "biped/combat/carver_airslash", biped))
+                .addProperty(AnimationProperty.AttackAnimationProperty.BASIS_ATTACK_SPEED, 4.0F)
+                .addProperty(AnimationProperty.AttackAnimationProperty.FIXED_MOVE_DISTANCE, true);
+
 
     }
 
@@ -218,12 +401,6 @@ public class PierceTHAnimations {
                         speedz);
             }
         };
-
-/*        public static final AnimationEvent.AnimationEventConsumer GUARD_ATTACK = (livingEntityPatch, staticAnimation, objects) -> {
-            if (livingEntityPatch instanceof PlayerPatch<?> playerPatch) {
-                playerPatch.getEventListener().
-            }
-        };*/
 
         public static final AnimationEvent.AnimationEventConsumer FRACTURE_GROUND_SPEED_BASED = (entitypatch, animation, params) -> {
             Logger logger = LogManager.getLogger(Constants.MOD_ID);

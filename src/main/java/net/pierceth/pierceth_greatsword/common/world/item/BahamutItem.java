@@ -2,7 +2,6 @@ package net.pierceth.pierceth_greatsword.common.world.item;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
-import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.attributes.Attribute;
@@ -14,29 +13,19 @@ import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
-import net.minecraftforge.client.extensions.common.IClientItemExtensions;
 import net.pierceth.pierceth_greatsword.Constants;
-import net.pierceth.pierceth_greatsword.PiercethGreatsword;
-import net.pierceth.pierceth_greatsword.client.renderer.BahamutRenderer;
-import software.bernie.geckolib.core.animatable.GeoAnimatable;
-import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
-import software.bernie.geckolib.core.animatable.instance.SingletonAnimatableInstanceCache;
-import software.bernie.geckolib.core.animation.AnimatableManager;
 import yesman.epicfight.main.EpicFightMod;
 import yesman.epicfight.world.item.EpicFightItemTier;
-import yesman.epicfight.world.item.WeaponItem;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Consumer;
 
-public class BahamutItem extends WeaponItem implements GeoAnimatable {
+public class BahamutItem extends VOSWeaponItem {
     @OnlyIn(Dist.CLIENT)
     private List<Component> tooltipExpand;
     private float attackDamage;
     private double attackSpeed;
-    private final AnimatableInstanceCache cache = new SingletonAnimatableInstanceCache(this);
 
     public BahamutItem(Properties build) {
         super(EpicFightItemTier.UCHIGATANA, 0, -2.0F, build);
@@ -73,33 +62,5 @@ public class BahamutItem extends WeaponItem implements GeoAnimatable {
         for (Component txtComp : tooltipExpand) {
             tooltip.add(txtComp);
         }
-    }
-
-    @Override
-    public void initializeClient(Consumer<IClientItemExtensions> consumer) {
-        super.initializeClient(consumer);
-        consumer.accept(new IClientItemExtensions() {
-            private final BlockEntityWithoutLevelRenderer renderer = new BahamutRenderer();
-
-            @Override
-            public BlockEntityWithoutLevelRenderer getCustomRenderer() {
-                return renderer;
-            }
-        });
-    }
-
-    @Override
-    public void registerControllers(AnimatableManager.ControllerRegistrar controllerRegistrar) {
-
-    }
-
-    @Override
-    public AnimatableInstanceCache getAnimatableInstanceCache() {
-        return this.cache;
-    }
-
-    @Override
-    public double getTick(Object o) {
-        return 0;
     }
 }
